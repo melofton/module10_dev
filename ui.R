@@ -36,9 +36,9 @@ ui <- function(req) {
       column(11,
              br(),
              p(tags$b("Teaching materials associated with this module can be found at ",
-                      tags$a(href="https://serc.carleton.edu/eddie/teaching_materials/modules/module9.html", 
-                             "https://serc.carleton.edu/eddie/teaching_materials/modules/module9.html.", target="_blank"))),
-             h2(tags$b("Module 9: Using High-Frequency Data to Manage Water Quality"))
+                      tags$a(href="https://serc.carleton.edu/eddie/teaching_materials/modules/module10.html", 
+                             "https://serc.carleton.edu/eddie/teaching_materials/modules/module10.html.", target="_blank"))),
+             h2(tags$b("Module 10: Exploring tradeoffs in water quality management using environmental data"))
       ),
       column(1, align = "right",
              br(),
@@ -162,13 +162,13 @@ ui <- function(req) {
                           #* Module text ====
                           introBox(data.step = 10,
                           data.intro = help_text["thank_you", 1],
-                          h2("Using High-Frequency Data to Manage Water Quality")
+                          h2("Exploring tradeoffs in water quality management using environmental data")
                           ),
                           h3("Focal question"),
-                          h4(tags$b(tags$i("How can we use high-frequency data to improve water quality?"))),
+                          h4(tags$b(tags$i("How can we use environmental data to inform our understanding of the tradeoffs involved in water management decision-making?"))),
                           h3("Summary"),
-                          p("In recent decades, there have been substantial improvements in our ability to monitor water quality in real time using sensors that measure variables at a high frequency (every few minutes). These new data allow us to track changes in the water at a much finer scale than previous monitoring data, which were generally collected at weekly to monthly scales."),
-                          p("In this module, you will explore data collected using high-frequency sensors and learn how to interpret these data to inform water quality management."),
+                          p("Many water management decisions come with tradeoffs. One important example of such a decision is the amount of chlorine to use in the drinking water treatment process. Too little chlorination can result in too little disinfectant being present in the water when it reaches the consumer. Too much chlorination can result in the formation of potentially cancer-causing disinfection byproducts. Environmental data, such as organic matter measurements from drinking water reservoirs, can help inform water management decision-making and reduce the risk of unintended consequences due to water treatment decisions."),
+                          p("In this module, you will explore organic matter data collected from drinking water reservoirs and learn how to interpret these data to inform your decision-making about chlorination during drinking water treatment."),
                           h3("Learning Outcomes"),
                           tags$line(),
                           tags$ul(
@@ -180,7 +180,7 @@ ui <- function(req) {
                    ),
                    column(6, 
                           br(), br(), br(),
-                          img(src = "mod9_conceptual_figure.png", height = "100%",
+                          img(src = "mod10_conceptual_figure.png", height = "100%",
                               width = "100%")
                    )
                  )
@@ -198,7 +198,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(12, offset = 1,
                                               introBox(data.step = 5, data.intro = help_text["videos", 1],
-                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/rM3Hc0rVUdI?si=sfxbQqDEat1v7tZQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                                               )
                                               )
                                      ),
@@ -209,46 +209,10 @@ ui <- function(req) {
                                          br(),br(),br(),br(),br(),
                                      fluidRow(
                                        column(12, offset = 1,
-                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/uOaZhENushQ?si=9ontMzU5SGu7A59_" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                        )
                                      ),
                                      br(),
-                                         box(id = "box1", width = 12, status = "success", solidHeader = TRUE,
-                                             fluidRow(
-                                               column(11, offset = 1, h4(tags$b(module_text["workflow3", ]))))),
-                                         br(),br(),br(),
-                                         fluidRow(
-                                         #** Choose site ----
-                                         column(4,
-                                                h4("Site Names"),
-                                                p("Select a site in the table to highlight on the map"),
-                                                conditionalPanel("input.row_num > 25",
-                                                                 selectizeInput("row_num", "Select row",
-                                                                                choices = 1:nrow(sites_df),
-                                                                                options = list(
-                                                                                  placeholder = 'Please select a row',
-                                                                                  onInitialize = I('function() { this.setValue(""); }'))
-                                                                 )
-                                                ),
-                                                DTOutput("table01", fill = TRUE)
-                                         ),
-                                         #** Site map ----
-                                         column(4,
-                                                h4("Map of Virginia Reservoir LTREB sites"),
-                                                wellPanel(
-                                                  leafletOutput("ltrebmap")
-                                                )
-                                         ),
-                                         #** Site photo ----
-                                         column(4,
-                                                h4("Site photo"),
-                                                wellPanel(
-                                                  imageOutput("site_photo"),
-                                                  p(id = "txt_j", module_text["site_photo", ])
-                                                )
-                                         )
-                                         ),
-                                         br(),
                                          box(id = "box1", width = 12, status = "success", solidHeader = TRUE,
                                              fluidRow(
                                                column(11, offset = 1, h4(tags$b(module_text["workflow4", ]))))),
@@ -280,17 +244,17 @@ ui <- function(req) {
                  column(4,
                         h3("Introductory presentation"),
                         p(tags$i("Click through the slides to review some of the main points from the introductory presentation to help you answer the questions below.")),
-                        p(tags$b("What is water quality?")),
+                        p(tags$b("What are disinfection byproducts?")),
                         tags$ul(
-                          tags$li(module_text["water_quality", ])
+                          tags$li(module_text["dbp_definition", ])
                         ),
-                        p(tags$b("What is meant by high-frequency water quality data?")),
+                        p(tags$b(" How do disinfection byproducts form?")),
                         tags$ul(
-                          tags$li(module_text["high_freq_data", ])
+                          tags$li(module_text["dbp_formation", ])
                         ),
-                        p(tags$b("How are high-frequency water quality data collected?")),
+                        p(tags$b("How can environmental data help us avoid the formation of disinfection byproducts?")),
                         tags$ul(
-                          tags$li(module_text["collection", ])
+                          tags$li(module_text["environmental_data", ])
                         ),
                  ),
                  column(8, offset = 0, align = "center",
@@ -320,14 +284,19 @@ ui <- function(req) {
                                          tags$li(id = "txt_j", quest["q1a", ]),
                                          tags$li(id = "txt_j", quest["q1b", ]),
                                          tags$li(id = "txt_j", quest["q1c", ]),
-                                         tags$li(id = "txt_j", quest["q1d", ]),
-                                         tags$li(id = "txt_j", quest["q1e", ])
                                        ),
                                        p(tags$b(quest["q2", 1])),
                                        tags$ul(
                                          tags$li(id = "txt_j", quest["q2a", ]),
                                          tags$li(id = "txt_j", quest["q2b", ]),
                                          tags$li(id = "txt_j", quest["q2c", ])
+                                       ),
+                                       p(tags$b(quest["q3", 1])),
+                                       tags$ul(
+                                         tags$li(id = "txt_j", quest["q3a", ]),
+                                         tags$li(id = "txt_j", quest["q3b", ]),
+                                         tags$li(id = "txt_j", quest["q3c", ]),
+                                         tags$li(id = "txt_j", quest["q3d", ])
                                        ),
                                        data.step = 8, data.intro = help_text["questions", 1]
                                      )
@@ -364,7 +333,7 @@ ui <- function(req) {
                         fluidRow(
                           column(12,
                                  wellPanel(style = paste0("background: ", obj_bg),
-                                           h2("Activity A - Access and explore high-frequency water quality data"),
+                                           h2("Activity A - Explore how disinfection byproducts are formed"),
                                            p(module_text["act_A", ])
                                  )
                           ),
@@ -374,111 +343,24 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               introBox(
-                                                h3("Objective 1: Learn about your focal drinking water reservoir"))
+                                                h3("Objective 1: Define disinfection byproduct (DBP) and understand drinking water thresholds for DBPs"))
                                        )
                                      )
                                  )
                           )
                         ),
                         hr(),
-                        fluidRow(
-                          #** LTREB Intro ----
-                          column(6,
-                                 box(id = "box12", width = 12, status = "warning",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h3("You have chosen to work with"),
-                                              wellPanel(
-                                                htmlOutput("site_name")
-                                              ),
-                                              p("You will learn about the characteristics and uses of this reservoir and explore high-frequency water quality data collected there.")
-                                       )
-                                     )
-                                 ),
-                                 fluidRow(
-                                   column(12,
-                                          p("")
-                                          )
-                                 ),
-                                 fluidRow(
-                                   column(12,
-                                          wellPanel(
-                                            h4(tags$b("About Site")),
-                                            textOutput("site_info")
-                                          )
-                                          )
-                                 )
-                                 ),
-                          column(6,
-                                 h4("Site photo"),
-                                 wellPanel(
-                                   imageOutput("site_photo1"),
-                                   p(id = "txt_j", module_text["site_photo", ])
-                                 )
-                                 )
-                          
-                        ), 
-                        hr(),
-                        fluidRow(
-                          column(12, align = "left",
-                                 box(id = "box3", width = 10, status = "primary",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(5, offset = 1,
-                                              h3("Questions"),
-                                              p(tags$b(quest["q3", 1])),
-                                              p(tags$b(quest["q4", 1])),
-                                              p(tags$b(quest["q5", 1])),
-                                              tags$ul(
-                                                tags$li(id = "txt_j", quest["q5a", ]),
-                                                tags$li(id = "txt_j", quest["q5b", ]),
-                                                tags$li(id = "txt_j", quest["q5c", ]),
-                                                tags$li(id = "txt_j", quest["q5d", ])
-                                              ),
-                                              p(tags$b(quest["q6", 1])),
-                                              p(tags$b(quest["q7", 1]))
-                                       ),
-                                       column(5, 
-                                              h3(""),
-                                              p("Virginia's Water Quality Assessment Guidance Manual gives the following guidance on water quality evaluation using a trophic state index (TSI), which may be calculated from Secchi depth (SD), chlorophyll-a (CA) in the top 1 meter of the water column, or total phosphorus (TP) in the top 1 meter of the water column:"),
-                                              p(tags$em("A trophic state index value of 60 or greater for any one of the 3 indices will indicate that nutrient enrichment from anthropogenic sources are adversely interfering, directly or indirectly, with the designated uses. A TSI value of 60 corresponds to a CA concentration of 20 ug/l, a SD of 1 meter, and a TP concentration of 48 ug/l.")),
-                                              p(tags$b(quest["q8", 1]))
-                                       )
-                                 )
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(12,
-                                 box(id = "box1", width = 10, status = "success",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              introBox(
-                                                h3("Objective 2: Explore high-frequency water quality data from your chosen reservoir"))
-                                       )
-                                     )
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(12,
-                                 h4("Now we will visualize high-frequency data from your chosen reservoir and explore how these data can be related to water quality."))
-                        ),
                         fluidRow(
                           column(4,
-                                 h3("Water temperature"),
-                                 p(tags$i("Watch the video and click through the slides to understand how water temperature data relate to water quality. The information in the presentation is also summarized in text below to help you answer the questions.")),
+                                 h3("Disinfection byproducts"),
+                                 p(tags$i("Watch the video and click through the slides to understand what disinfection byproducts are and their regulatory thresholds. The information in the presentation is also summarized in text below to help you answer the questions.")),
                                  br(),
                                  box(id = "box12", width = 12, status = "primary",
                                      solidHeader = TRUE,
                                      fluidRow(
                                        column(10, offset = 1, align = "left",
                                               h4("Video"),
-                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/phJ6JogqUeE?si=CVuARbc2N3MVu19f" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
                                               p(tags$b(quest["q9", 1])),
                                               p(tags$b(quest["q10", 1])),
@@ -494,253 +376,11 @@ ui <- function(req) {
                                  )
                           ),
                           column(8, offset = 0, align = "center",
-                                 h3("Using water temperature to assess water quality",
+                                 h3("Disinfection byproducts and their regulatory thresholds",
                                     align = "center"),
                                  h5("Click the arrows to navigate through the slides", align = "center"),
                                  wellPanel(
-                                   slickROutput("wtemp_slides", width = "700px", height = "525px")
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(6,
-                                 p(tags$b("Why is water temperature important?")),
-                                 tags$ul(
-                                   tags$li(module_text["wtemp", ])
-                                 ),
-                                 p(tags$b("What is thermal stratification?")),
-                                 tags$ul(
-                                   tags$li(module_text["stratification", ])
-                                 ),
-                                 img(src = "water_density.png", height = "60%", id = "bla_border",
-                                     width = "60%", tags$style("border: solid 2px black;")),
-                                 p("Water density vs. water temperature (degrees Celsius)"),
-                                 p(tags$em("Source: Mike Arthur and Demian Saffer, accessed at: https://www.e-education.psu.edu/earth111/node/842"))
-                                 ),
-                          column(6,
-                                 p(tags$b("How does thermal stratification change over the course of a year?")),
-                                 tags$ul(
-                                   tags$li(module_text["seasonal_strat", ])
-                                 ),
-                                 p(tags$b("How does thermal stratification affect water quality?")),
-                                 tags$ul(
-                                   tags$li(module_text["strat_wq", ])
-                                 ),
-                                 p(tags$b("What is turnover?")),
-                                 tags$ul(
-                                   tags$li(module_text["turnover", ])
-                                 ),
-                                 p(tags$b("How does turnover affect water quality?")),
-                                 tags$ul(
-                                   tags$li(module_text["turnover_wq", ])
-                                 )
-                                 )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(4,
-                                 h3("Plot water temperature data"),
-                                 p("Click the button below to plot water temperature data at your chosen reservoir site."),
-                                 actionButton("plot_wtemp", "Plot high-frequency water temperature data"),
-                                 br(),br(),
-                                 box(id = "box12", width = 12, status = "primary", 
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h4("Questions"),
-                                              p(tags$b(quest["q11", 1])),
-                                              p(tags$b(quest["q12", 1])),
-                                              p(tags$b(quest["q13", 1]))
-                                       )
-                                     )
-                                 )
-                          ),
-                          column(8,
-                                 wellPanel(
-                                   introBox(data.step = 7, data.intro = help_text["plots", 1],
-                                   plotlyOutput("wtemp_plot")
-                                 )
-                                 )
-                                 )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(8,
-                                 h3("A note on reading and interpreting graphs"),
-                                 p("Please watch the video on the right for a refresher course on reading and interpreting graphs. This may help you to answer the questions about water temperature data as well as other questions throughout the module.")
-                          ),
-                          column(4,
-                                 h4("Video: Reading and interpreting graphs"),
-                                 HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/AhnwYmHvHSc?si=r0LzHH-t8fAE3Lt9" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(4,
-                                 h3("Dissolved oxygen"),
-                                 p(tags$i("Watch the video and click through the slides to understand how dissolved oxygen data relate to water quality. The information in the presentation is also summarized in text below to help you answer the questions.")),
-                                 br(),
-                                 box(id = "box12", width = 12, status = "primary",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h4("Video"),
-                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/3Gft3PS2XYg?si=udyreazhKxA70_Gk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
-                                              h4("Questions"),
-                                              p(tags$b(quest["q14", 1])),
-                                              tags$ul(
-                                                tags$li(quest["q14a", ]),
-                                                tags$li(quest["q14b", ]),
-                                                tags$li(quest["q14c", ]),
-                                                tags$li(quest["q14d", ])
-                                              ),
-                                              p(tags$b(quest["q15", 1])),
-                                              tags$ul(
-                                                tags$li(quest["q15a", ]),
-                                                tags$li(quest["q15b", ]),
-                                                tags$li(quest["q15c", ]),
-                                                tags$li(quest["q15d", ])
-                                              )
-                                       )
-                                     )
-                                 )
-                          ),
-                          column(8, offset = 0, align = "center",
-                                 h3("Using dissolved oxygen to assess water quality",
-                                    align = "center"),
-                                 h5("Click the arrows to navigate through the slides", align = "center"),
-                                 wellPanel(
-                                   slickROutput("do_slides", width = "700px", height = "525px")
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(6,
-                                 p(tags$b("What is dissolved oxygen?")),
-                                 tags$ul(
-                                   tags$li(module_text["do", ])
-                                 ),
-                                 p(tags$b("How is dissolved oxygen related to water temperature?")),
-                                 tags$ul(
-                                   tags$li(module_text["do_wtemp", ])
-                                 ),
-                                 img(src = "oxygen_solubility.png", height = "60%", id = "bla_border",
-                                     width = "60%", tags$style("border: solid 2px black;")),
-                                 p("Oxygen solubility vs. water temperature (degrees Celsius)"),
-                                 p(tags$em("Source: Kenneth C. Waterman, accessed at: https://www.researchgate.net/figure/Effect-of-temperature-on-oxygen-solubility-in-water-generated-by-extrapolation-of-data_fig5_7957124"))
-                                 ),
-                          column(6,
-                                 p(tags$b("How can dissolved oxygen affect water quality?")),
-                                 tags$ul(
-                                   tags$li(module_text["do_wq", ])
-                                 )
-                                 )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(4,
-                                 h3("Plot dissolved oxygen data"),
-                                 p("Click the button below to plot dissolved oxygen data at your chosen reservoir site."),
-                                 actionButton("plot_do", "Plot high-frequency dissolved oxygen data"),
-                                 br(),br(),
-                                 box(id = "box12", width = 12, status = "primary",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h4("Questions"),
-                                              p(tags$b(quest["q16", 1])),
-                                              p(tags$b(quest["q17", 1])),
-                                              p(tags$b(quest["q18", 1])),
-                                              p(tags$b(quest["q19", 1])),
-                                              p(tags$b(quest["q20", 1]))
-                                       )
-                                     )
-                                 )
-                          ),
-                          column(8,
-                                 wellPanel(
-                                   plotlyOutput("do_plot")
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(4,
-                                 h3("Turbidity"),
-                                 p(tags$i("Watch the video and click through the slides to understand how turbidity data relate to water quality. The information in the presentation is also summarized in text below to help you answer the questions.")),
-                                 br(),
-                                 box(id = "box12", width = 12, status = "primary",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h4("Video"),
-                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/r0OGKBf0n7o?si=amBJjBo2YMNpdJpI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
-                                              h4("Questions"),
-                                              p(tags$b(quest["q21", 1])),
-                                              tags$ul(
-                                                tags$li(quest["q21a", ]),
-                                                tags$li(quest["q21b", ]),
-                                                tags$li(quest["q21c", ])
-                                              ),
-                                              p(tags$b(quest["q22", 1]))
-                                       )
-                                     )
-                                 )
-                          ),
-                          column(8, offset = 0, align = "center",
-                                 h3("Using turbidity to assess water quality",
-                                    align = "center"),
-                                 h5("Click the arrows to navigate through the slides", align = "center"),
-                                 wellPanel(
-                                   slickROutput("turb_slides", width = "700px", height = "525px")
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(6,
-                                 p(tags$b("What is turbidity?")),
-                                 tags$ul(
-                                   tags$li(module_text["turb", ])
-                                 ),
-                                 p(tags$b("How do we measure turbidity?")),
-                                 tags$ul(
-                                   tags$li(module_text["turb_measure", ])
-                                 )
-                                 ),
-                          column(6,
-                                 p(tags$b("How is turbidity related to water quality?")),
-                                 tags$ul(
-                                   tags$li(module_text["turb_wq", ]),
-                                   tags$li(tags$b(module_text["turb_reg", ])),
-                                   tags$li(module_text["turb_treat", ]),
-                                   tags$li(module_text["turb_operator", ])
-                                 )
-                                 )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(4,
-                                 h3("Plot turbidity data"),
-                                 p("Click the button below to plot turbidity data at your chosen reservoir site."),
-                                 actionButton("plot_turb", "Plot high-frequency turbidity data"),
-                                 br(),br(),
-                                 box(id = "box12", width = 12, status = "primary",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h4("Questions"),
-                                              p(tags$b(quest["q23", 1])),
-                                              p(tags$b(quest["q24", 1]))
-                                       )
-                                     )
-                                 )
-                          ),
-                          column(8,
-                                 wellPanel(
-                                   plotlyOutput("turb_plot")
+                                   slickROutput("dbp_intro_slides", width = "700px", height = "525px")
                                  )
                           )
                         ),
@@ -752,8 +392,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               introBox(
-                                                h3("Next step:"),
-                                                h4("Use high-frequency water quality data to make decisions about withdrawal depth in your focal reservoir."))
+                                                h3("Objective 2: Describe the environmental and water treatment processes that influence the formation of DBPs"))
                                        )
                                      )
                                  )
@@ -767,7 +406,7 @@ ui <- function(req) {
                         fluidRow(
                           column(12,
                                  wellPanel(style = paste0("background: ", obj_bg),
-                                           h2("Activity B - Use high-frequency water quality data to make water treatment plant operation decisions"),
+                                           h2("Activity B - Explore disinfection tradeoffs and examine environmental data"),
                                            p(module_text["act_B", ])
                                  )
                           ),
@@ -777,206 +416,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               introBox(
-                                                h3("Objective 3: Use high-frequency water quality data to make water withdrawal depth decisions at different times of year"))
-                                       )
-                                     )
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(6,
-                                 box(id = "box12", width = 12, status = "warning",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h3("Operation scenario"),
-                                              h4("Decide: from which depth should water be extracted for treatment?"),
-                                              p("You are operating a reservoir with intake valves at multiple depths. During the course of a year, you must decide which intake valve to use to extract water for drinking water treatment."),
-                                              p("Remember, water quality can differ greatly at different depths in the reservoir! Your objective is to withdraw water at the depth that has the highest water quality, to minimize treatment difficulty and cost."),
-                                              p("Click the plotting buttons below to view reservoir data from different times of year. Then, use what you have learned in previous objectives to choose an intake valve depth."),
-                                              h4("The depths of water intake valves in your reservoir are given below."),
-                                              wellPanel(
-                                                htmlOutput("extraction_depths"),
-                                                p("You will use water quality data to decide which of these depths is best for water extraction.")
-                                              )
-                                       )
-                                     )
-                                 )
-                                 ),
-                          column(6,
-                                 img(src = "Carvins2023.png", height = "90%", id = "bla_border",
-                                     width = "90%", tags$style("border: solid 2px black;")),
-                                 p(tags$em("Carvin's Cove Reservoir, Roanoke, VA")),
-                                 p(tags$em("Photo credit: Ryan Keverline"))
-                                 )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(6,
-                                 h3("A note on multiple intake depths"),
-                                 p("While many small reservoirs only have one intake depth, larger reservoirs typically have multiple intake depths so that water can still be withdrawn from the reservoir as water level decreases (such as during a drought)."),
-                                 p("One example of a well-known large reservoir in the United States with multiple intake depths is Lake Mead, which is located in Nevada and Arizona on the Colorado River behind the Hoover Dam. The intake tower for Lake Mead is shown in the photo on the right."),
-                                 p("There are three possible intake depths at Lake Mead, and historically low water levels have required dam operators to completely shut down the shallowest intake, leaving them to rely on the deeper two intakes for water supply."),
-                                 p("However, operators may also choose to change intake depth if water quality at a particular intake depth is likely to be poor. Changing the intake depth can allow operators to avoid this low-quality water and pull water from a depth with higher water quality.")
-                                 ),
-                          column(6,
-                                 img(src = "Lake_Mead_intake_tower.jpg", height = "90%", id = "bla_border",
-                                     width = "90%", tags$style("border: solid 2px black;")),
-                                 p(tags$em("Lake Mead, USA")),
-                                 p(tags$em("Lake Mead and intake towers (343/365) by gorbould is licensed under CC BY-NC-ND 2.0."))
-                                 )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(6,
-                                 h3("Summer"),
-                                 p("Click the 'Plot summer data' button below to view high-frequency data from the most recent complete calendar year at Falling Creek and Beaverdam Reservoirs. Then, answer the questions below."),
-                                 p(tags$em("These plots are interactive! You can scroll over them to see data values, zoom in and out, and change your view window. Plot options will appear in the top right corner of the plot when you scroll over it.")),
-                                 fluidRow(
-                                   column(4,
-                                          actionButton("plot_summer_data", "Plot summer data")
-                                   )
-                                 )
-                                 ),
-                          column(6,
-                                 )
-                        ),
-                        fluidRow(br()),
-                        fluidRow(
-                          column(4,
-                                 box(id = "box12", width = 12, status = "primary",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h4("Questions"),
-                                              p(tags$b(quest["q25", 1])),
-                                              p(tags$b(quest["q26", 1])),
-                                              p(tags$b(quest["q27", 1]))
-                                       )
-                                     )
-                                 )
-                          ),
-                          column(8,
-                                 wellPanel(
-                                   plotlyOutput("summer_data_plot", width = "800px", height = "700px")
-                                 )
-                                 )
-                        ),
-                        fluidRow(
-                          column(12,
-                                 box(id = "box12", width = 12, status = "warning",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h3("Make a decision for water extraction on July 31."),
-                                              h4(tags$em("Hint: you can scroll over the plot to see the exact values of the water quality variables at different depths on July 31.")),
-                                              p(tags$b(quest["q28", 1])),
-                                              p(tags$b(quest["q29", 1]))
-                                       )
-                                     )
-                                 )
-                                 )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(6,
-                                 h3("Fall"),
-                                 p("Click the 'Plot fall data' button below to view high-frequency data from the most recent complete calendar year at Falling Creek and Beaverdam Reservoirs. Then, answer the questions below."),
-                                 p(tags$em("These plots are interactive! You can scroll over them to see data values, zoom in and out, and change your view window. Plot options will appear in the top right corner of the plot when you scroll over it.")),
-                                 fluidRow(
-                                   column(4,
-                                          actionButton("plot_fall_data", "Plot fall data")
-                                   )
-                                 )
-                          ),
-                          column(6,
-                          )
-                        ),
-                        fluidRow(br()),
-                        fluidRow(
-                          column(4,
-                                 box(id = "box12", width = 12, status = "primary",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h4("Questions"),
-                                              p(tags$b(quest["q30", 1])),
-                                              p(tags$em("Hint! Notice that the data are plotted in degrees Fahrenheit!")),
-                                              p(tags$b(quest["q31", 1])),
-                                              p(tags$b(quest["q32", 1]))
-                                       )
-                                     )
-                                 )
-                          ),
-                          column(8,
-                                 wellPanel(
-                                   plotlyOutput("fall_data_plot", width = "800px", height = "700px")
-                                 )
-                          )
-                        ),
-                        fluidRow(
-                          column(12,
-                                 box(id = "box12", width = 12, status = "warning",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h3("Make a decision for water extraction before and after fall turnover."),
-                                              p(tags$b(quest["q33", 1])),
-                                              p(tags$b(quest["q34", 1])),
-                                              p(tags$b(quest["q35", 1])),
-                                              p(tags$b(quest["q36", 1])),
-                                              p(tags$b(quest["q37", 1]))
-                                       )
-                                     )
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(6,
-                                 h3("Winter"),
-                                 p("Click the 'Plot winter data' button below to view high-frequency data from the most recent complete calendar year at Falling Creek and Beaverdam Reservoirs. Then, answer the questions below."),
-                                 p(tags$em("These plots are interactive! You can scroll over them to see data values, zoom in and out, and change your view window. Plot options will appear in the top right corner of the plot when you scroll over it.")),
-                                 fluidRow(
-                                   column(4,
-                                          actionButton("plot_winter_data", "Plot winter data")
-                                   )
-                                 )
-                          ),
-                          column(6,
-                          )
-                        ),
-                        fluidRow(br()),
-                        fluidRow(
-                          column(4,
-                                 box(id = "box12", width = 12, status = "primary",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h4("Questions"),
-                                              p(tags$b(quest["q38", 1])),
-                                              p(tags$b(quest["q39", 1])),
-                                              p(tags$b(quest["q40", 1]))
-                                       )
-                                     )
-                                 )
-                          ),
-                          column(8,
-                                 wellPanel(
-                                   plotlyOutput("winter_data_plot", width = "800px", height = "700px")
-                                 )
-                          )
-                        ),
-                        fluidRow(
-                          column(12,
-                                 box(id = "box12", width = 12, status = "warning",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h3("Make a decision for water extraction on January 31."),
-                                              p(tags$b(quest["q41", 1])),
-                                              p(tags$b(quest["q42", 1]))
+                                                h3("Objective 3: Explore tradeoffs in chlorination vs. formation of DBPs"))
                                        )
                                      )
                                  )
@@ -990,106 +430,12 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               introBox(
-                                                h3("Objective 4: Define water quality forecasting and interpret a fall turnover forecast"))
-                                       )
-                                     )
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(6,
-                                 h3("Forecasting fall turnover"),
-                                 p("You have seen that fall turnover can have substantial impacts on water quality."),
-                                 p("Because of this, researchers have been working to develop water temperature forecasts to predict fall turnover in advance."),
-                                 p("With advance notice of turnover, water managers may be able to take preemptive management action to avoid water quality degradation or increased treatment costs during turnover."),
-                                 p("Below, you will learn about water temperature forecasting and how to interpret a turnover forecast."),
-                                 box(id = "box12", width = 12, status = "warning",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h3("Fall turnover effects on water quality"),
-                                              p("The picture to the right illustrates the potential effects of fall turnover on water quality."),
-                                              p("When temperatures homogenize across the water column, dissolved substances and particulate matter can be brought to the surface, increasing turbidity."),
-                                              p("The bottle on the left was a sample taken from Falling Creek Reservoir just before turnover, while the bottle on the right was collected right after turnover - just a few days later!"),
-                                              p(tags$em("Photo credit: Bethany Bookout"))
-                                       )
-                                     )
-                                 )
-                                 ),
-                          column(6,
-                                 img(src = "turnover_water_samples.png", height = "90%", id = "bla_border",
-                                     width = "90%", tags$style("border: solid 2px black;")),
-                                 p(tags$em("Water samples from Falling Creek Reservoir just before (left) and after (right) fall turnover."))
-                                 )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(4,
-                                 h3("Water quality forecasting"),
-                                 p(tags$i("Watch the video and click through the slides to learn about water quality forecasting. The information in the presentation is also summarized in text below to help you answer the questions.")),
-                                 h4("Video"),
-                                 HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/MK5_BHiyHX0?si=1ZivFJet4QdedglB" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
-                                 p(tags$b("What is a forecast?")),
-                                 tags$ul(
-                                   tags$li(module_text["forecast", ])
-                                 ),
-                                 p(tags$b("What is forecast uncertainty?")),
-                                 tags$ul(
-                                   tags$li(module_text["uncertainty", ])
-                                 )
-                          ),
-                          column(8, offset = 0, align = "center",
-                                 h3("What is water quality forecasting?",
-                                    align = "center"),
-                                 h5("Click the arrows to navigate through the slides", align = "center"),
-                                 wellPanel(
-                                   slickROutput("forecast_slides", width = "700px", height = "525px")
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(8,
-                                 wellPanel(
-                                   h4("View turnover forecast"),
-                                   p("Click the button below to view a 1 to 16-day-ahead turnover forecast."),
-                                   actionButton("plot_fc", "View turnover forecast"),
-                                   br(),br(),
-                                   plotlyOutput("fc_plot")
-                                 ),
-                          ),
-                          column(4,
-                                 box(id = "box12", width = 12, status = "primary",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              h3("Interpret the forecast plot."),
-                                              p(tags$b(quest["q43", 1])),
-                                              p(tags$b(quest["q44", 1])),
-                                              p(tags$b(quest["q45", 1])),
-                                              p(tags$b(quest["q46", 1]))
-                                       )
-                                     )
-                                 )
-                                 )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(12,
-                                 box(id = "box1", width = 10, status = "success",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              introBox(
-                                                h3("Next step:"),
-                                                h4("Make water treatment decisions using water quality forecasts."))
+                                                h3("Objective 4: Choose a reservoir and explore environmental data that can indicate the presence of DBP precursors"))
                                        )
                                      )
                                  )
                           )
                         )
-                        
                ),
                # 7. Activity C ----
                tabPanel(title = tab_names["mtab4", 2], value = "mtab4",
@@ -1098,7 +444,7 @@ ui <- function(req) {
                         fluidRow(
                           column(12,
                                  wellPanel(style = paste0("background: ", obj_bg),
-                                           h2("Activity C - Make water treatment decisions using water quality forecasts"),
+                                           h2("Activity C - Use environmental data to inform chlorination decisions"),
                                            p(module_text["act_C", ])
                                  )
                           ),
@@ -1108,237 +454,12 @@ ui <- function(req) {
                                    fluidRow(
                                      column(10, offset = 1,
                                             introBox(
-                                              h3("Objective 5: Make water treatment decisions using water quality forecasts"))
+                                              h3("Objective 5: Use organic matter and phytoplankton data to make chlorination decisions"))
                                      )
                                    )
                                )
                         )
                ),
-               hr(),
-               fluidRow(
-                 column(6,
-                        box(id = "box12", width = 12, status = "warning",
-                            solidHeader = TRUE,
-                            fluidRow(
-                              column(10, offset = 1,
-                                     h3("Operation scenario"),
-                                     h4("Decide: should I begin additional treatment measures to prevent water quality concerns during fall turnover, and if so, when?"),
-                                     p("You are operating a small reservoir water treatment plant with a very rapid detention time - only 30 minutes from the raw water intake to the bottom filter - so you have only a very short period of time to ensure the water that goes into the distribution system is adequately treated. There is only one extraction depth in the surface waters of the reservoir. As a result, your plant is very sensitive to high turbidity in the raw water, and you must be able to act quickly to avoid exceeding the regulatory limit of 0.3 NTU turbidity on the bottom filter."),
-                                     p(tags$b("Specifically, previous operators at this reservoir have had difficulty meeting regulatory limits for bottom filter turbidity when raw water turbidity exceeds 20 NTU.")),
-                                     p("Your supervisor has alerted you that this reservoir has experienced increased turbidity around the time of fall turnover in the past. Usually, the highest turbidity is experienced from about a week before until about a week after turnover. In addition, it has been a rainy fall so far this year. Cumulative rainfall last month was three inches above what your region typically experiences, resulting in much higher turbidity than usual in the reservoir."),
-                                     h4("Your objective is to determine if and when to enact additional treatment measures to ensure you meet the regulatory limit for turbidity immediately before and after fall turnover."),
-                                     p(tags$b("You will make a series of four treatment decisions using reservoir data and turnover forecasts.")),
-                                     p("Click the plotting buttons below to view reservoir data and turnover forecasts. Then, use what you have learned in previous objectives to choose whether to enact additional treatment measures to counteract potentially high turbidity during fall turnover.")
-                              )
-                            )
-                        )
-                 ),
-                 column(6,
-                        img(src = "SHRtreatmentPlant.png", height = "90%", id = "bla_border",
-                            width = "90%", tags$style("border: solid 2px black;")),
-                        p(tags$em("Spring Hollow Water Treatment Facility, Roanoke County, VA")),
-                        p(tags$em("Photo credit: Western Virginia Water Authority"))
-                 )
-               ),
-               hr(),
-                        fluidRow(
-                          column(12,
-                                 h3("1. Make a decision using real-time reservoir data"),
-                                 h4("Today is October 6."),
-                                 p("Below are plots of real-time reservoir data over the past month showing water temperature, dissolved oxygen, and turbidity in your reservoir."),
-                                 p(tags$b("You know from talking with other operators who work at this plant that turnover in the reservoir typically happens in mid to late October.")),
-                                 p("Use the information in the plots to make a treatment decision.")
-                                 )
-                        ),
-               br(),
-               fluidRow(
-                 column(12,
-                        wellPanel(
-                          h4("Plot real-time reservoir data"),
-                          p("Click the button below to plot real-time data at the reservoir you are operating."),
-                          actionButton("plot_realtime_data_1", "Plot real-time data"),
-                          br(),br(),
-                          plotlyOutput("realtime_wtemp_plot_1", width = "1200px", height = "400px"),
-                          br(),br(),
-                          span(textOutput("turb_message1"), style="color:#8A5F50; font-size:16px"),
-                          br(),
-                          plotlyOutput("realtime_data_1_plot", width = "1200px", height = "400px"),
-                          br(),br()
-                        )
-                 )
-               ),
-               br(),
-               fluidRow(
-                 column(12,
-                        box(id = "box12", width = 12, status = "warning",
-                            solidHeader = TRUE,
-                            fluidRow(
-                              column(10, offset = 1,
-                                     h3("Make a decision for water treatment on October 6 using real-time data."),
-                                     p(tags$b(quest["q47", 1])),
-                                     p(tags$b(quest["q48", 1]))
-                              )
-                            )
-                        )
-                 )
-               ),
-              hr(),
-               fluidRow(
-                 column(12,
-                        h3("2. Make a decision using a turnover forecast"),
-                        h4("Today is October 6."),
-                        p("Below is a plot showing a turnover forecast in your reservoir, starting today and forecasting up to 16 days into the future."),
-                        p("Use the information in the forecast to make a treatment decision.")
-                 )
-               ),
-               fluidRow(
-                 column(8,
-                        wellPanel(
-                          h4("View turnover forecast"),
-                          p("Click the button below to view a 1 to 16-day-ahead turnover forecast at the reservoir you are operating."),
-                          actionButton("plot_fc1", "View turnover forecast"),
-                          br(),br(),
-                          plotlyOutput("fc1_plot")
-                        ),
-                 )
-               ),
-               br(),
-               fluidRow(
-                 column(12,
-                        box(id = "box12", width = 12, status = "warning",
-                            solidHeader = TRUE,
-                            fluidRow(
-                              column(10, offset = 1,
-                                     h3("Make a decision for water treatment on October 6 using a turnover forecast."),
-                                     p(tags$b(quest["q49", 1])),
-                                     p(tags$b(quest["q50", 1])),
-                                     p(tags$b(quest["q51", 1]))
-                              )
-                            )
-                        )
-                 )
-               ),
-                        hr(),
-              fluidRow(
-                column(12,
-                       h3("3. Make a decision using real-time reservoir data"),
-                       h4("Today is October 13."),
-                       p("A week has passed since you made your last decision."),
-                       p("Below are plots of real-time reservoir data over the past month showing water temperature, dissolved oxygen, and turbidity in your reservoir."),
-                       p(tags$b("Remember, turnover in the reservoir typically happens in mid to late October.")),
-                       p("Use the information in the plots to make a treatment decision.")
-                )
-              ),
-              br(),
-              fluidRow(
-                column(12,
-                       wellPanel(
-                         h4("Plot real-time reservoir data"),
-                         p("Click the button below to plot real-time data at the reservoir you are operating."),
-                         actionButton("plot_realtime_data_2", "Plot real-time data"),
-                         br(),br(),
-                         plotlyOutput("realtime_wtemp_plot_2", width = "1200px", height = "400px"),
-                         br(),br(),
-                       span(textOutput("turb_message2"), style="color:#8A5F50; font-size:16px"),
-                       br(),
-                       plotlyOutput("realtime_data_2_plot", width = "1200px", height = "400px"),
-                       br(),br()
-                       )
-                )
-              ),
-              br(),
-              fluidRow(
-                column(12,
-                       box(id = "box12", width = 12, status = "warning",
-                           solidHeader = TRUE,
-                           fluidRow(
-                             column(10, offset = 1,
-                                    h3("Make a decision for water treatment on October 13 using real-time data."),
-                                    p(tags$b(quest["q52", 1])),
-                                    p(tags$b(quest["q53", 1]))
-                             )
-                           )
-                       )
-                )
-              ),
-              hr(),
-              fluidRow(
-                column(12,
-                       h3("4. Make a decision using a turnover forecast"),
-                       h4("Today is October 13."),
-                       p("Below is a plot showing a turnover forecast in your reservoir, which has been updated since last week using the most recent reservoir data."),
-                       p("The forecast starts today and forecasts up to 16 days into the future."),
-                       p("Use the information in the forecast to make a treatment decision.")
-                )
-              ),
-              fluidRow(
-                column(8,
-                       wellPanel(
-                         h4("View turnover forecast"),
-                         p("Click the button below to view a 1 to 16-day-ahead turnover forecast at the reservoir you are operating."),
-                         actionButton("plot_fc2", "View turnover forecast"),
-                         br(),br(),
-                         plotlyOutput("fc2_plot")
-                       ),
-                )
-              ),
-              br(),
-              fluidRow(
-                column(12,
-                       box(id = "box12", width = 12, status = "warning",
-                           solidHeader = TRUE,
-                           fluidRow(
-                             column(10, offset = 1,
-                                    h3("Make a decision for water treatment on October 13 using a turnover forecast."),
-                                    p(tags$b(quest["q54", 1])),
-                                    p(tags$b(quest["q55", 1]))
-                             )
-                           )
-                       )
-                )
-              ),
-                        hr(),
-                        fluidRow(
-                          column(12,
-                                 h3("Evaluate your decision."),
-                                 h4("Today is November 10."),
-                                 p("Nearly a month has passed since you made your last decision."),
-                                 p("Below are two plots showing data from your reservoir over the past month, ",tags$b("including just before and after fall turnover, which occurred on October 22.")),
-                                 p("Use the information in the plots below to evaluate your decisions using real-time data and turnover forecasts.")
-                          )
-                        ),
-                        fluidRow(
-                          column(12,
-                                 wellPanel(
-                                   h4("View reservoir data before and after turnover"),
-                                   p("Click the button below to plot data at the reservoir you are operating from before and after turnover."),
-                                   actionButton("plot_outcome", "Plot reservoir data"),
-                                   br(),br(),
-                                   span(textOutput("turb_message2"), style="color:#8A5F50; font-size:16px"),
-                                   br(),
-                                   plotlyOutput("outcome_plot", width = "1200px", height = "400px"),
-                                   br(),br()
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(12,
-                                 box(id = "box1", width = 10, status = "primary",
-                                     solidHeader = TRUE,
-                                     fluidRow(
-                                       column(10, offset = 1,
-                                              introBox(
-                                                h3("Questions"),
-                                                p(tags$b(quest["q56", 1])),
-                                                p(tags$b(quest["q57", 1])),
-                                                p(tags$b(quest["q58", 1]))
-                                                )
-                                       )
-                                     )
-                                 )
-                          )
-                        ),
               hr(),
               fluidRow(
                 column(12,

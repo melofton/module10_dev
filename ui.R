@@ -343,7 +343,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               introBox(
-                                                h3("Objective 1: Define disinfection byproduct (DBP) and understand drinking water thresholds for DBPs"))
+                                                h3("Objective 1: Understand factors affecting DBP formation and drinking water thresholds for DBPs"))
                                        )
                                      )
                                  )
@@ -376,11 +376,11 @@ ui <- function(req) {
                                  )
                           ),
                           column(8, offset = 0, align = "center",
-                                 h3("Disinfection byproducts and their regulatory thresholds",
+                                 h3("Disinfection byproduct formation and regulatory thresholds",
                                     align = "center"),
                                  h5("Click the arrows to navigate through the slides", align = "center"),
                                  wellPanel(
-                                   slickROutput("dbp_intro_slides", width = "700px", height = "525px")
+                                   slickROutput("dbp_formation_slides", width = "700px", height = "525px")
                                  )
                           )
                         ),
@@ -392,7 +392,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               introBox(
-                                                h3("Objective 2: Describe the environmental and water treatment processes that influence the formation of DBPs"))
+                                                h3("Objective 2: Explore tradeoffs in chlorination vs. DBP formation"))
                                        )
                                      )
                                  )
@@ -406,7 +406,7 @@ ui <- function(req) {
                         fluidRow(
                           column(12,
                                  wellPanel(style = paste0("background: ", obj_bg),
-                                           h2("Activity B - Explore disinfection tradeoffs and examine environmental data"),
+                                           h2("Activity B - Explore environmental data that can indicate the presence of DBP precursors"),
                                            p(module_text["act_B", ])
                                  )
                           ),
@@ -416,7 +416,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               introBox(
-                                                h3("Objective 3: Explore tradeoffs in chlorination vs. formation of DBPs"))
+                                                h3("Objective 3: Select and learn about a focal drinking water reservoir"))
                                        )
                                      )
                                  )
@@ -430,7 +430,21 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               introBox(
-                                                h3("Objective 4: Choose a reservoir and explore environmental data that can indicate the presence of DBP precursors"))
+                                                h3("Objective 4: View and interpret organic matter data from your focal reservoir"))
+                                       )
+                                     )
+                                 )
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(12,
+                                 box(id = "box1", width = 10, status = "success",
+                                     solidHeader = TRUE,
+                                     fluidRow(
+                                       column(10, offset = 1,
+                                              introBox(
+                                                h3("Objective 5: View and interpret chlorophyll-a data from your focal reservoir"))
                                        )
                                      )
                                  )
@@ -454,7 +468,7 @@ ui <- function(req) {
                                    fluidRow(
                                      column(10, offset = 1,
                                             introBox(
-                                              h3("Objective 5: Use organic matter and phytoplankton data to make chlorination decisions"))
+                                              h3("Objective 6: Use organic matter and phytoplankton data to make chlorination decisions"))
                                      )
                                    )
                                )

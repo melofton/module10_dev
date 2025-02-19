@@ -55,11 +55,10 @@ help_text <- read.csv("data/help_text.csv", row.names = 1)
 
 # Slides
 recap_slides <- list.files("www/key_slides", full.names = TRUE)
-turb_slides <- list.files("www/turbidity", full.names = TRUE)
-wtemp_slides <- list.files("www/waterTemperature", full.names = TRUE)
-do_slides <- list.files("www/dissolvedOxygen", full.names = TRUE)
-forecast_slides <- list.files("www/forecasting", full.names = TRUE)
-
+obj1_slides <- list.files("www/dbp_formation_thresholds", full.names = TRUE)
+obj2_slides <- list.files("www/dbp_tradeoffs", full.names = TRUE)
+chla_slides <- list.files("www/chlorophyll", full.names = TRUE)
+fdom_slides <- list.files("www/fDOM", full.names = TRUE)
 
 # Add last update time
 app_time <- format(file.info("ui.R")$mtime, "%Y-%m-%d")

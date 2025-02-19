@@ -362,15 +362,7 @@ ui <- function(req) {
                                               h4("Video"),
                                               HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
-                                              p(tags$b(quest["q9", 1])),
-                                              p(tags$b(quest["q10", 1])),
-                                              tags$ul(
-                                                tags$li(id = "txt_j", quest["q10a", ]),
-                                                tags$li(id = "txt_j", quest["q10b", ]),
-                                                tags$li(id = "txt_j", quest["q10c", ]),
-                                                tags$li(id = "txt_j", quest["q10d", ]),
-                                                tags$li(id = "txt_j", quest["q10e", ])
-                                              ),
+                                              p("Questions to confirm students' understanding of how DBPs form and their regulatory thresholds.")
                                        )
                                      )
                                  )
@@ -380,7 +372,7 @@ ui <- function(req) {
                                     align = "center"),
                                  h5("Click the arrows to navigate through the slides", align = "center"),
                                  wellPanel(
-                                   slickROutput("dbp_formation_slides", width = "700px", height = "525px")
+                                   slickROutput("dbp_formation_thresholds_slides", width = "700px", height = "525px")
                                  )
                           )
                         ),
@@ -397,7 +389,33 @@ ui <- function(req) {
                                      )
                                  )
                           )
-                        )
+                        ),
+                        fluidRow(
+                          column(4,
+                                 h3("Tradeoffs"),
+                                 p(tags$i("Watch the video and click through the slides to understand tradeoffs operators may encounter between removing harmful microbes from drinking water and risking formation of DBPs. The information in the presentation is also summarized in text below to help you answer the questions.")),
+                                 br(),
+                                 box(id = "box12", width = 12, status = "primary",
+                                     solidHeader = TRUE,
+                                     fluidRow(
+                                       column(10, offset = 1, align = "left",
+                                              h4("Video"),
+                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                              h4("Questions"),
+                                              p("Questions to confirm students' understanding of the tradeoffs involved with chlorination vs. formation of DBPs.")
+                                       )
+                                     )
+                                 )
+                          ),
+                          column(8, offset = 0, align = "center",
+                                 h3("Tradeoffs between chlorination vs. formation of DBPs",
+                                    align = "center"),
+                                 h5("Click the arrows to navigate through the slides", align = "center"),
+                                 wellPanel(
+                                   slickROutput("dbp_tradeoffs_slides", width = "700px", height = "525px")
+                                 )
+                          )
+                        ),
                ),
                # 6. Activity B ----
                tabPanel(title = tab_names["mtab3", 2], value = "mtab3",
@@ -424,6 +442,92 @@ ui <- function(req) {
                         ),
                         hr(),
                         fluidRow(
+                          #** Choose site ----
+                          column(4,
+                                 h4("Site Names"),
+                                 p("Select a site in the table to highlight on the map"),
+                                 conditionalPanel("input.row_num > 25",
+                                                  selectizeInput("row_num", "Select row",
+                                                                 choices = 1:nrow(sites_df),
+                                                                 options = list(
+                                                                   placeholder = 'Please select a row',
+                                                                   onInitialize = I('function() { this.setValue(""); }'))
+                                                  )
+                                 ),
+                                 DTOutput("table01", fill = TRUE),
+                                 fluidRow(
+                                   column(12,
+                                          wellPanel(
+                                            h4(tags$b("About Site")),
+                                            textOutput("site_info")
+                                          )
+                                   )
+                                 )
+                          ),
+                          #** Site map ----
+                          column(4,
+                                 h4("Map of Virginia Reservoir LTREB sites"),
+                                 wellPanel(
+                                   leafletOutput("ltrebmap")
+                                 )
+                          ),
+                          #** Site photo ----
+                          column(4,
+                                 h4("Site photo"),
+                                 wellPanel(
+                                   imageOutput("site_photo"),
+                                   p(id = "txt_j", module_text["site_photo", ])
+                                 )
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(12, align = "left",
+                                 box(id = "box3", width = 10, status = "primary",
+                                     solidHeader = TRUE,
+                                     fluidRow(
+                                       column(5, offset = 1,
+                                              h3("Questions"),
+                                              p(tags$b(quest["q4", 1])),
+                                              p(tags$b(quest["q5", 1])),
+                                              p(tags$b(quest["q6", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q6a", ]),
+                                                tags$li(id = "txt_j", quest["q6b", ]),
+                                                tags$li(id = "txt_j", quest["q6c", ]),
+                                                tags$li(id = "txt_j", quest["q6d", ])
+                                              ),
+                                              p(tags$b(quest["q7", 1])),
+                                              p(tags$b(quest["q8", 1]))
+                                       ),
+                                       column(5, 
+                                              h3(""),
+                                              p("Virginia's Water Quality Assessment Guidance Manual gives the following guidance on water quality evaluation using a trophic state index (TSI), which may be calculated from Secchi depth (SD), chlorophyll-a (CA) in the top 1 meter of the water column, or total phosphorus (TP) in the top 1 meter of the water column:"),
+                                              p(tags$em("A trophic state index value of 60 or greater for any one of the 3 indices will indicate that nutrient enrichment from anthropogenic sources are adversely interfering, directly or indirectly, with the designated uses. A TSI value of 60 corresponds to a CA concentration of 20 ug/l, a SD of 1 meter, and a TP concentration of 48 ug/l.")),
+                                              p(tags$b(quest["q9", 1]))
+                                       )
+                                     )
+                                 )
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(12,
+                                 h4("Now we will visualize high-frequency data from your chosen reservoir and explore how these data can be related to potential DBP precursors."))
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(8,
+                                 h3("A note on reading and interpreting graphs"),
+                                 p("Please watch the video on the right for a refresher course on reading and interpreting graphs. This may help you to answer the questions about water temperature data as well as other questions throughout the module.")
+                          ),
+                          column(4,
+                                 h4("Video: Reading and interpreting graphs"),
+                                 HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/AhnwYmHvHSc?si=r0LzHH-t8fAE3Lt9" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
                           column(12,
                                  box(id = "box1", width = 10, status = "success",
                                      solidHeader = TRUE,
@@ -433,6 +537,81 @@ ui <- function(req) {
                                                 h3("Objective 4: View and interpret organic matter data from your focal reservoir"))
                                        )
                                      )
+                                 )
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(4,
+                                 h3("Turbidity"),
+                                 p(tags$i("Watch the video and click through the slides to understand how turbidity data relate to water quality. The information in the presentation is also summarized in text below to help you answer the questions.")),
+                                 br(),
+                                 box(id = "box12", width = 12, status = "primary",
+                                     solidHeader = TRUE,
+                                     fluidRow(
+                                       column(10, offset = 1,
+                                              h4("Video"),
+                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/r0OGKBf0n7o?si=amBJjBo2YMNpdJpI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                              h4("Questions"),
+                                              p(tags$b(quest["q21", 1])),
+                                              tags$ul(
+                                                tags$li(quest["q21a", ]),
+                                                tags$li(quest["q21b", ]),
+                                                tags$li(quest["q21c", ])
+                                              ),
+                                              p(tags$b(quest["q22", 1]))
+                                       )
+                                     )
+                                 )
+                          ),
+                          column(8, offset = 0, align = "center",
+                                 h3("Using turbidity to assess water quality",
+                                    align = "center"),
+                                 h5("Click the arrows to navigate through the slides", align = "center"),
+                                 wellPanel(
+                                   slickROutput("turb_slides", width = "700px", height = "525px")
+                                 )
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(6,
+                                 p(tags$b("What is fDOM?")),
+                                 tags$ul(
+                                   tags$li(module_text["fDOM", ])
+                                 ),
+                                 p(tags$b("How do we measure fDOM?")),
+                                 tags$ul(
+                                   tags$li(module_text["fDOM_measure", ])
+                                 )
+                          ),
+                          column(6,
+                                 p(tags$b("How is fDOM related to DBPs?")),
+                                 tags$ul(
+                                   tags$li(module_text["fDOM_DBPs", ])
+                                 )
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(4,
+                                 h3("Plot fDOM data"),
+                                 p("Click the button below to plot fDOM data at your chosen reservoir site."),
+                                 actionButton("plot_fDOM", "Plot high-frequency fDOM data"),
+                                 br(),br(),
+                                 box(id = "box12", width = 12, status = "primary",
+                                     solidHeader = TRUE,
+                                     fluidRow(
+                                       column(10, offset = 1,
+                                              h4("Questions"),
+                                              p("fDOM questions here")
+                                       )
+                                     )
+                                 )
+                          ),
+                          column(8,
+                                 wellPanel(
+                                   plotlyOutput("fDOM_plot")
                                  )
                           )
                         ),

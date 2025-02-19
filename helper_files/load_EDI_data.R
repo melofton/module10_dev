@@ -139,14 +139,14 @@ mycols <- c("Reservoir",
             "ThermistorTemp_C_13", 
             "RDO_mgL_6",     
             "RDO_mgL_13", 
-            "EXODO_mgL_1.5",  
-            "EXOTDS_mgL_1.5",
-            "EXOChla_ugL_1.5",  
-            "EXOTurbidity_FNU_1.5"
+            "EXODO_mgL_1",  
+            "EXOChla_ugL_1",  
+            "EXOTurbidity_FNU_1",
+            "EXOfDOM_QSU_1"     
             )
 
 bvr <- dt1 %>%
-  filter(year(DateTime) %in% c(2022,2024)) %>%
+  filter(year(DateTime) %in% c(2025)) %>%
   select(any_of(mycols)) %>%
   mutate(Date = date(DateTime)) %>%
   select(-DateTime) %>%
@@ -154,13 +154,13 @@ bvr <- dt1 %>%
   summarise_all(list(mean), na.rm = TRUE) %>%
   ungroup() %>%
   add_column(site_id = "bvre") %>%
-  pivot_longer(ThermistorTemp_C_1:EXOTurbidity_FNU_1.5, names_to = "var", values_to = "observation") %>%
+  pivot_longer(ThermistorTemp_C_1:EXOTurbidity_FNU_1, names_to = "var", values_to = "observation") %>%
   separate(var, into = c("variable","unit","depth_m"), sep = "_") %>%
   rename(datetime = Date) %>%
   mutate(variable = ifelse(grepl("Temp", variable),"Temp_C_mean",
                            ifelse(grepl("DO",variable),"DO_mgL_mean",
                                   ifelse(grepl("Chla",variable),"Chla_ugL_mean",
-                                         ifelse(grepl("TDS",variable),"TDS_mgL_mean","Turbidity_FNU_mean")))),
+                                         ifelse(grepl("fDOM_QSU",variable),"fDOM_QSU_mean","Turbidity_FNU_mean")))),
          depth_m = as.numeric(depth_m)) %>%
   select(site_id, datetime, depth_m, variable, observation)
   
@@ -293,13 +293,13 @@ mycols <- c("Reservoir",
             "RDO_mgL_5_adjusted",     
             "RDO_mgL_9_adjusted",   
             "EXODO_mgL_1",   
-            "EXOTDS_mgL_1", 
             "EXOChla_ugL_1",
-            "EXOTurbidity_FNU_1"
+            "EXOTurbidity_FNU_1",
+            "EXOfDOM_QSU_1.5"     
 )
 
 fcr <- dt1 %>%
-  filter(year(DateTime) %in% c(2023,2024)) %>%
+  filter(year(DateTime) %in% c(2025)) %>%
   select(any_of(mycols)) %>%
   mutate(Date = date(DateTime)) %>%
   select(-DateTime) %>%
@@ -313,7 +313,7 @@ fcr <- dt1 %>%
   mutate(variable = ifelse(grepl("Temp", variable),"Temp_C_mean",
                            ifelse(grepl("DO",variable),"DO_mgL_mean",
                                   ifelse(grepl("Chla",variable),"Chla_ugL_mean",
-                                         ifelse(grepl("TDS",variable),"TDS_mgL_mean","Turbidity_FNU_mean")))),
+                                         ifelse(grepl("fDOM_QSU",variable),"fDOM_QSU_mean","Turbidity_FNU_mean")))),
          depth_m = ifelse(depth_m == "surface", 0.1, as.numeric(depth_m))) %>%
   select(site_id, datetime, depth_m, variable, observation)
 

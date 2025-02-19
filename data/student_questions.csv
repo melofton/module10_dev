@@ -12,3 +12,13 @@ q3a,a. environmental sensors can measure how much naturally-occurring organic ma
 q3b,"b. environmental sensors can measure the concentration of phytoplankton in a reservoir, which can indicate the presence of DBP precursors"
 q3c,"c. environmental sensors can provide data in real-time or near real-time, which is useful for informing management decision-making"
 q3d,d. all of the above
+q4,Q4. What is the name of your selected reservoir?
+q5,"Q5. What is the four-letter site identifier of your selected reservoir? Use lower case (e.g., ‘fcre’)."
+q6,Q6. What are the uses of your selected reservoir?
+q6a,a. recreation
+q6b,b. irrigation
+q6c,c. hydropower
+q6d,d. drinking water supply
+q7,"Q7. What is the reservoir area in square feet of your selected reservoir? Provide your answer as a whole number (without decimal points) and with no spaces or commas (e.g., 123456)."
+q8,Q8. What is the maximum depth of your reservoir in feet? Round your answer to the nearest whole number.
+q9,Q9. Does your chosen reservoir site exceed a TSI of 60 (indicating negative human impacts on water quality) according to average total phosphorus levels? 

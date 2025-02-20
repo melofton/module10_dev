@@ -98,8 +98,7 @@ shinyServer(function(input, output, session) {
     #load LTREB data
     lake_data$df <- reservoir_data %>%
       filter(site_id == pull(sites_df[input$table01_rows_selected, "SiteID"]),
-             variable %in% c("Temp_C_mean","DO_mgL_mean","fDOM_QSU_mean"),
-             !(variable == "DO_mgL_mean" & depth_m >= 2 & depth_m <= 8)) %>% # remove metalimnetic DO
+             variable %in% c("Chla_ugL_mean","fDOM_QSU_mean")) %>%
       mutate(observation = round(observation, 1),
              depth_ft = round(depth_m*3.28,1))
     
@@ -112,17 +111,13 @@ shinyServer(function(input, output, session) {
     })
     
     #pull recent data
-    lake_data$wtemp <- lake_data$df %>%
+    lake_data$fdom <- lake_data$df %>%
       select(datetime, variable, depth_m, depth_ft, observation) %>%
-      filter(variable == "Temp_C_mean")
-    
-    lake_data$do <- lake_data$df %>%
-      select(datetime, variable, depth_m, depth_ft, observation) %>%
-      filter(variable == "DO_mgL_mean" & (depth_m <= 2 | depth_m >= 8)) # remove metalimnion
-    
-    lake_data$fDOM <- lake_data$df %>%
-      select(datetime, variable, depth_ft, observation) %>%
       filter(variable == "fDOM_QSU_mean")
+    
+    lake_data$chla <- lake_data$df %>%
+      select(datetime, variable, depth_m, depth_ft, observation) %>%
+      filter(variable == "Chla_ugL_mean") # remove metalimnion
     
     focal_year <- ifelse(pull(sites_df[input$table01_rows_selected, "SiteID"]) == "fcre",2023,2022)
     
@@ -156,6 +151,11 @@ shinyServer(function(input, output, session) {
   }, deleteFile = FALSE)
   
   #** Objective 3: Plot fDOM ----
+  
+  #*# fDOM slides
+  output$fdom_slides <- renderSlickR({
+  slickR(obj3_slides) + settings(dots = TRUE)
+   })
 
   #*# Plot fDOM
   plot.fDOM <- reactiveValues(main=NULL)
@@ -177,22 +177,58 @@ shinyServer(function(input, output, session) {
              message = "Click 'Plot fDOM'")
       )
       
-      df <- lake_data$fDOM 
-      
-      if(pull(sites_df[input$table01_rows_selected, "SiteID"]) == "bvre"){
-        df <- df %>% filter(year(datetime) == 2022)
-      } else {
-        df <- df %>% filter(year(datetime) == 2023)
-      }
+      df <- lake_data$fdom %>% filter(year(datetime) == 2024)
       
       p <- ggplot(data = df, aes(x = datetime, y = observation))+
         geom_point(aes(color = "surface water fDOM"))+
         xlab("")+
         ylab("fDOM (QSU)")+
-        scale_color_manual(values = c("fDOM" = "brown"), name = "")+
+        scale_color_manual(values = c("surface water fDOM" = "brown"), name = "")+
         theme_bw()
       
       plot.fDOM$main <- p
+      
+      return(ggplotly(p, dynamicTicks = TRUE, tooltip=c("x", "y", "color")))
+      
+    })
+    
+  })
+  
+  #*# chla slides
+  output$chla_slides <- renderSlickR({
+    slickR(obj4_slides) + settings(dots = TRUE)
+  })
+  
+  #*# Plot chla
+  plot.chla <- reactiveValues(main=NULL)
+  
+  observe({
+    
+    output$chla_plot <- renderPlotly({ 
+      
+      validate(
+        need(input$table01_rows_selected != "",
+             message = "Please select a site in the Introduction.")
+      )
+      validate(
+        need(!is.null(lake_data$df),
+             message = "Please select a site in the Introduction.")
+      )
+      validate(
+        need(input$plot_chla > 0,
+             message = "Click 'Plot chlorophyll-a'")
+      )
+      
+      df <- lake_data$chla %>% filter(year(datetime) == 2024)
+      
+      p <- ggplot(data = df, aes(x = datetime, y = observation))+
+        geom_point(aes(color = "surface water chlorophyll-a"))+
+        xlab("")+
+        ylab("fDOM (QSU)")+
+        scale_color_manual(values = c("surface water chlorophyll-a" = "green"), name = "")+
+        theme_bw()
+      
+      plot.chla$main <- p
       
       return(ggplotly(p, dynamicTicks = TRUE, tooltip=c("x", "y", "color")))
       

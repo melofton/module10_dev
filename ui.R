@@ -543,7 +543,7 @@ ui <- function(req) {
                         hr(),
                         fluidRow(
                           column(4,
-                                 h3("Turbidity"),
+                                 h3("Fluorescent dissolved organic matter (fDOM)"),
                                  p(tags$i("Watch the video and click through the slides to understand how turbidity data relate to water quality. The information in the presentation is also summarized in text below to help you answer the questions.")),
                                  br(),
                                  box(id = "box12", width = 12, status = "primary",
@@ -551,25 +551,19 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               h4("Video"),
-                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/r0OGKBf0n7o?si=amBJjBo2YMNpdJpI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
-                                              p(tags$b(quest["q21", 1])),
-                                              tags$ul(
-                                                tags$li(quest["q21a", ]),
-                                                tags$li(quest["q21b", ]),
-                                                tags$li(quest["q21c", ])
-                                              ),
-                                              p(tags$b(quest["q22", 1]))
+                                              p("Question text here confirming students' understanding of what fDOM is, how it is measured, and how it can indicate the presence of DBP precursors.")
                                        )
                                      )
                                  )
                           ),
                           column(8, offset = 0, align = "center",
-                                 h3("Using turbidity to assess water quality",
+                                 h3("Using fluorescent dissolved organic matter as an indicator of DBP precursors",
                                     align = "center"),
                                  h5("Click the arrows to navigate through the slides", align = "center"),
                                  wellPanel(
-                                   slickROutput("turb_slides", width = "700px", height = "525px")
+                                   slickROutput("fdom_slides", width = "700px", height = "525px")
                                  )
                           )
                         ),
@@ -604,7 +598,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               h4("Questions"),
-                                              p("fDOM questions here")
+                                              p("fDOM questions here to be sure students are correctly interpreting figure")
                                        )
                                      )
                                  )
@@ -626,6 +620,75 @@ ui <- function(req) {
                                                 h3("Objective 5: View and interpret chlorophyll-a data from your focal reservoir"))
                                        )
                                      )
+                                 )
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(4,
+                                 h3("Chlorophyll-a"),
+                                 p(tags$i("Watch the video and click through the slides to understand how chlorophyll-a data relate to water quality. The information in the presentation is also summarized in text below to help you answer the questions.")),
+                                 br(),
+                                 box(id = "box12", width = 12, status = "primary",
+                                     solidHeader = TRUE,
+                                     fluidRow(
+                                       column(10, offset = 1,
+                                              h4("Video"),
+                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                              h4("Questions"),
+                                              p("Question text here confirming students' understanding of what chlorophyll-a is, how it is measured, and how it can indicate the presence of DBP precursors.")
+                                       )
+                                     )
+                                 )
+                          ),
+                          column(8, offset = 0, align = "center",
+                                 h3("Using chlorophyll-a as an indicator of DBP precursors",
+                                    align = "center"),
+                                 h5("Click the arrows to navigate through the slides", align = "center"),
+                                 wellPanel(
+                                   slickROutput("chla_slides", width = "700px", height = "525px")
+                                 )
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(6,
+                                 p(tags$b("What is chlorophyll-a?")),
+                                 tags$ul(
+                                   tags$li(module_text["chla", ])
+                                 ),
+                                 p(tags$b("How are phytoplankton related to DBPs?")),
+                                 tags$ul(
+                                   tags$li(module_text["phyto_dbps", ])
+                                 )
+                          ),
+                          column(6,
+                                 p(tags$b("How is chlorophyll-a related to DBPs?")),
+                                 tags$ul(
+                                   tags$li(module_text["chla_dbps", ])
+                                 )
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(4,
+                                 h3("Plot chlorophyll-a data"),
+                                 p("Click the button below to plot chlorophyll-a data at your chosen reservoir site."),
+                                 actionButton("plot_chla", "Plot high-frequency chlorophyll-a data"),
+                                 br(),br(),
+                                 box(id = "box12", width = 12, status = "primary",
+                                     solidHeader = TRUE,
+                                     fluidRow(
+                                       column(10, offset = 1,
+                                              h4("Questions"),
+                                              p("Chla questions here to be sure students are correctly interpreting figure")
+                                       )
+                                     )
+                                 )
+                          ),
+                          column(8,
+                                 wellPanel(
+                                   plotlyOutput("chla_plot")
                                  )
                           )
                         )

@@ -9,19 +9,25 @@ library(lubridate)
 
 # BVR catwalk ----
 
-# Package ID: edi.725.3 Cataloging System:https://pasta.edirepository.org.
-# Data set title: Time series of high-frequency sensor data measuring water temperature, dissolved oxygen, conductivity, specific conductance, total dissolved solids, chlorophyll a, phycocyanin, fluorescent dissolved organic matter, and turbidity at discrete depths in Beaverdam Reservoir, Virginia, USA in 2016-2022.
+# Package ID: edi.725.5 Cataloging System:https://pasta.edirepository.org.
+# Data set title: Time series of high-frequency sensor data measuring water temperature, dissolved oxygen, conductivity, specific conductance, total dissolved solids, chlorophyll a, phycocyanin, fluorescent dissolved organic matter, and turbidity at discrete depths, and water level in Beaverdam Reservoir, Virginia, USA in 2009-2024.
 # Data set creator:  Cayelan Carey - Virginia Tech 
 # Data set creator:  Adrienne Breef-Pilz - Virginia Tech 
-# Data set creator:  Bethany Bookout - Virginia Tech 
-# Data set creator:  Ryan McClure - Virginia Tech 
-# Data set creator:  Jacob Wynne - Virginia Tech 
-# Contact:  Cayelan Carey -  Virginia Tech  - Cayelan@vt.edu
-# Stylesheet v2.11 for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
+# Contact:  Cayelan Carey -  Virginia Tech  - cayelan@vt.edu
+# Stylesheet v2.14 for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu      
+# Uncomment the following lines to have R clear previous work, or set a working directory
+# rm(list=ls())      
 
-inUrl1  <- "https://pasta.lternet.edu/package/data/eml/edi/725/3/a9a7ff6fe8dc20f7a8f89447d4dc2038" 
+# setwd("C:/users/my_name/my_dir")       
+
+
+
+options(HTTPUserAgent="EDI_CodeGen")
+
+
+inUrl1  <- "https://pasta.lternet.edu/package/data/eml/edi/725/5/f649de0e8a468922b40dcfa34285055e" 
 infile1 <- tempfile()
-try(download.file(inUrl1,infile1,method="curl"))
+try(download.file(inUrl1,infile1,method="curl",extra=paste0(' -A "',getOption("HTTPUserAgent"),'"')))
 if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
 
 
@@ -70,7 +76,7 @@ dt1 <-read.csv(infile1,header=F
                  "EXOCablepower_V",     
                  "EXOWiper_V",     
                  "LvlPressure_psi_13",     
-                 "Depth_m_13",     
+                 "LvlDepth_m_13",     
                  "LvlTemp_C_13",     
                  "RECORD",     
                  "CR6Battery_V",     
@@ -113,7 +119,7 @@ dt1 <-read.csv(infile1,header=F
                  "Flag_EXOCablepower_V",     
                  "Flag_EXOWiper_V",     
                  "Flag_LvlPressure_psi_13",     
-                 "Flag_LvlTemp_C_13"    ), check.names=TRUE) 
+                 "Flag_LvlTemp_C_13"    ), check.names=TRUE)
 
 unlink(infile1)
 
@@ -139,14 +145,14 @@ mycols <- c("Reservoir",
             "ThermistorTemp_C_13", 
             "RDO_mgL_6",     
             "RDO_mgL_13", 
-            "EXODO_mgL_1",  
-            "EXOChla_ugL_1",  
-            "EXOTurbidity_FNU_1",
-            "EXOfDOM_QSU_1"     
+            "EXODO_mgL_1.5",  
+            "EXOChla_ugL_1.5",  
+            "EXOTurbidity_FNU_1.5",
+            "EXOfDOM_QSU_1.5"     
             )
 
 bvr <- dt1 %>%
-  filter(year(DateTime) %in% c(2025)) %>%
+  #filter(year(DateTime) %in% c(2024)) %>%
   select(any_of(mycols)) %>%
   mutate(Date = date(DateTime)) %>%
   select(-DateTime) %>%
@@ -154,32 +160,47 @@ bvr <- dt1 %>%
   summarise_all(list(mean), na.rm = TRUE) %>%
   ungroup() %>%
   add_column(site_id = "bvre") %>%
-  pivot_longer(ThermistorTemp_C_1:EXOTurbidity_FNU_1, names_to = "var", values_to = "observation") %>%
+  pivot_longer(ThermistorTemp_C_1:EXOfDOM_QSU_1.5, names_to = "var", values_to = "observation") %>%
   separate(var, into = c("variable","unit","depth_m"), sep = "_") %>%
   rename(datetime = Date) %>%
   mutate(variable = ifelse(grepl("Temp", variable),"Temp_C_mean",
-                           ifelse(grepl("DO",variable),"DO_mgL_mean",
+                           ifelse(grepl("fDOM",variable),"fDOM_QSU_mean",
                                   ifelse(grepl("Chla",variable),"Chla_ugL_mean",
-                                         ifelse(grepl("fDOM_QSU",variable),"fDOM_QSU_mean","Turbidity_FNU_mean")))),
+                                         ifelse(grepl("Turb",variable),"Turbidity_FNU_mean","DO_mgL_mean")))),
          depth_m = as.numeric(depth_m)) %>%
   select(site_id, datetime, depth_m, variable, observation)
+
+check <- bvr %>%
+  filter(variable == "fDOM_QSU_mean")
+
+ggplot(data = bvr, aes(x = datetime, y = observation, group = depth_m,
+                       color = depth_m))+
+  geom_line()+
+  facet_wrap(facets = vars(variable))+
+  theme_bw()
   
 
 # FCR catwalk ----
 
-# Package ID: edi.271.8 Cataloging System:https://pasta.edirepository.org.
-# Data set title: Time series of high-frequency sensor data measuring water temperature, dissolved oxygen, pressure, conductivity, specific conductance, total dissolved solids, chlorophyll a, phycocyanin, fluorescent dissolved organic matter, and turbidity at discrete depths in Falling Creek Reservoir, Virginia, USA in 2018-2023.
+# Package ID: edi.271.9 Cataloging System:https://pasta.edirepository.org.
+# Data set title: Time series of high-frequency sensor data measuring water temperature, dissolved oxygen, pressure, conductivity, specific conductance, total dissolved solids, chlorophyll a, phycocyanin, fluorescent dissolved organic matter, and turbidity at discrete depths in Falling Creek Reservoir, Virginia, USA in 2018-2024.
 # Data set creator:  Cayelan Carey - Virginia Tech 
 # Data set creator:  Adrienne Breef-Pilz - Virginia Tech 
-# Data set creator:  Vahid Daneshmand - University of Florida 
-# Data set creator:  Austin Delany - Virginia Tech 
-# Data set creator:  R. Thomas - Virginia Tech 
 # Contact:  Cayelan Carey -  Virginia Tech  - cayelan@vt.edu
-# Stylesheet v2.11 for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu 
+# Stylesheet v2.14 for metadata conversion into program: John H. Porter, Univ. Virginia, jporter@virginia.edu      
+# Uncomment the following lines to have R clear previous work, or set a working directory
+# rm(list=ls())      
 
-inUrl1  <- "https://pasta.lternet.edu/package/data/eml/edi/271/8/fbb8c7a0230f4587f1c6e11417fe9dce" 
+# setwd("C:/users/my_name/my_dir")       
+
+
+
+options(HTTPUserAgent="EDI_CodeGen")
+
+
+inUrl1  <- "https://pasta.lternet.edu/package/data/eml/edi/271/9/f23d27b67f71c25cb8e6232af739f986" 
 infile1 <- tempfile()
-try(download.file(inUrl1,infile1,method="curl"))
+try(download.file(inUrl1,infile1,method="curl",extra=paste0(' -A "',getOption("HTTPUserAgent"),'"')))
 if (is.na(file.size(infile1))) download.file(inUrl1,infile1,method="auto")
 
 
@@ -295,11 +316,11 @@ mycols <- c("Reservoir",
             "EXODO_mgL_1",   
             "EXOChla_ugL_1",
             "EXOTurbidity_FNU_1",
-            "EXOfDOM_QSU_1.5"     
+            "EXOfDOM_QSU_1"     
 )
 
 fcr <- dt1 %>%
-  filter(year(DateTime) %in% c(2025)) %>%
+  #filter(year(DateTime) %in% c(2025)) %>%
   select(any_of(mycols)) %>%
   mutate(Date = date(DateTime)) %>%
   select(-DateTime) %>%
@@ -307,24 +328,32 @@ fcr <- dt1 %>%
   summarise_all(list(mean), na.rm = TRUE) %>%
   ungroup() %>%
   add_column(site_id = "fcre") %>%
-  pivot_longer(ThermistorTemp_C_surface:EXOTurbidity_FNU_1, names_to = "var", values_to = "observation") %>%
+  pivot_longer(ThermistorTemp_C_surface:EXOfDOM_QSU_1, names_to = "var", values_to = "observation") %>%
   separate(var, into = c("variable","unit","depth_m","method"), sep = "_") %>%
   rename(datetime = Date) %>%
   mutate(variable = ifelse(grepl("Temp", variable),"Temp_C_mean",
-                           ifelse(grepl("DO",variable),"DO_mgL_mean",
+                           ifelse(grepl("fDOM",variable),"fDOM_QSU_mean",
                                   ifelse(grepl("Chla",variable),"Chla_ugL_mean",
-                                         ifelse(grepl("fDOM_QSU",variable),"fDOM_QSU_mean","Turbidity_FNU_mean")))),
+                                         ifelse(grepl("Turb",variable),"Turbidity_FNU_mean","DO_mgL_mean")))),
          depth_m = ifelse(depth_m == "surface", 0.1, as.numeric(depth_m))) %>%
   select(site_id, datetime, depth_m, variable, observation)
 
+ggplot(data = fcr, aes(x = datetime, y = observation, group = depth_m,
+                       color = depth_m))+
+  geom_line()+
+  facet_wrap(facets = vars(variable), scales = "free_y")+
+  theme_bw()
+
 reservoir_data <- bind_rows(bvr, fcr) %>%
-  filter(datetime <= "2024-01-31")
+  filter(datetime <= "2025-01-01")
 
 write.csv(reservoir_data, "./data/reservoir_data.csv", row.names = FALSE)
 
-# check <- reservoir_data %>%
-#   filter(year(datetime) == 2024 & month(datetime) == 1) %>%
-#   ggplot()+
-#   geom_line(aes(x = datetime, y = observation, group = site_id, color = site_id))+
-#   facet_wrap(facets = vars(variable))
-# check
+fdom <- reservoir_data %>%
+  filter(site_id == "bvre" & variable == "fDOM_QSU_mean" & year(datetime) == 2022) %>%
+  ggplot()+
+  geom_line(aes(x = datetime, y = observation))+
+  ylab("fDOM (QSU)")+
+  xlab("Date")+
+  theme_classic()
+fdom

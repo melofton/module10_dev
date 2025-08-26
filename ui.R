@@ -167,7 +167,7 @@ ui <- function(req) {
                           h3("Focal question"),
                           h4(tags$b(tags$i("How can we use environmental data to inform our understanding of the tradeoffs involved in water management decision-making?"))),
                           h3("Summary"),
-                          p("Many water management decisions come with tradeoffs. One important example of such a decision is the amount of chlorine to use in the drinking water treatment process. Too little chlorination can result in too little disinfectant being present in the water when it reaches the consumer. Too much chlorination can result in the formation of potentially cancer-causing disinfection byproducts. Environmental data, such as organic matter measurements from drinking water reservoirs, can help inform water management decision-making and reduce the risk of unintended consequences due to water treatment decisions."),
+                          p("Many water management decisions come with tradeoffs. One important example of such a decision is the use of chlorine in the drinking water treatment process. Chlorination is an important disinfection step in water treatment and is needed to protect consumers from harmful pathogens (such as bacteria). However, when there are high amounts of organic matter in the raw water, chlorination can result in the formation of potentially cancer-causing disinfection byproducts. Environmental data, such as organic matter measurements from drinking water reservoirs, can help inform water management decision-making and reduce the risk of unintended consequences due to use of chlorine in water treatment."),
                           p("In this module, you will explore organic matter data collected from drinking water reservoirs and learn how to interpret these data to inform your decision-making about chlorination during drinking water treatment."),
                           h3("Learning Outcomes"),
                           tags$line(),
@@ -333,7 +333,7 @@ ui <- function(req) {
                         fluidRow(
                           column(12,
                                  wellPanel(style = paste0("background: ", obj_bg),
-                                           h2("Activity A - Explore how disinfection byproducts are formed"),
+                                           h2("Activity A - Explore how disinfection byproducts can be formed during chlorination"),
                                            p(module_text["act_A", ])
                                  )
                           ),
@@ -353,7 +353,7 @@ ui <- function(req) {
                         fluidRow(
                           column(4,
                                  h3("Disinfection byproducts"),
-                                 p(tags$i("Watch the video and click through the slides to understand what disinfection byproducts are and their regulatory thresholds. The information in the presentation is also summarized in text below to help you answer the questions.")),
+                                 p(tags$i("Watch the video and click through the slides to understand what disinfection byproducts are and their regulatory thresholds.")),
                                  br(),
                                  box(id = "box12", width = 12, status = "primary",
                                      solidHeader = TRUE,
@@ -362,7 +362,28 @@ ui <- function(req) {
                                               h4("Video"),
                                               HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
-                                              p("Questions to confirm students' understanding of how DBPs form and their regulatory thresholds.")
+                                              p(tags$b(quest["q4", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q4a", ]),
+                                                tags$li(id = "txt_j", quest["q4b", ]),
+                                                tags$li(id = "txt_j", quest["q4c", ]),
+                                                tags$li(id = "txt_j", quest["q4d", ]),
+                                                tags$li(id = "txt_j", quest["q4e", ]),
+                                                tags$li(id = "txt_j", quest["q4f", ]),
+                                                tags$li(id = "txt_j", quest["q4g", ])
+                                              ),
+                                              p(tags$b(quest["q5", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q5a", ]),
+                                                tags$li(id = "txt_j", quest["q5b", ]),
+                                                tags$li(id = "txt_j", quest["q5c", ])
+                                              ),
+                                              p(tags$b(quest["q6", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q6a", ]),
+                                                tags$li(id = "txt_j", quest["q6b", ]),
+                                                tags$li(id = "txt_j", quest["q6c", ])
+                                              )
                                        )
                                      )
                                  )
@@ -700,7 +721,7 @@ ui <- function(req) {
                         fluidRow(
                           column(12,
                                  wellPanel(style = paste0("background: ", obj_bg),
-                                           h2("Activity C - Use environmental data to inform chlorination decisions"),
+                                           h2("Activity C - Use environmental data to inform water treatment decisions"),
                                            p(module_text["act_C", ])
                                  )
                           ),

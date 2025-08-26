@@ -4,21 +4,37 @@ q1a,"a. substances used to disinfect the water, such as chlorine"
 q1b,"b. naturally-occurring substances that can create cancer-causing compounds during water treatment, such as organic matter"
 q1c,"c. substances that are unintentionally created during the disinfection process and can cause cancer, such as trihalomethanes"
 q2,Q2. How do disinfection byproducts form? 
-q2a,a. when chlorine reacts with naturally-occurring organic matter during the treatment process
+q2a,a. when chlorine reacts with organic or inorganic compounds during the treatment process
 q2b,b. when high-nutrient fertilizers are used in a watershed
 q2c,c. when inorganic material is accidentally introduced into the treatment plant
 q3,Q3. How can environmental data be used to help avoid the formation of disinfection byproducts?
-q3a,a. environmental sensors can measure how much naturally-occurring organic matter is present in a drinking water reservoir
-q3b,"b. environmental sensors can measure the concentration of phytoplankton in a reservoir, which can indicate the presence of DBP precursors"
+q3a,a. environmental sensors can measure how much organic matter is present in a drinking water reservoir
+q3b,"b. environmental sensors can measure the turbidity, or clarity, of the water, which can indicate the presence of DBP precursors"
 q3c,"c. environmental sensors can provide data in real-time or near real-time, which is useful for informing management decision-making"
 q3d,d. all of the above
-q4,Q4. What is the name of your selected reservoir?
-q5,"Q5. What is the four-letter site identifier of your selected reservoir? Use lower case (e.g., ‘fcre’)."
-q6,Q6. What are the uses of your selected reservoir?
-q6a,a. recreation
-q6b,b. irrigation
-q6c,c. hydropower
-q6d,d. drinking water supply
-q7,"Q7. What is the reservoir area in square feet of your selected reservoir? Provide your answer as a whole number (without decimal points) and with no spaces or commas (e.g., 123456)."
-q8,Q8. What is the maximum depth of your reservoir in feet? Round your answer to the nearest whole number.
-q9,Q9. Does your chosen reservoir site exceed a TSI of 60 (indicating negative human impacts on water quality) according to average total phosphorus levels? 
+q4,Q4. Which of the following correctly describes DBP precursors (compounds in the water that can lead to DBP formation during treatment)?
+q4a,a. DBP precusors can be naturally-occurring
+q4b,b. DBP precursors can be organic compounds
+q4c,"c. DBP precursors can come from sources related to human activities (e.g., agriculture)"
+q4d,d. DBP precursors can be inorganic compounds
+q4e,e. a and b only
+q4f,f. c and d only
+q4g,"g. a, b, c, and d"
+q5,Q5. Exposure to DBPs has been associated with which of the following health concerns?
+q5a,a. eczema
+q5b,b. diabetes
+q5c,c. cancer
+q6,Q6. Which of the following is NOT a type of DBP?
+q6a,a. trihalomethanes
+q6b,b. chloramines
+q6c,c. haloacetic acids
+q7,Q4. What is the name of your selected reservoir?
+q8,"Q5. What is the four-letter site identifier of your selected reservoir? Use lower case (e.g., ‘fcre’)."
+q9,Q6. What are the uses of your selected reservoir?
+q9a,a. recreation
+q9b,b. irrigation
+q9c,c. hydropower
+q9d,d. drinking water supply
+q10,"Q7. What is the reservoir area in square feet of your selected reservoir? Provide your answer as a whole number (without decimal points) and with no spaces or commas (e.g., 123456)."
+q11,Q8. What is the maximum depth of your reservoir in feet? Round your answer to the nearest whole number.
+q12,Q9. Does your chosen reservoir site exceed a TSI of 60 (indicating negative human impacts on water quality) according to average total phosphorus levels? 

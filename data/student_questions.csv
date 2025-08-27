@@ -28,13 +28,60 @@ q6,Q6. Which of the following is NOT a type of DBP?
 q6a,a. trihalomethanes
 q6b,b. chloramines
 q6c,c. haloacetic acids
-q7,Q4. What is the name of your selected reservoir?
-q8,"Q5. What is the four-letter site identifier of your selected reservoir? Use lower case (e.g., ‘fcre’)."
-q9,Q6. What are the uses of your selected reservoir?
-q9a,a. recreation
-q9b,b. irrigation
-q9c,c. hydropower
-q9d,d. drinking water supply
-q10,"Q7. What is the reservoir area in square feet of your selected reservoir? Provide your answer as a whole number (without decimal points) and with no spaces or commas (e.g., 123456)."
-q11,Q8. What is the maximum depth of your reservoir in feet? Round your answer to the nearest whole number.
-q12,Q9. Does your chosen reservoir site exceed a TSI of 60 (indicating negative human impacts on water quality) according to average total phosphorus levels? 
+q7,"Q7. Which best describes the ""breakpoint"" in the chlorination process?"
+q7a,a. the point at which adding more chlorine to the treatment system will lead to an exceedance of the MRDL
+q7b,b. the point at which complete disinfection is achieved and free residual begins to build up
+q7c,c. the point at which formation of DBPs is most likely
+q7d,d. the point at which chlorine begins to break down organic matter DBP precursors
+q8,Q8. Breakpoint chlorination has been achieved when
+q8a,a. the expected residual is less than the actual residual
+q8b,b. the actual residual is less than the expected residual
+q8c,c. the expected and actual residual are equal
+q8d,d. none of these
+q9,"Q9. A chlorinator setting of 20 lbs chlorine per day results in a chlorine residual of 0.3 mg/L. The chlorinator setting is increased to 23 lb/day. The chlorine residual increases to 0.54 mg/L at this new dosage rate. The average flow being treated is 1.5 MGD. On the basis of these data, is the water being chlorinated past the breakpoint?"
+q9a,a. yes
+q9b,b. no
+q9c,c. the answer cannot be determined from the information given
+q10,Q10. What is the name of your selected reservoir?
+q11,"Q11. What is the four-letter site identifier of your selected reservoir? Use lower case (e.g., ‘fcre’)."
+q12,Q12. What are the uses of your selected reservoir?
+q12a,a. recreation
+q12b,b. irrigation
+q12c,c. hydropower
+q12d,d. drinking water supply
+q13,"Q13. What is the reservoir area in square feet of your selected reservoir? Provide your answer as a whole number (without decimal points) and with no spaces or commas (e.g., 123456)."
+q14,Q14. What is the maximum depth of your reservoir in feet? Round your answer to the nearest whole number.
+q15,Q15. Does your chosen reservoir site exceed a TSI of 60 (indicating negative human impacts on water quality) according to average total phosphorus levels? 
+q16,Q16. Which of the following is not a characteristic of fDOM?
+q16a,a. it is composed of particles
+q16b,b. it is dissolved in the water
+q16c,c. it is derived from living things and contains carbon
+q16d,d. it fluoresces when exposed to light at particular wavelengths
+q17,"Q17. fDOM is measured in quinine sulfate units, or QSU. Which of the following is NOT true regarding QSU?"
+q17a,a. QSU is an indirect measure of fDOM
+q17b,b. calibrating sensors using QSU enables consistent fDOM measurements across sensors and reservoirs
+q17c,c. QSU compares organic matter fluorescence to the fluorescence of known concentrations of quinine sulfate
+q17d,d. QSU range from -1 to 1
+q18,Q18. How is fDOM related to DBPs?
+q18a,a. fDOM molecules are DBPs
+q18b,b. the presence of fDOM molecules is correlated with other molecules in the raw water that are DBPs
+q18c,c. high fDOM levels in raw water may indicate the presence of DBP precursors which will form DBPs during treatment
+q18d,d. high fDOM levels in raw water may indicate that treated water will exceed the MRDL
+q19,"Q19. On what day of the year did the highest observed fDOM occur in your reservoir? Write out the full month name and day (e.g., September 20)."
+q20,"Q20. On what day of the year did the lowest observed fDOM occur in your reservoir? Write out the full month name and day (e.g., September 20)."
+q21,"Q21. Based on the data in the figure and your understanding of how fDOM levels relate to DBPs, on what day of the year is the risk of DBP formation during treatment highest in your reservoir according to the fDOM data? Write out the full month name and day (e.g., September 20)."
+q22,Q22. Which of the following can contribute to turbidity in water?
+q22a,a. silt and clay
+q22b,b. microorganisms
+q22c,c. organic matter
+q22d,d. all of the above
+q23,Q23. Which statement best describes how turbidity is related to DBPs?
+q23a,a. high turbidity indicates the presence of DBPs in raw water
+q23b,b. high turbidity may indicate the presence of organic or inorganic DBP precursors in raw water
+q23c,c. high turbidity can indicate that chlorination will be less effective in reducing DBPs in raw water
+q23d,d. none of these
+q24,"Q24. On what day of the year did the highest observed turbidity occur in your reservoir? Write out the full month name and day (e.g., September 20)."
+q25,"Q25. Based on the data in the figure and your understanding of how turbidity levels relate to DBPs, on what day of the year is the risk of DBP formation during treatment highest in your reservoir according to the turbidity data? Write out the full month name and day (e.g., September 20)."
+q26,Q26. Compare your answers to Q21 and Q25. Are your answers similar or different? There is no wrong answer to this question!
+q26a,a. My answers to Q21 and Q25 are very similar (the two dates are within a week or two of each other). The fDOM and turbidity data generally agree with each other regarding the risk of DBP formation.
+q26b,b. My answers to Q21 and Q25 are different (the two dates are more than two weeks apart). The fDOM and turbidity data do not completely agree with each other regarding the risk of DBP formation.

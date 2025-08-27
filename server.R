@@ -62,8 +62,7 @@ shinyServer(function(input, output, session) {
   
   # Select NEON DT rows ----
   lake_data <- reactiveValues(df = NULL,
-                              wtemp = NULL,
-                              do = NULL,
+                              fdom = NULL,
                               turb = NULL)
   site_photo_file <- reactiveValues(img = NULL)
   
@@ -98,7 +97,7 @@ shinyServer(function(input, output, session) {
     #load LTREB data
     lake_data$df <- reservoir_data %>%
       filter(site_id == pull(sites_df[input$table01_rows_selected, "SiteID"]),
-             variable %in% c("Chla_ugL_mean","fDOM_QSU_mean")) %>%
+             variable %in% c("Turbidity_FNU_mean","fDOM_QSU_mean")) %>%
       mutate(observation = round(observation, 1),
              depth_ft = round(depth_m*3.28,1))
     
@@ -115,9 +114,9 @@ shinyServer(function(input, output, session) {
       select(datetime, variable, depth_m, depth_ft, observation) %>%
       filter(variable == "fDOM_QSU_mean")
     
-    lake_data$chla <- lake_data$df %>%
+    lake_data$turb <- lake_data$df %>%
       select(datetime, variable, depth_m, depth_ft, observation) %>%
-      filter(variable == "Chla_ugL_mean") # remove metalimnion
+      filter(variable == "Turbidity_FNU_mean") # remove metalimnion
     
     focal_year <- ifelse(pull(sites_df[input$table01_rows_selected, "SiteID"]) == "fcre",2023,2022)
     
@@ -166,11 +165,11 @@ shinyServer(function(input, output, session) {
       
       validate(
         need(input$table01_rows_selected != "",
-             message = "Please select a site in the Introduction.")
+             message = "Please select a focal reservoir site.")
       )
       validate(
         need(!is.null(lake_data$df),
-             message = "Please select a site in the Introduction.")
+             message = "Please select a focal reservoir site.")
       )
       validate(
         need(input$plot_fDOM > 0,
@@ -194,41 +193,41 @@ shinyServer(function(input, output, session) {
     
   })
   
-  #*# chla slides
-  output$chla_slides <- renderSlickR({
+  #*# turb slides
+  output$turb_slides <- renderSlickR({
     slickR(obj4_slides) + settings(dots = TRUE)
   })
   
-  #*# Plot chla
-  plot.chla <- reactiveValues(main=NULL)
+  #*# Plot turb
+  plot.turb <- reactiveValues(main=NULL)
   
   observe({
     
-    output$chla_plot <- renderPlotly({ 
+    output$turb_plot <- renderPlotly({ 
       
       validate(
         need(input$table01_rows_selected != "",
-             message = "Please select a site in the Introduction.")
+             message = "Please select a focal reservoir site.")
       )
       validate(
         need(!is.null(lake_data$df),
-             message = "Please select a site in the Introduction.")
+             message = "Please select a focal reservoir site.")
       )
       validate(
-        need(input$plot_chla > 0,
-             message = "Click 'Plot chlorophyll-a'")
+        need(input$plot_turb > 0,
+             message = "Click 'Plot turbidity'")
       )
       
-      df <- lake_data$chla %>% filter(year(datetime) == 2024)
+      df <- lake_data$turb %>% filter(year(datetime) == 2024)
       
       p <- ggplot(data = df, aes(x = datetime, y = observation))+
-        geom_point(aes(color = "surface water chlorophyll-a"))+
+        geom_point(aes(color = "surface water turbidity"))+
         xlab("")+
-        ylab("fDOM (QSU)")+
-        scale_color_manual(values = c("surface water chlorophyll-a" = "green"), name = "")+
+        ylab("turbidity (FNU)")+
+        scale_color_manual(values = c("surface water turbidity" = "tan"), name = "")+
         theme_bw()
       
-      plot.chla$main <- p
+      plot.turb$main <- p
       
       return(ggplotly(p, dynamicTicks = TRUE, tooltip=c("x", "y", "color")))
       

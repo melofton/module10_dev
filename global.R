@@ -58,7 +58,7 @@ recap_slides <- list.files("www/key_slides", full.names = TRUE)
 obj1_slides <- list.files("www/dbp_formation_thresholds", full.names = TRUE)
 obj2_slides <- list.files("www/dbp_tradeoffs", full.names = TRUE)
 obj3_slides <- list.files("www/fDOM", full.names = TRUE)
-obj4_slides <- list.files("www/chlorophyll", full.names = TRUE)
+obj4_slides <- list.files("www/turbidity", full.names = TRUE)
 
 # Add last update time
 app_time <- format(file.info("ui.R")$mtime, "%Y-%m-%d")

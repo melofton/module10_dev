@@ -414,7 +414,7 @@ ui <- function(req) {
                         fluidRow(
                           column(4,
                                  h3("Tradeoffs"),
-                                 p(tags$i("Watch the video and click through the slides to understand tradeoffs operators may encounter between removing harmful microbes from drinking water and risking formation of DBPs. The information in the presentation is also summarized in text below to help you answer the questions.")),
+                                 p(tags$i("Watch the video and click through the slides to understand tradeoffs operators may encounter between removing harmful microbes from drinking water and risking formation of DBPs.")),
                                  br(),
                                  box(id = "box12", width = 12, status = "primary",
                                      solidHeader = TRUE,
@@ -423,7 +423,27 @@ ui <- function(req) {
                                               h4("Video"),
                                               HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
-                                              p("Questions to confirm students' understanding of the tradeoffs involved with chlorination vs. formation of DBPs.")
+                                              p(tags$b(quest["q7", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q7a", ]),
+                                                tags$li(id = "txt_j", quest["q7b", ]),
+                                                tags$li(id = "txt_j", quest["q7c", ]),
+                                                tags$li(id = "txt_j", quest["q7d", ])
+                                              ),
+                                              p(tags$b(quest["q8", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q8a", ]),
+                                                tags$li(id = "txt_j", quest["q8b", ]),
+                                                tags$li(id = "txt_j", quest["q8c", ]),
+                                                tags$li(id = "txt_j", quest["q8d", ])
+                                              ),
+                                              p(tags$b(quest["q9", 1])),
+                                              p(tags$i("Hint: Follow the steps in the slide deck and video to solve the problem. Round your calculations to the nearest hundredth.")),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q9a", ]),
+                                                tags$li(id = "txt_j", quest["q9b", ]),
+                                                tags$li(id = "txt_j", quest["q9c", ])
+                                              )
                                        )
                                      )
                                  )
@@ -509,23 +529,23 @@ ui <- function(req) {
                                      fluidRow(
                                        column(5, offset = 1,
                                               h3("Questions"),
-                                              p(tags$b(quest["q4", 1])),
-                                              p(tags$b(quest["q5", 1])),
-                                              p(tags$b(quest["q6", 1])),
+                                              p(tags$b(quest["q10", 1])),
+                                              p(tags$b(quest["q11", 1])),
+                                              p(tags$b(quest["q12", 1])),
                                               tags$ul(
-                                                tags$li(id = "txt_j", quest["q6a", ]),
-                                                tags$li(id = "txt_j", quest["q6b", ]),
-                                                tags$li(id = "txt_j", quest["q6c", ]),
-                                                tags$li(id = "txt_j", quest["q6d", ])
+                                                tags$li(id = "txt_j", quest["q12a", ]),
+                                                tags$li(id = "txt_j", quest["q12b", ]),
+                                                tags$li(id = "txt_j", quest["q12c", ]),
+                                                tags$li(id = "txt_j", quest["q12d", ])
                                               ),
-                                              p(tags$b(quest["q7", 1])),
-                                              p(tags$b(quest["q8", 1]))
+                                              p(tags$b(quest["q13", 1])),
+                                              p(tags$b(quest["q14", 1]))
                                        ),
                                        column(5, 
                                               h3(""),
                                               p("Virginia's Water Quality Assessment Guidance Manual gives the following guidance on water quality evaluation using a trophic state index (TSI), which may be calculated from Secchi depth (SD), chlorophyll-a (CA) in the top 1 meter of the water column, or total phosphorus (TP) in the top 1 meter of the water column:"),
                                               p(tags$em("A trophic state index value of 60 or greater for any one of the 3 indices will indicate that nutrient enrichment from anthropogenic sources are adversely interfering, directly or indirectly, with the designated uses. A TSI value of 60 corresponds to a CA concentration of 20 ug/l, a SD of 1 meter, and a TP concentration of 48 ug/l.")),
-                                              p(tags$b(quest["q9", 1]))
+                                              p(tags$b(quest["q15", 1]))
                                        )
                                      )
                                  )
@@ -565,7 +585,7 @@ ui <- function(req) {
                         fluidRow(
                           column(4,
                                  h3("Fluorescent dissolved organic matter (fDOM)"),
-                                 p(tags$i("Watch the video and click through the slides to understand how turbidity data relate to water quality. The information in the presentation is also summarized in text below to help you answer the questions.")),
+                                 p(tags$i("Watch the video and click through the slides to understand how fDOM data relate to possible DBP formation. The information in the presentation is also summarized in text below to help you answer the questions.")),
                                  br(),
                                  box(id = "box12", width = 12, status = "primary",
                                      solidHeader = TRUE,
@@ -574,23 +594,38 @@ ui <- function(req) {
                                               h4("Video"),
                                               HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
-                                              p("Question text here confirming students' understanding of what fDOM is, how it is measured, and how it can indicate the presence of DBP precursors.")
+                                              p(tags$b(quest["q16", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q16a", ]),
+                                                tags$li(id = "txt_j", quest["q16b", ]),
+                                                tags$li(id = "txt_j", quest["q16c", ]),
+                                                tags$li(id = "txt_j", quest["q16d", ])
+                                              ),
+                                              p(tags$b(quest["q17", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q17a", ]),
+                                                tags$li(id = "txt_j", quest["q17b", ]),
+                                                tags$li(id = "txt_j", quest["q17c", ]),
+                                                tags$li(id = "txt_j", quest["q17d", ])
+                                              ),
+                                              p(tags$b(quest["q18", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q18a", ]),
+                                                tags$li(id = "txt_j", quest["q18b", ]),
+                                                tags$li(id = "txt_j", quest["q18c", ]),
+                                                tags$li(id = "txt_j", quest["q18d", ])
+                                              )
                                        )
                                      )
                                  )
                           ),
-                          column(8, offset = 0, align = "center",
+                          column(8, offset = 0, 
                                  h3("Using fluorescent dissolved organic matter as an indicator of DBP precursors",
                                     align = "center"),
                                  h5("Click the arrows to navigate through the slides", align = "center"),
                                  wellPanel(
                                    slickROutput("fdom_slides", width = "700px", height = "525px")
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(6,
+                                 ),
                                  p(tags$b("What is fDOM?")),
                                  tags$ul(
                                    tags$li(module_text["fDOM", ])
@@ -598,9 +633,7 @@ ui <- function(req) {
                                  p(tags$b("How do we measure fDOM?")),
                                  tags$ul(
                                    tags$li(module_text["fDOM_measure", ])
-                                 )
-                          ),
-                          column(6,
+                                 ),
                                  p(tags$b("How is fDOM related to DBPs?")),
                                  tags$ul(
                                    tags$li(module_text["fDOM_DBPs", ])
@@ -619,7 +652,9 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               h4("Questions"),
-                                              p("fDOM questions here to be sure students are correctly interpreting figure")
+                                              p(tags$b(quest["q19", 1])),
+                                              p(tags$b(quest["q20", 1])),
+                                              p(tags$b(quest["q21", 1]))
                                        )
                                      )
                                  )
@@ -638,7 +673,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               introBox(
-                                                h3("Objective 5: View and interpret chlorophyll-a data from your focal reservoir"))
+                                                h3("Objective 5: View and interpret turbidity data from your focal reservoir"))
                                        )
                                      )
                                  )
@@ -647,8 +682,8 @@ ui <- function(req) {
                         hr(),
                         fluidRow(
                           column(4,
-                                 h3("Chlorophyll-a"),
-                                 p(tags$i("Watch the video and click through the slides to understand how chlorophyll-a data relate to water quality. The information in the presentation is also summarized in text below to help you answer the questions.")),
+                                 h3("Turbidity"),
+                                 p(tags$i("Watch the video and click through the slides to understand how turbidity data relate to possible DBP formation. The information in the presentation is also summarized in text below to help you answer the questions.")),
                                  br(),
                                  box(id = "box12", width = 12, status = "primary",
                                      solidHeader = TRUE,
@@ -657,59 +692,72 @@ ui <- function(req) {
                                               h4("Video"),
                                               HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
-                                              p("Question text here confirming students' understanding of what chlorophyll-a is, how it is measured, and how it can indicate the presence of DBP precursors.")
+                                              p(tags$b(quest["q22", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q22a", ]),
+                                                tags$li(id = "txt_j", quest["q22b", ]),
+                                                tags$li(id = "txt_j", quest["q22c", ]),
+                                                tags$li(id = "txt_j", quest["q22d", ])
+                                              ),
+                                              p(tags$b(quest["q23", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q23a", ]),
+                                                tags$li(id = "txt_j", quest["q23b", ]),
+                                                tags$li(id = "txt_j", quest["q23c", ]),
+                                                tags$li(id = "txt_j", quest["q23d", ])
+                                              )
                                        )
                                      )
                                  )
                           ),
-                          column(8, offset = 0, align = "center",
-                                 h3("Using chlorophyll-a as an indicator of DBP precursors",
+                          column(8, offset = 0, 
+                                 h3("Using turbidity as an indicator of DBP precursors",
                                     align = "center"),
                                  h5("Click the arrows to navigate through the slides", align = "center"),
                                  wellPanel(
-                                   slickROutput("chla_slides", width = "700px", height = "525px")
-                                 )
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(6,
-                                 p(tags$b("What is chlorophyll-a?")),
-                                 tags$ul(
-                                   tags$li(module_text["chla", ])
+                                   slickROutput("turb_slides", width = "700px", height = "525px")
                                  ),
-                                 p(tags$b("How are phytoplankton related to DBPs?")),
+                                 p(tags$b("What is turbidity?")),
                                  tags$ul(
-                                   tags$li(module_text["phyto_dbps", ])
-                                 )
-                          ),
-                          column(6,
-                                 p(tags$b("How is chlorophyll-a related to DBPs?")),
+                                   tags$li(module_text["turb", ])
+                                 ),
+                                 p(tags$b("How is turbidity measured?")),
                                  tags$ul(
-                                   tags$li(module_text["chla_dbps", ])
+                                   tags$li(module_text["turb_measure", ])
+                                 ),
+                                 p(tags$b("How is turbidity related to DBPs?")),
+                                 tags$ul(
+                                   tags$li(module_text["turb_dbps", ]),
+                                   tags$li(module_text["turb_treat", ])
                                  )
                           )
                         ),
                         hr(),
                         fluidRow(
                           column(4,
-                                 h3("Plot chlorophyll-a data"),
-                                 p("Click the button below to plot chlorophyll-a data at your chosen reservoir site."),
-                                 actionButton("plot_chla", "Plot high-frequency chlorophyll-a data"),
+                                 h3("Plot turbidity data"),
+                                 p("Click the button below to plot turbidity data at your chosen reservoir site."),
+                                 actionButton("plot_turb", "Plot high-frequency turbidity data"),
                                  br(),br(),
                                  box(id = "box12", width = 12, status = "primary",
                                      solidHeader = TRUE,
                                      fluidRow(
                                        column(10, offset = 1,
                                               h4("Questions"),
-                                              p("Chla questions here to be sure students are correctly interpreting figure")
+                                              p(tags$b(quest["q24", 1])),
+                                              p(tags$b(quest["q25", 1])),
+                                              p(tags$b(quest["q26", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q26a", ]),
+                                                tags$li(id = "txt_j", quest["q26b", ])
+                                              ),
                                        )
                                      )
                                  )
                           ),
                           column(8,
                                  wellPanel(
-                                   plotlyOutput("chla_plot")
+                                   plotlyOutput("turb_plot")
                                  )
                           )
                         )

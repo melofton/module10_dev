@@ -193,48 +193,6 @@ shinyServer(function(input, output, session) {
     
   })
   
-  #*# turb slides
-  output$turb_slides <- renderSlickR({
-    slickR(obj4_slides) + settings(dots = TRUE)
-  })
-  
-  #*# Plot turb
-  plot.turb <- reactiveValues(main=NULL)
-  
-  observe({
-    
-    output$turb_plot <- renderPlotly({ 
-      
-      validate(
-        need(input$table01_rows_selected != "",
-             message = "Please select a focal reservoir site.")
-      )
-      validate(
-        need(!is.null(lake_data$df),
-             message = "Please select a focal reservoir site.")
-      )
-      validate(
-        need(input$plot_turb > 0,
-             message = "Click 'Plot turbidity'")
-      )
-      
-      df <- lake_data$turb %>% filter(year(datetime) == 2024)
-      
-      p <- ggplot(data = df, aes(x = datetime, y = observation))+
-        geom_point(aes(color = "surface water turbidity"))+
-        xlab("")+
-        ylab("turbidity (FNU)")+
-        scale_color_manual(values = c("surface water turbidity" = "tan"), name = "")+
-        theme_bw()
-      
-      plot.turb$main <- p
-      
-      return(ggplotly(p, dynamicTicks = TRUE, tooltip=c("x", "y", "color")))
-      
-    })
-    
-  })
-  
   
   #### Navigating Tabs ----
     

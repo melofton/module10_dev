@@ -38,7 +38,7 @@ ui <- function(req) {
              p(tags$b("Teaching materials associated with this module can be found at ",
                       tags$a(href="https://serc.carleton.edu/eddie/teaching_materials/modules/module10.html", 
                              "https://serc.carleton.edu/eddie/teaching_materials/modules/module10.html.", target="_blank"))),
-             h2(tags$b("Module 10: Exploring tradeoffs in water quality management using environmental data"))
+             h2(tags$b("Module 10: Exploring Tradeoffs in Water Quality Management Using Environmental Data"))
       ),
       column(1, align = "right",
              br(),
@@ -162,12 +162,12 @@ ui <- function(req) {
                           #* Module text ====
                           introBox(data.step = 10,
                           data.intro = help_text["thank_you", 1],
-                          h2("Exploring tradeoffs in water quality management using environmental data")
+                          h2("Exploring Tradeoffs in Water Quality Management Using Environmental Data")
                           ),
                           h3("Focal question"),
                           h4(tags$b(tags$i("How can we use environmental data to inform our understanding of the tradeoffs involved in water management decision-making?"))),
                           h3("Summary"),
-                          p("Many water management decisions come with tradeoffs. One important example of such a decision is the use of chlorine in the drinking water treatment process. Chlorination is an important disinfection step in water treatment and is needed to protect consumers from harmful pathogens (such as bacteria). However, when there are high amounts of organic matter in the raw water, chlorination can result in the formation of potentially cancer-causing disinfection byproducts. Environmental data, such as organic matter measurements from drinking water reservoirs, can help inform water management decision-making and reduce the risk of unintended consequences due to use of chlorine in water treatment."),
+                          p("Many water management decisions come with tradeoffs. One important example of such a decision is the use of chlorine in the drinking water treatment process. Chlorination is an important disinfection step in water treatment and is needed to protect water consumers from harmful pathogens (such as bacteria). However, when there are high amounts of organic matter in the raw water, chlorination can result in the formation of potentially cancer-causing disinfection byproducts. Environmental sensor data on water quality conditions, such as organic matter measurements from drinking water reservoirs, can help inform water management decision-making and reduce the risk of unintended consequences due to use of chlorine in water treatment."),
                           p("In this module, you will explore organic matter data collected from drinking water reservoirs and learn how to interpret these data to inform your decision-making about chlorination during drinking water treatment."),
                           h3("Learning Outcomes"),
                           tags$line(),
@@ -457,6 +457,14 @@ ui <- function(req) {
                                  )
                           )
                         ),
+                        hr(),
+                        fluidRow(
+                          column(12,
+                                 h2("Next step"),
+                                 h4("You will select a focal reservoir, visualize raw water quality data from that reservoir, and learn how these data can be related to DBP formation risk."),
+                                 
+                          )
+                        )
                ),
                # 6. Activity B ----
                tabPanel(title = tab_names["mtab3", 2], value = "mtab3",
@@ -661,8 +669,67 @@ ui <- function(req) {
                           ),
                           column(8,
                                  wellPanel(
+                                   introBox(data.step = 7, data.intro = help_text["plots", 1],
                                    plotlyOutput("fDOM_plot")
+                                   )
                                  )
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(6,
+                                 h3("Converting fDOM to TOC"),
+                                 p("We have developed a relationship between fDOM (QSU) and TOC (mg/L) for your focal reservoir."),
+                                 p("This allows us to assess the possible levels of DBP precursors in the raw water in terms of TOC."),
+                                 p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
+                                 numericInput( 
+                                   "fdom", 
+                                   "fDOM (QSU)", 
+                                   value = 17.5, 
+                                   min = 0.1, 
+                                   max = 30,
+                                   step = 0.1
+                                 ),
+                                 actionButton("convert_fDOM", "Convert fDOM to TOC"),
+                                 br(),br(),
+                                 wellPanel(
+                                   textOutput("toc_out")
+                                 ),
+                                 br(),br(),
+                                 p("After completing Q.23, if you would like to learn more about how the EPA regulates TOC, you may download and read the rule below."),
+                                 h4("Download and read the U.S. EPA Stage 1 Disinfectants and Disinfection Byproducts Rule"),
+                                 tags$style(type="text/css", "#rule_dl {background-color:#98CAB2;color: white}"),
+                                 wellPanel(
+                                   fluidRow(
+                                     column(6, align = "center", offset = 3,
+                                            downloadButton(outputId = "rule_dl", label = "Download EPA Rule")
+                                     )
+                                   )
+                                 )
+                                 
+                          ),
+                          column(6,
+                                 box(id = "box12", width = 12, status = "primary",
+                                     solidHeader = TRUE,
+                                     fluidRow(
+                                       column(10, offset = 1,
+                                              h4("Questions"),
+                                              p(tags$b(quest["q22", 1])),
+                                              p(tags$b(quest["q23", 1])),
+                                              img(src = "EPA_TOC_rule.png", height = "100%",
+                                                  width = "100%"),
+                                              br(),br()
+                                       )
+                                     )
+                                 )
+                                 )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(12,
+                                h2("Next step"),
+                                h4("You will complete a case study and use high-frequency fDOM data to make water treatment decisions to minimize the risk of DBP formation."),
+
                           )
                         )
                ),
@@ -683,7 +750,7 @@ ui <- function(req) {
                                    fluidRow(
                                      column(10, offset = 1,
                                             introBox(
-                                              h3("Objective 6: Use organic matter and phytoplankton data to make chlorination decisions"))
+                                              h3("Objective 6: Use fluorescent dissolved organic matter data to make coagulation decisions"))
                                      )
                                    )
                                )
@@ -691,12 +758,159 @@ ui <- function(req) {
                ),
               hr(),
               fluidRow(
+                column(6,
+                       box(id = "box12", width = 12, status = "warning",
+                           solidHeader = TRUE,
+                           fluidRow(
+                             column(10, offset = 1,
+                                    h3("Operation scenario"),
+                                    h4("Decide: should I increase my coagulation time to prevent potential DBP formation during treatment?"),
+                                    p("You are operating a reservoir water treatment plant that has experienced high levels of TOC in the filtered water in the past. While there have not been DBPs detected at the treatment plant or in the distribution system to date, your supervisor is concerned about the risk of DBP formation due to high TOC levels that are sometimes observed in both the raw and filtered water."),
+                                    p("Because TOC samples are only taken once per month, your supervisor recommends that you monitor the daily fDOM data collected from the raw water to determine whether an increase in coagulation time is needed to mitigate the risk of DBP formation."),
+                                    h4("Your objective is to determine whether to increase coagulation time to ensure you meet the regulatory limit for TOC in the filtered water (and therefore hopefully avoid formation of DBPs)."),
+                                    p("Previous operators at this reservoir have found that raw water concentrations > XX mg/L of TOC have often led to exceedance of TOC guidelines in the filtered water."),
+                                    p("View the fDOM data during three different times of the year (winter, spring, and summer) and use the fDOM to TOC converter to decide whether you should increase coagulation time to reduce DBP formation risk.")
+                             )
+                           )
+                       )
+                ),
+                column(6,
+                       img(src = "SHRtreatmentPlant.png", height = "90%", id = "bla_border",
+                           width = "90%", tags$style("border: solid 2px black;")),
+                       p(tags$em("Spring Hollow Water Treatment Facility, Roanoke County, VA")),
+                       p(tags$em("Photo credit: Western Virginia Water Authority"))
+                )
+              ),
+              hr(),
+              fluidRow(
+                column(12,
+                       h3("Use the fDOM to TOC converter to help you make management decisions"),
+                       p("We have developed a relationship between fDOM (QSU) and TOC (mg/L) for your reservoir."),
+                       p("This allows us to assess the possible levels of DBP precursors in the raw water in terms of TOC."),
+                       p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
+                       numericInput( 
+                         "fdom1", 
+                         "fDOM (QSU)", 
+                         value = 17.5, 
+                         min = 0.1, 
+                         max = 30,
+                         step = 0.1
+                       ),
+                       actionButton("convert_fDOM1", "Convert fDOM to TOC"),
+                       br(),br(),
+                       wellPanel(
+                         textOutput("toc_out1")
+                       )
+                       
+                )
+              ),
+              hr(),
+              fluidRow(
+                column(4,
+                       h3("Management decision #1: Winter data"),
+                       p("Examine the previous month of fDOM data from the raw water in your reservoir on the right. Then answer the questions below."),
+                       box(id = "box12", width = 12, status = "primary",
+                           solidHeader = TRUE,
+                           fluidRow(
+                             column(10, offset = 1,
+                                    h4("Questions"),
+                                    p(tags$b(quest["q24", 1])),
+                                    p(tags$b(quest["q25", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q25a", ]),
+                                      tags$li(id = "txt_j", quest["q25b", ]),
+                                      tags$li(id = "txt_j", quest["q25c", ]),
+                                      tags$li(id = "txt_j", quest["q25d", ])
+                                    ),
+                                    p(tags$b(quest["q26", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q26a", ]),
+                                      tags$li(id = "txt_j", quest["q26b", ])
+                                    )
+                             )
+                           )
+                       )
+                       ),
+                column(8,
+                       wellPanel(
+                         plotlyOutput("fDOM_plot_dec")
+                       )
+                       )
+              ),
+              hr(),
+              fluidRow(
+                column(4,
+                       h3("Management decision #2: Spring data"),
+                       p("Examine the previous month of fDOM data from the raw water in your reservoir on the right. Then answer the questions below."),
+                       box(id = "box12", width = 12, status = "primary",
+                           solidHeader = TRUE,
+                           fluidRow(
+                             column(10, offset = 1,
+                                    h4("Questions"),
+                                    p(tags$b(quest["q27", 1])),
+                                    p(tags$b(quest["q28", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q28a", ]),
+                                      tags$li(id = "txt_j", quest["q28b", ]),
+                                      tags$li(id = "txt_j", quest["q28c", ]),
+                                      tags$li(id = "txt_j", quest["q28d", ])
+                                    ),
+                                    p(tags$b(quest["q29", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q29a", ]),
+                                      tags$li(id = "txt_j", quest["q29b", ])
+                                    )
+                             )
+                           )
+                       )
+                ),
+                column(8,
+                       wellPanel(
+                         plotlyOutput("fDOM_plot_var")
+                       )
+                )
+              ),
+              hr(),
+              fluidRow(
+                column(4,
+                       h3("Management decision #3: Summer data"),
+                       p("Examine the previous month of fDOM data from the raw water in your reservoir on the right. Then answer the questions below."),
+                       box(id = "box12", width = 12, status = "primary",
+                           solidHeader = TRUE,
+                           fluidRow(
+                             column(10, offset = 1,
+                                    h4("Questions"),
+                                    p(tags$b(quest["q30", 1])),
+                                    p(tags$b(quest["q31", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q31a", ]),
+                                      tags$li(id = "txt_j", quest["q31b", ]),
+                                      tags$li(id = "txt_j", quest["q31c", ]),
+                                      tags$li(id = "txt_j", quest["q31d", ])
+                                    ),
+                                    p(tags$b(quest["q32", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q32a", ]),
+                                      tags$li(id = "txt_j", quest["q32b", ])
+                                    )
+                             )
+                           )
+                       ) 
+                ),
+                column(8,
+                       wellPanel(
+                         plotlyOutput("fDOM_plot_inc")
+                       )
+                )
+              ),
+              hr(),
+              fluidRow(
                 column(12,
                        introBox(data.step = 9, data.intro = help_text["finish", 1],
                        h2("Completed Module!"),
                        h3("You have completed the module! Congratulations!"),
-                       h4("Please check through the answers in your Canvas quiz and be sure you have copy-pasted in all the required plots before you submit the quiz to your instructor."),
-                       h4("You’ve now made operations decisions informed by high-frequency water quality data and forecasts - well done!")
+                       h4("Please check through the answers in your Canvas quiz before you submit the quiz to your instructor."),
+                       h4("You’ve now made operations decisions informed by high-frequency water quality data - well done!")
                        )
                 )
               )

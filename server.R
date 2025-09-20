@@ -193,6 +193,158 @@ shinyServer(function(input, output, session) {
     
   })
   
+  # convert fdom to toc
+  toc.out <- reactiveValues(toc=NULL)
+  
+  output$toc_out <- renderText({
+    
+    validate(
+      need(input$table01_rows_selected != "",
+           message = "Please select a focal reservoir site.")
+    )
+    validate(
+      need(!is.null(lake_data$df),
+           message = "Please select a focal reservoir site.")
+    )
+    validate(
+      need(input$convert_fDOM > 0,
+           message = "Click 'Convert fDOM to TOC'")
+    )
+    
+    observeEvent(input$convert_fDOM,{
+      
+      site_id = pull(sites_df[input$table01_rows_selected, "SiteID"])
+      
+      if(site_id == "fcre"){
+        toc.out$toc = 1.86859 + 0.10846*input$fdom
+      }
+      if(site_id == "bvre"){
+        toc.out$toc = 2.24794 + 0.10522*input$fdom
+      }
+      
+    })
+    
+    paste0("The estimated TOC level associated with this level of fDOM is ~",round(toc.out$toc, 1)," mg/L.")
+  })
+  
+  # Download EPA rule
+  output$rulebuilt <- reactive({
+    return(file.exists("Stage-1-Disinfection-By-products-fact-sheet.pdf"))
+  })
+  outputOptions(output, 'rulebuilt', suspendWhenHidden= FALSE)
+  
+  rule_file <- "EPA_816-F-01-014.pdf"
+  
+  output$rule_dl <-  downloadHandler(
+    filename = function() {
+      rule_file
+    },
+    content = function(file) {
+      file.copy("Stage-1-Disinfection-By-products-fact-sheet.pdf", file)
+    }
+  )
+  
+  #### Activity C ----
+  
+  # Objective 5
+  
+  # convert fdom to toc
+  toc.out1 <- reactiveValues(toc=NULL)
+  
+  output$toc_out1 <- renderText({
+    
+    validate(
+      need(input$convert_fDOM1 > 0,
+           message = "Click 'Convert fDOM to TOC'")
+    )
+    
+    observeEvent(input$convert_fDOM1,{
+      
+        toc.out1$toc = 1.86859 + 0.10846*input$fdom1
+      
+    })
+    
+    paste0("The estimated TOC level associated with this level of fDOM is ~",round(toc.out1$toc, 1)," mg/L.")
+  })
+  
+  #*# Plot fDOM (increasing)
+  plot.fDOM.inc <- reactiveValues(main=NULL)
+  
+  observe({
+    
+    output$fDOM_plot_inc <- renderPlotly({ 
+      
+      df <- reservoir_data %>%
+        filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2019-07-20" & datetime <= "2019-08-20")
+      
+      p <- ggplot(data = df, aes(x = datetime, y = observation))+
+        geom_point(aes(color = "surface water fDOM"))+
+        geom_line(aes(color = "surface water fDOM"))+
+        xlab("")+
+        ylab("fDOM (QSU)")+
+        scale_color_manual(values = c("surface water fDOM" = "brown"), name = "")+
+        theme_bw()
+      
+      plot.fDOM.inc$main <- p
+      
+      return(ggplotly(p, dynamicTicks = TRUE, tooltip=c("x", "y", "color")))
+      
+    })
+    
+  })
+  
+  #*# Plot fDOM (decreasing)
+  plot.fDOM.dec <- reactiveValues(main=NULL)
+  
+  observe({
+    
+    output$fDOM_plot_dec <- renderPlotly({ 
+      
+      df <- reservoir_data %>%
+        filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2021-01-20" & datetime <= "2021-02-20")
+      
+      p <- ggplot(data = df, aes(x = datetime, y = observation))+
+        geom_point(aes(color = "surface water fDOM"))+
+        geom_line(aes(color = "surface water fDOM"))+
+        xlab("")+
+        ylab("fDOM (QSU)")+
+        scale_color_manual(values = c("surface water fDOM" = "brown"), name = "")+
+        theme_bw()
+      
+      plot.fDOM.dec$main <- p
+      
+      return(ggplotly(p, dynamicTicks = TRUE, tooltip=c("x", "y", "color")))
+      
+    })
+    
+  })
+  
+  #*# Plot fDOM (variable)
+  plot.fDOM.var <- reactiveValues(main=NULL)
+  
+  observe({
+    
+    output$fDOM_plot_var <- renderPlotly({ 
+      
+      df <- reservoir_data %>%
+        filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2022-03-15" & datetime <= "2022-04-15")
+      
+      p <- ggplot(data = df, aes(x = datetime, y = observation))+
+        geom_point(aes(color = "surface water fDOM"))+
+        geom_line(aes(color = "surface water fDOM"))+
+        xlab("")+
+        ylab("fDOM (QSU)")+
+        scale_color_manual(values = c("surface water fDOM" = "brown"), name = "")+
+        theme_bw()
+      
+      plot.fDOM.var$main <- p
+      
+      return(ggplotly(p, dynamicTicks = TRUE, tooltip=c("x", "y", "color")))
+      
+    })
+    
+  })
+  
   
   #### Navigating Tabs ----
     

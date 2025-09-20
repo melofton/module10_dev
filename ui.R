@@ -198,7 +198,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(12, offset = 1,
                                               introBox(data.step = 5, data.intro = help_text["videos", 1],
-                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/uhg1Mg621O4?si=jUNdMwTuS_JwMRkL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                                               )
                                               )
                                      ),
@@ -209,7 +209,43 @@ ui <- function(req) {
                                          br(),br(),br(),br(),br(),
                                      fluidRow(
                                        column(12, offset = 1,
-                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/uhg1Mg621O4?si=jUNdMwTuS_JwMRkL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                       )
+                                     ),
+                                     br(),
+                                     box(id = "box1", width = 12, status = "success", solidHeader = TRUE,
+                                         fluidRow(
+                                           column(11, offset = 1, h4(tags$b(module_text["workflow3", ]))))),
+                                     br(),br(),br(),
+                                     fluidRow(
+                                       #** Choose site ----
+                                       column(4,
+                                              h4("Site Names"),
+                                              p("Select a site in the table to highlight on the map"),
+                                              conditionalPanel("input.row_num > 25",
+                                                               selectizeInput("row_num", "Select row",
+                                                                              choices = 1:nrow(sites_df),
+                                                                              options = list(
+                                                                                placeholder = 'Please select a row',
+                                                                                onInitialize = I('function() { this.setValue(""); }'))
+                                                               )
+                                              ),
+                                              DTOutput("table01", fill = TRUE)
+                                       ),
+                                       #** Site map ----
+                                       column(4,
+                                              h4("Map of Virginia Reservoir LTREB sites"),
+                                              wellPanel(
+                                                leafletOutput("ltrebmap")
+                                              )
+                                       ),
+                                       #** Site photo ----
+                                       column(4,
+                                              h4("Site photo"),
+                                              wellPanel(
+                                                imageOutput("site_photo"),
+                                                p(id = "txt_j", module_text["site_photo", ])
+                                              )
                                        )
                                      ),
                                      br(),
@@ -360,7 +396,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1, align = "left",
                                               h4("Video"),
-                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/ciNGTseKY_I?si=l-DN49JgTak2RQYv" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
                                               p(tags$b(quest["q4", 1])),
                                               tags$ul(
@@ -421,7 +457,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1, align = "left",
                                               h4("Video"),
-                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/s1VVM7Dh8yE?si=k93vKJBUcklL3P7x" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
                                               p(tags$b(quest["q7", 1])),
                                               tags$ul(
@@ -491,19 +527,25 @@ ui <- function(req) {
                         ),
                         hr(),
                         fluidRow(
-                          #** Choose site ----
-                          column(4,
-                                 h4("Site Names"),
-                                 p("Select a site in the table to highlight on the map"),
-                                 conditionalPanel("input.row_num > 25",
-                                                  selectizeInput("row_num", "Select row",
-                                                                 choices = 1:nrow(sites_df),
-                                                                 options = list(
-                                                                   placeholder = 'Please select a row',
-                                                                   onInitialize = I('function() { this.setValue(""); }'))
-                                                  )
+                          #** LTREB Intro ----
+                          column(6,
+                                 box(id = "box12", width = 12, status = "warning",
+                                     solidHeader = TRUE,
+                                     fluidRow(
+                                       column(10, offset = 1,
+                                              h3("You have chosen to work with"),
+                                              wellPanel(
+                                                htmlOutput("site_name")
+                                              ),
+                                              p("You will learn about the characteristics and uses of this reservoir and explore high-frequency water quality data collected there.")
+                                       )
+                                     )
                                  ),
-                                 DTOutput("table01", fill = TRUE),
+                                 fluidRow(
+                                   column(12,
+                                          p("")
+                                   )
+                                 ),
                                  fluidRow(
                                    column(12,
                                           wellPanel(
@@ -513,22 +555,15 @@ ui <- function(req) {
                                    )
                                  )
                           ),
-                          #** Site map ----
-                          column(4,
-                                 h4("Map of Virginia Reservoir LTREB sites"),
-                                 wellPanel(
-                                   leafletOutput("ltrebmap")
-                                 )
-                          ),
-                          #** Site photo ----
-                          column(4,
+                          column(6,
                                  h4("Site photo"),
                                  wellPanel(
-                                   imageOutput("site_photo"),
+                                   imageOutput("site_photo1"),
                                    p(id = "txt_j", module_text["site_photo", ])
                                  )
                           )
-                        ),
+                          
+                        ), 
                         hr(),
                         fluidRow(
                           column(12, align = "left",
@@ -562,22 +597,6 @@ ui <- function(req) {
                         hr(),
                         fluidRow(
                           column(12,
-                                 h4("Now we will visualize high-frequency data from your chosen reservoir and explore how these data can be related to potential DBP precursors."))
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(8,
-                                 h3("A note on reading and interpreting graphs"),
-                                 p("Please watch the video on the right for a refresher course on reading and interpreting graphs. This may help you to answer the questions about water temperature data as well as other questions throughout the module.")
-                          ),
-                          column(4,
-                                 h4("Video: Reading and interpreting graphs"),
-                                 HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/AhnwYmHvHSc?si=r0LzHH-t8fAE3Lt9" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
-                          column(12,
                                  box(id = "box1", width = 10, status = "success",
                                      solidHeader = TRUE,
                                      fluidRow(
@@ -591,6 +610,21 @@ ui <- function(req) {
                         ),
                         hr(),
                         fluidRow(
+                          column(12,
+                                 h3(tags$i("Now we will visualize high-frequency data from your chosen reservoir and explore how these data can be related to potential DBP precursors.")))
+                        ),
+                        fluidRow(
+                          column(8,
+                                 h3("A note on reading and interpreting graphs"),
+                                 p("Please watch the video on the right for a refresher course on reading and interpreting graphs. This may help you to answer the questions about water temperature data as well as other questions throughout the module.")
+                          ),
+                          column(4,
+                                 h4("Video: Reading and interpreting graphs"),
+                                 HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/AhnwYmHvHSc?si=r0LzHH-t8fAE3Lt9" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
                           column(4,
                                  h3("Fluorescent dissolved organic matter (fDOM)"),
                                  p(tags$i("Watch the video and click through the slides to understand how fDOM data relate to possible DBP formation. The information in the presentation is also summarized in text below to help you answer the questions.")),
@@ -600,7 +634,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               h4("Video"),
-                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/T1-k7VYwsHg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/H8qNZ0hV-YI?si=oTLgSXeLiGfKnrHr" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
                                               p(tags$b(quest["q16", 1])),
                                               tags$ul(
@@ -768,7 +802,7 @@ ui <- function(req) {
                                     p("You are operating a reservoir water treatment plant that has experienced high levels of TOC in the filtered water in the past. While there have not been DBPs detected at the treatment plant or in the distribution system to date, your supervisor is concerned about the risk of DBP formation due to high TOC levels that are sometimes observed in both the raw and filtered water."),
                                     p("Because TOC samples are only taken once per month, your supervisor recommends that you monitor the daily fDOM data collected from the raw water to determine whether an increase in coagulation time is needed to mitigate the risk of DBP formation."),
                                     h4("Your objective is to determine whether to increase coagulation time to ensure you meet the regulatory limit for TOC in the filtered water (and therefore hopefully avoid formation of DBPs)."),
-                                    p("Previous operators at this reservoir have found that raw water concentrations > XX mg/L of TOC have often led to exceedance of TOC guidelines in the filtered water."),
+                                    p("Previous operators at this reservoir have found that raw water concentrations ",tags$b("> 10 mg/L")," of TOC have often led to exceedance of TOC guidelines in the filtered water."),
                                     p("View the fDOM data during three different times of the year (winter, spring, and summer) and use the fDOM to TOC converter to decide whether you should increase coagulation time to reduce DBP formation risk.")
                              )
                            )

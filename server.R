@@ -25,21 +25,8 @@ shinyServer(function(input, output, session) {
     }
   )
   
-  #### Activity A ----
+  # Select site
   
-  #** Objective 1: DBP formation/thresholds slides ----
-  output$dbp_formation_thresholds_slides <- renderSlickR({
-    slickR(obj1_slides) + settings(dots = TRUE)
-  })
-  
-  #** Objective 2: DBP tradeoffs slides ----
-  output$dbp_tradeoffs_slides <- renderSlickR({
-    slickR(obj2_slides) + settings(dots = TRUE)
-  })
-  
-  #### Activity B ----
-  
-  #** Objective 3: Select/view reservoir ----
   # LTREB Sites datatable ----
   output$table01 <- DT::renderDT(
     sites_df[, c(1:2)], selection = "single", options = list(stateSave = TRUE, dom = 't'), server = FALSE
@@ -149,7 +136,61 @@ shinyServer(function(input, output, session) {
          width = 320)
   }, deleteFile = FALSE)
   
-  #** Objective 3: Plot fDOM ----
+  #### Activity A ----
+  
+  #** Objective 1: DBP formation/thresholds slides ----
+  output$dbp_formation_thresholds_slides <- renderSlickR({
+    slickR(obj1_slides) + settings(dots = TRUE)
+  })
+  
+  #** Objective 2: DBP tradeoffs slides ----
+  output$dbp_tradeoffs_slides <- renderSlickR({
+    slickR(obj2_slides) + settings(dots = TRUE)
+  })
+  
+  #### Activity B ----
+  
+  #** Objective 3: Select/view reservoir ----
+
+  # Output site name
+  observe({
+    
+    output$site_name <- renderUI({
+      
+      validate(
+        need(!is.null(lake_data$df),
+             message = "Please select a site in the Introduction.")
+      )
+      
+      site = pull(sites_df[input$table01_rows_selected, "SiteID"])
+      
+      if(site == "fcre"){
+        site_name <- paste("<b>","Falling Creek Reservoir","</b>", sep = "")
+      }
+      if(site == "bvre"){
+        site_name <- paste("<b>","Beaverdam Reservoir","</b>", sep = "")
+      }
+      
+      
+      HTML(paste(site_name))
+    })
+    
+  })
+  
+  # Show reservoir image again ----
+  output$site_photo1 <- renderImage({
+    
+    validate(
+      need(input$table01_rows_selected != "",
+           message = "Please select a site in the Introduction.")
+    )
+    list(src = site_photo_file$img,
+         alt = "Image failed to render.",
+         height = 384,
+         width = 480)
+  }, deleteFile = FALSE)
+  
+  #** Objective 4: Plot fDOM ----
   
   #*# fDOM slides
   output$fdom_slides <- renderSlickR({
@@ -277,7 +318,7 @@ shinyServer(function(input, output, session) {
       df <- reservoir_data %>%
         filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2019-07-20" & datetime <= "2019-08-20")
       
-      p <- ggplot(data = df, aes(x = datetime, y = observation))+
+      p <- ggplot(data = df, aes(x = datetime, y = observation^1.5))+
         geom_point(aes(color = "surface water fDOM"))+
         geom_line(aes(color = "surface water fDOM"))+
         xlab("")+
@@ -303,7 +344,7 @@ shinyServer(function(input, output, session) {
       df <- reservoir_data %>%
         filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2021-01-20" & datetime <= "2021-02-20")
       
-      p <- ggplot(data = df, aes(x = datetime, y = observation))+
+      p <- ggplot(data = df, aes(x = datetime, y = observation^1.5))+
         geom_point(aes(color = "surface water fDOM"))+
         geom_line(aes(color = "surface water fDOM"))+
         xlab("")+
@@ -329,7 +370,7 @@ shinyServer(function(input, output, session) {
       df <- reservoir_data %>%
         filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2022-03-15" & datetime <= "2022-04-15")
       
-      p <- ggplot(data = df, aes(x = datetime, y = observation))+
+      p <- ggplot(data = df, aes(x = datetime, y = observation^1.5))+
         geom_point(aes(color = "surface water fDOM"))+
         geom_line(aes(color = "surface water fDOM"))+
         xlab("")+

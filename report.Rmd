@@ -44,6 +44,8 @@ Many water management decisions come with tradeoffs. One important example of su
 
 In this module, you will explore organic matter data collected from drinking water reservoirs and learn how to interpret these data to inform your decision-making about chlorination during drinking water treatment.
 
+\newpage
+
 # Learning Objectives:
 
 By the end of this module, you will be able to:
@@ -56,15 +58,17 @@ By the end of this module, you will be able to:
 ## Module overview:
 
 - Introductory presentation on concepts related to drinking water disinfection byproducts (DBPs) and environmental data from drinking water reservoirs
-- Activity A: Explore how disinfection byproducts are formed during the drinking water treatment process and examine tradeoffs between disinfection and byproduct formation
-- Activity B: View and interpret environmental data that can indicate when naturally-occurring DBP precursors are present
-- Activity C: Make water treatment decisions using environmental data that can indicate when DBP precursors may be present
+- **Activity A:** Explore how disinfection byproducts are formed during the drinking water treatment process and examine tradeoffs between disinfection and byproduct formation
+- **Activity B:** View and interpret environmental data that can indicate when naturally-occurring DBP precursors are present
+- **Activity C:** Make water treatment decisions using environmental data that can indicate when DBP precursors may be present
 
 ## Module materials:
 
 The lesson content is hosted on an interactive R Shiny web application at [https://macrosystemseddie.shinyapps.io/module10/](https://macrosystemseddie.shinyapps.io/module10/)  
 
 This can be accessed via any internet browser and allows you to navigate through the lesson via this app. You will fill in the questions below on this handout as you complete the lesson activities. Some instructors may ask students to enter their answers to module questions using a Canvas quiz. Confirm with your instructor as to how to submit your answers.
+
+\newpage
 
 ## Module workflow:
 `r substr(module_text["workflow1", ], 0, nchar(module_text["workflow1", ]))`
@@ -74,10 +78,7 @@ This can be accessed via any internet browser and allows you to navigate through
 `r substr(module_text["workflow5", ], 0, nchar(module_text["workflow5", ]))`
 `r substr(module_text["workflow6", ], 0, nchar(module_text["workflow6", ]))`
 
-
 \newpage
-
-
 
 # Module Questions:
 
@@ -106,7 +107,7 @@ Answer the following questions:
       c.  `r substr(quest["q3c", ], 4, nchar(quest["q3c", ]))`
       d.  `r substr(quest["q3d", ], 4, nchar(quest["q3d", ]))`
 
-<br>
+\newpage
 
 ## Activity A - Explore how disinfection byproducts can be formed during chlorination
 
@@ -254,65 +255,89 @@ Virginia's Water Quality Assessment Guidance Manual gives the following guidance
 
      **Answer:**
 
+22. `r substr(quest["q22", ], 5, nchar(quest["q22", ]))`    
+
+     **Answer:**
+
+23. `r substr(quest["q23", ], 5, nchar(quest["q23", ]))`    
+
+     **Answer:**
+
+![](www/EPA_TOC_rule.png)
+
 \newpage 
 
-## Activity C - Make water treatment decisions using water quality forecasts
+## Activity C - Use environmental data to inform water treatment decisions
 
 `r module_text["act_C", ]`
 
 ***
-### Objective 5: Make water treatment decisions using water quality forecasts
+### Objective 6: Use fluorescent dissolved organic matter data to make coagulation decisions
 
 ***
+<br>
 
-47. `r substr(quest["q47", ], 5, nchar(quest["q47", ]))`    
+#### Management decision #1: Winter data
+<br>
 
-     **Answer:**
-     
-48. `r substr(quest["q48", ], 5, nchar(quest["q48", ]))`    
-
-     **Answer:**
-
-49. `r substr(quest["q49", ], 5, nchar(quest["q49", ]))`    
+24. `r substr(quest["q24", ], 5, nchar(quest["q24", ]))`    
 
      **Answer:**
      
-50. `r substr(quest["q50", ], 5, nchar(quest["q50", ]))`    
+25. `r substr(quest["q25", ], 5, nchar(quest["q25", ]))` 
 
-     **Answer:**
+      a.  `r substr(quest["q25a", ], 4, nchar(quest["q25a", ]))`
+      b.  `r substr(quest["q25b", ], 4, nchar(quest["q25b", ]))`
+      c.  `r substr(quest["q25c", ], 4, nchar(quest["q25c", ]))`
+      d.  `r substr(quest["q25d", ], 4, nchar(quest["q25d", ]))` 
 
-51. `r substr(quest["q51", ], 5, nchar(quest["q51", ]))`    
+26. `r substr(quest["q26", ], 5, nchar(quest["q26", ]))` 
 
-     **Answer:**
-     
-52. `r substr(quest["q52", ], 5, nchar(quest["q52", ]))`    
+      a.  `r substr(quest["q26a", ], 4, nchar(quest["q26a", ]))`
+      b.  `r substr(quest["q26b", ], 4, nchar(quest["q26b", ]))`
 
-     **Answer:**
+<br>
 
-53. `r substr(quest["q53", ], 5, nchar(quest["q53", ]))`    
+#### Management decision #2: Spring data
+<br>
 
-     **Answer:**
-     
-54. `r substr(quest["q54", ], 5, nchar(quest["q54", ]))`    
-
-     **Answer:**
-
-55. `r substr(quest["q55", ], 5, nchar(quest["q55", ]))`    
+27. `r substr(quest["q27", ], 5, nchar(quest["q27", ]))`    
 
      **Answer:**
      
-56. `r substr(quest["q56", ], 5, nchar(quest["q56", ]))`    
+28. `r substr(quest["q28", ], 5, nchar(quest["q28", ]))` 
 
-     **Answer:**
+      a.  `r substr(quest["q28a", ], 4, nchar(quest["q28a", ]))`
+      b.  `r substr(quest["q28b", ], 4, nchar(quest["q28b", ]))`
+      c.  `r substr(quest["q28c", ], 4, nchar(quest["q28c", ]))`
+      d.  `r substr(quest["q28d", ], 4, nchar(quest["q28d", ]))` 
 
-57. `r substr(quest["q57", ], 5, nchar(quest["q57", ]))`    
+29. `r substr(quest["q29", ], 5, nchar(quest["q29", ]))` 
+
+      a.  `r substr(quest["q29a", ], 4, nchar(quest["q29a", ]))`
+      b.  `r substr(quest["q29b", ], 4, nchar(quest["q29b", ]))`
+
+<br>
+
+#### Management decision #3: Summer data
+<br>
+
+30. `r substr(quest["q30", ], 5, nchar(quest["q30", ]))`    
 
      **Answer:**
      
-58. `r substr(quest["q58", ], 5, nchar(quest["q58", ]))`    
+31. `r substr(quest["q31", ], 5, nchar(quest["q31", ]))` 
 
-     **Answer:**
-           
+      a.  `r substr(quest["q31a", ], 4, nchar(quest["q31a", ]))`
+      b.  `r substr(quest["q31b", ], 4, nchar(quest["q31b", ]))`
+      c.  `r substr(quest["q31c", ], 4, nchar(quest["q31c", ]))`
+      d.  `r substr(quest["q31d", ], 4, nchar(quest["q31d", ]))` 
+
+32. `r substr(quest["q32", ], 5, nchar(quest["q32", ]))` 
+
+      a.  `r substr(quest["q32a", ], 4, nchar(quest["q32a", ]))`
+      b.  `r substr(quest["q32b", ], 4, nchar(quest["q32b", ]))`
+
 <br>
 
 *`r module_text["acknowledgement", ]`*

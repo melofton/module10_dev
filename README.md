@@ -2,17 +2,15 @@
 
 # [Macrosystems EDDIE](https://serc.carleton.edu/eddie/macrosystems/index.html)
 
-## Module 9: Using High-Frequency Data to Manage Water Quality
-[![](https://img.shields.io/badge/Shiny-shinyapps.io-blue?style=flat&labelColor=white&logo=RStudio&logoColor=blue)](https://macrosystemseddie.shinyapps.io/module9/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.13835236.svg
-)](https://doi.org/10.5281/zenodo.13835236)
-<a href="url"><img src="www/mod9_conceptual_figure.png" align="right" height="220" width="293" ></a>
+## Module 10: Exploring Tradeoffs in Water Quality Management Using Environmental Data
+[![](https://img.shields.io/badge/Shiny-shinyapps.io-blue?style=flat&labelColor=white&logo=RStudio&logoColor=blue)](https://macrosystemseddie.shinyapps.io/module10/)
+<a href="url"><img src="www/mod10_conceptual_figure.png" align="right" height="220" width="293" ></a>
 
 ### Summary
-Here are the code and instructor materials for running the Macrosystems EDDIE Module 9: _Using High-Frequency Data to Manage Water Quality_. Below are instructions on how to access the Shiny app *via* a web browser and also a detailed guide below for launching the R Shiny App locally on your own computer. Open-source versions of all instructor materials are available in the instructor_materials.zip file. For more details about teaching this module, including editable versions of instructor materials which can be downloaded and modified for teaching purposes, please visit our [website](https://serc.carleton.edu/eddie/teaching_materials/modules/module9.html).
+Here are the code and instructor materials for running the Macrosystems EDDIE Module 10: _Exploring Tradeoffs in Water Quality Management Using Environmental Data_. Below are instructions on how to access the Shiny app *via* a web browser and also a detailed guide below for launching the R Shiny App locally on your own computer. For more details about teaching this module, including editable versions of instructor materials which can be downloaded and modified for teaching purposes, please visit our [website](https://serc.carleton.edu/eddie/teaching_materials/modules/module10.html).
 
 ## Accessing the Shiny App _via_ a web browser
-The Shiny app for this module can be accessed through any internet browser on [shinyapps.io](https://macrosystemseddie.shinyapps.io/module9/).
+The Shiny app for this module can be accessed through any internet browser on [shinyapps.io](https://macrosystemseddie.shinyapps.io/module10/).
 When first launching it will take a while for the Shiny app to boot up. 
 
 ##  Running the Shiny App locally on your computer
@@ -49,10 +47,10 @@ There are two options:
 Here is an alternative way to quickly launch the Shiny app in less than a minute, but can be prone to package installation errors if your packages have not been updated recently.
 ```
 # Step 1. Install required R packages
-source("https://raw.githubusercontent.com/MacrosystemsEDDIE/module7/main/install.R")
+source("https://raw.githubusercontent.com/MacrosystemsEDDIE/module10/main/install.R")
 
 # Step 2. Launch Shiny app
-shiny::runGitHub("module7", "MacrosystemsEDDIE", ref = "main", subdir = "app")
+shiny::runGitHub("module10", "MacrosystemsEDDIE", ref = "main")
 ```
 
 ## Questions & Feedback

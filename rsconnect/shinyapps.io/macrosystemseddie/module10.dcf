@@ -1,12 +1,12 @@
-name: module10_dev
-title: module10_dev
+name: module10
+title: module10
 username: macrosystemseddie
 account: macrosystemseddie
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
-appId: 14164345
-bundleId: 10933492
-url: https://macrosystemseddie.shinyapps.io/module10_dev/
+appId: 15516555
+bundleId: 10933514
+url: https://macrosystemseddie.shinyapps.io/module10/
 version: 1
 asMultiple: FALSE
 asStatic: FALSE

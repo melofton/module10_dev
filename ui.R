@@ -209,7 +209,7 @@ ui <- function(req) {
                                          br(),br(),br(),br(),br(),
                                      fluidRow(
                                        column(12, offset = 1,
-                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/uhg1Mg621O4?si=jUNdMwTuS_JwMRkL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/1VzX_93JMwM?si=7kh7X5Y-E_pDRR6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                        )
                                      ),
                                      br(),
@@ -490,7 +490,9 @@ ui <- function(req) {
                                  h5("Click the arrows to navigate through the slides", align = "center"),
                                  wellPanel(
                                    slickROutput("dbp_tradeoffs_slides", width = "700px", height = "525px")
-                                 )
+                                 ),
+                                 img(src = "calculate_breakpoint_chlorination.png", height = "80%",
+                                     width = "80%")
                           )
                         ),
                         hr(),

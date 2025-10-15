@@ -17,9 +17,7 @@ q4a,a. DBP precusors can be naturally-occurring
 q4b,b. DBP precursors can be organic compounds
 q4c,"c. DBP precursors can come from sources related to human activities (e.g., agriculture)"
 q4d,d. DBP precursors can be inorganic compounds
-q4e,e. a and b only
-q4f,f. c and d only
-q4g,"g. a, b, c, and d"
+q4e,e. all of the above
 q5,Q5. Exposure to DBPs has been associated with which of the following health concerns?
 q5a,a. eczema
 q5b,b. diabetes
@@ -33,69 +31,74 @@ q7a,a. the point at which adding more chlorine to the treatment system will lead
 q7b,b. the point at which complete disinfection is achieved and free residual begins to build up
 q7c,c. the point at which formation of DBPs is most likely
 q7d,d. the point at which chlorine begins to break down organic matter DBP precursors
-q8,Q8. Breakpoint chlorination has been achieved when
-q8a,a. the expected residual is less than the actual residual
+q8,Q8. Breakpoint chlorination has been achieved when:
+q8a,a. the expected residual is less than or equal to the actual residual
 q8b,b. the actual residual is less than the expected residual
-q8c,c. the expected and actual residual are equal
-q8d,d. none of these
-q9,"Q9. A chlorinator setting of 20 lbs chlorine per day results in a chlorine residual of 0.3 mg/L. The chlorinator setting is increased to 23 lb/day. The chlorine residual increases to 0.54 mg/L at this new dosage rate. The average flow being treated is 1.5 MGD. On the basis of these data, is the water being chlorinated past the breakpoint?"
-q9a,a. yes
-q9b,b. no
-q9c,c. the answer cannot be determined from the information given
-q10,Q10. What is the name of your selected reservoir?
-q11,"Q11. What is the four-letter site identifier of your selected reservoir? Use lower case (e.g., ‘fcre’)."
-q12,Q12. What are the uses of your selected reservoir?
-q12a,a. recreation
-q12b,b. irrigation
-q12c,c. hydropower
-q12d,d. drinking water supply
-q13,"Q13. What is the reservoir area in square feet of your selected reservoir? Provide your answer as a whole number (without decimal points) and with no spaces or commas (e.g., 123456)."
-q14,Q14. What is the maximum depth of your reservoir in feet? Round your answer to the nearest whole number.
-q15,Q15. Does your chosen reservoir site exceed a TSI of 60 (indicating negative human impacts on water quality) according to average total phosphorus levels? 
-q16,Q16. Which of the following is NOT a characteristic of fDOM?
-q16a,a. it is composed of particles
-q16b,b. it is dissolved in the water
-q16c,c. it is derived from living things and contains carbon
-q16d,d. it fluoresces when exposed to light at particular wavelengths
-q17,"Q17. fDOM is measured in quinine sulfate units, or QSU. Which of the following is NOT true regarding QSU?"
-q17a,a. QSU is an indirect measure of fDOM
-q17b,b. calibrating sensors using QSU enables consistent fDOM measurements across sensors and reservoirs
-q17c,c. QSU compares organic matter fluorescence to the fluorescence of known concentrations of quinine sulfate
-q17d,d. QSU range from -1 to 1
-q18,Q18. How is fDOM related to DBPs?
-q18a,a. fDOM molecules are DBPs
-q18b,b. the presence of fDOM molecules is correlated with other molecules in the raw water that are DBPs
-q18c,c. high fDOM levels in raw water may indicate the presence of DBP precursors which will form DBPs during treatment
-q18d,d. high fDOM levels in raw water may indicate that treated water will exceed the MRDL
-q19,"Q19. On what day of the year did the highest observed fDOM occur in your reservoir? Write out the full month name and day (e.g., September 20)."
-q20,"Q20. On what day of the year did the lowest observed fDOM occur in your reservoir? Write out the full month name and day (e.g., September 20)."
-q21,"Q21. Based on the data in the figure and your understanding of how fDOM levels relate to DBPs, on what day of the year is the risk of DBP formation during treatment highest in your reservoir according to the fDOM data? Write out the full month name and day (e.g., September 20)."
-q22,"Q22. In your focal reservoir, what is the corresponding TOC in mg/L for an fDOM observation of 20 QSU? Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
-q23,"Q23. The U.S. Environmental Protection Agency (US EPA) has a rule regarding removal of TOC from drinking water during treatment (see table below). The percentage of TOC that must be removed during treatment depends on the amount of TOC in the raw water (see the first column of the table). Notice that reservoirs are grouped depending on whether they exhibit TOC between 2-4 mg/L, between 4-8 mg/L, or above 8 mg/L. Use the fDOM-to-TOC converter to determine what level of fDOM would correspond to a raw water concentration of 8 mg/L of TOC. Round your answer to the nearest tenth and be sure to include the units (e.g., 10.5 QSU)."
-q24,"Q24. Today is Feb. 20. What is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
-q25,Q25. Which best describes the pattern in fDOM data over the previous month?
-q25a,a. increasing
-q25b,b. decreasing
-q25c,c. steady (very little change)
-q25d,"d. highly variable, but neither increasing nor decreasing overall"
-q26,Q26. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question.
-q26a,a. yes
-q26b,b. no
-q27,"Q27. Today is Apr. 15. What is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
-q28,Q28. Which best describes the pattern in fDOM data over the previous month?
-q28a,a. increasing
-q28b,b. decreasing
-q28c,c. steady (very little change)
-q28d,"d. highly variable, but neither increasing nor decreasing overall"
-q29,Q29. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question.
-q29a,a. yes
-q29b,b. no
-q30,"Q30. Today is Aug. 20. What is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
-q31,Q31. Which best describes the pattern in fDOM data over the previous month?
-q31a,a. increasing
-q31b,b. decreasing
-q31c,c. steady (very little change)
-q31d,"d. highly variable, but neither increasing nor decreasing overall"
-q32,Q32. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question.
-q32a,a. yes
-q32b,b. no
+q8c,c. neither of the above
+q9,"Q9. Use the following information to answer Q9-Q11. A chlorinator setting of 20 lbs chlorine per day results in a chlorine residual of 0.3 mg/L. The chlorinator setting is increased to 23 lb/day. The chlorine residual increases to 0.54 mg/L at this new dosage rate. The average flow being treated is 1.5 MGD. On the basis of these data, what is the expected increase in residual?"
+q10,"Q10. Using the information provided in Q9, what is the actual increase in residual?"
+q11,"Q11. Using the information in Q9 and your answers to Q9 and Q10, is breakpoint chlorination being reached?"
+q11a,a. yes
+q11b,b. no
+q11c,c. the answer cannot be determined from the information given
+q12,Q12. Which of the following is NOT a method for removing DBP precursors prior to disinfection?
+q12a,a. increase coagulation time or add more coagulant
+q12b,b. use activated carbon filters to remove organic matter
+q12c,c. increase the frequency of TOC testing
+q12d,d. pass water through a membrane that filters out DBP precursors
+q13,Q13. What is the name of your selected reservoir?
+q14,"Q14. What is the four-letter site identifier of your selected reservoir? Use lower case (e.g., ‘fcre’)."
+q15,Q15. What is the use of your selected reservoir?
+q15a,a. recreation
+q15b,b. irrigation
+q15c,c. hydropower
+q15d,d. drinking water supply
+q16,"Q16. What is the reservoir area in square feet of your selected reservoir? Provide your answer as a whole number (without decimal points) and with no spaces or commas (e.g., 123456)."
+q17,Q17. What is the maximum depth of your reservoir in feet? Round your answer to the nearest whole number.
+q18,Q18. Which of the following is NOT a characteristic of fDOM?
+q18a,a. it is composed of particles
+q18b,b. it is dissolved in the water
+q18c,c. it is derived from living things and contains carbon
+q18d,d. it fluoresces when exposed to light at particular wavelengths
+q19,"Q19. fDOM is measured in quinine sulfate units, or QSU. Which of the following is true regarding QSU?"
+q19a,a. QSU is an indirect measure of fDOM
+q19b,b. calibrating sensors using QSU enables consistent fDOM measurements across sensors and reservoirs
+q19c,c. QSU compares organic matter fluorescence to the fluorescence of known concentrations of quinine sulfate
+q19d,d. all of the above
+q20,Q20. How is fDOM related to DBPs?
+q20a,a. fDOM molecules are DBPs
+q20b,b. the presence of fDOM molecules is correlated with other molecules in the raw water that are DBPs
+q20c,c. high fDOM levels in raw water may indicate the presence of DBP precursors which will form DBPs during treatment
+q20d,d. high fDOM levels in raw water may indicate that treated water will exceed the MRDL
+q21,"Q21. On what day of the year did the highest observed fDOM occur in your reservoir? Write out the full month name and day (e.g., September 20)."
+q22,"Q22. On what day of the year did the lowest observed fDOM occur in your reservoir? Write out the full month name and day (e.g., September 20)."
+q23,"Q23. Based on the data in the figure and your understanding of how fDOM levels relate to DBPs, on what day of the year is the risk of DBP formation during treatment highest in your reservoir according to the fDOM data? Write out the full month name and day (e.g., September 20)."
+q24,"Q24. In your focal reservoir, what is the corresponding TOC in mg/L for the highest observed fDOM in your reservoir? Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
+q25,"Q25. The U.S. Environmental Protection Agency (US EPA) has a rule regarding removal of TOC from drinking water during treatment (see table below). The percentage of TOC that must be removed during treatment depends on the amount of TOC in the raw water (see the first column of the table), as well as the raw water alkalinity (second column of the table). Notice that reservoirs are grouped depending on whether they exhibit TOC between 2-4 mg/L, between 4-8 mg/L, or above 8 mg/L. Use the fDOM-to-TOC converter to determine how much TOC should be removed from a reservoir with an fDOM concentration of 40 QSU and a raw water alkalinity of 50 mg/L. Report your answer following the format in the table (e.g., 25.0%)."
+q26,"Q26. For Feb. 20, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
+q27,Q27. Which best describes the pattern in fDOM data over the previous month?
+q27a,a. increasing
+q27b,b. decreasing
+q27c,c. steady (very little change)
+q27d,"d. highly variable, but neither increasing nor decreasing overall"
+q28,Q28. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question.
+q28a,a. yes
+q28b,b. no
+q29,"Q29. For Apr. 15, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
+q30,Q30. Which best describes the pattern in fDOM data over the previous month?
+q30a,a. increasing
+q30b,b. decreasing
+q30c,c. steady (very little change)
+q30d,"d. highly variable, but neither increasing nor decreasing overall"
+q31,Q31. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question.
+q31a,a. yes
+q31b,b. no
+q32,"Q32. For Aug. 20, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
+q33,Q33. Which best describes the pattern in fDOM data over the previous month?
+q33a,a. increasing
+q33b,b. decreasing
+q33c,c. steady (very little change)
+q33d,"d. highly variable, but neither increasing nor decreasing overall"
+q34,Q34. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question.
+q34a,a. yes
+q34b,b. no

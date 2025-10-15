@@ -196,9 +196,11 @@ ui <- function(req) {
                                              column(11, offset = 1, h4(tags$b(module_text["workflow1", ]))))),
                                          br(),br(),br(),
                                      fluidRow(
-                                       column(12, offset = 1,
+                                       column(12, align = "center",
                                               introBox(data.step = 5, data.intro = help_text["videos", 1],
-                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/uhg1Mg621O4?si=jUNdMwTuS_JwMRkL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                                       wellPanel(
+                                              HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/uhg1Mg621O4?si=jUNdMwTuS_JwMRkL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                                       )
                                               )
                                               )
                                      ),
@@ -208,8 +210,10 @@ ui <- function(req) {
                                                column(11, offset = 1, h4(tags$b(module_text["workflow2", ]))))),
                                          br(),br(),br(),br(),br(),
                                      fluidRow(
-                                       column(12, offset = 1,
-                                              HTML('<iframe width="560" height="315" src="https://www.youtube.com/embed/1VzX_93JMwM?si=7kh7X5Y-E_pDRR6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                       column(12, align = "center",
+                                              wellPanel(
+                                              HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/1VzX_93JMwM?si=7kh7X5Y-E_pDRR6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                              )
                                        )
                                      ),
                                      br(),
@@ -244,6 +248,7 @@ ui <- function(req) {
                                               h4("Site photo"),
                                               wellPanel(
                                                 imageOutput("site_photo"),
+                                                htmlOutput("site_photo_credit"),
                                                 p(id = "txt_j", module_text["site_photo", ])
                                               )
                                        )
@@ -385,18 +390,22 @@ ui <- function(req) {
                                  )
                           )
                         ),
-                        hr(),
+                        fluidRow(
+                          column(12, align = "center",
+                                 h3("Disinfection byproduct formation and regulatory thresholds",
+                                    align = "center"),
+                                 p(tags$i("Watch the video and click through the slides below to understand what disinfection byproducts are and their regulatory thresholds. Then, answer the questions below.")),
+                                 wellPanel(
+                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/ciNGTseKY_I?si=l-DN49JgTak2RQYv" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                 )
+                                 )
+                        ),
                         fluidRow(
                           column(4,
-                                 h3("Disinfection byproducts"),
-                                 p(tags$i("Watch the video and click through the slides to understand what disinfection byproducts are and their regulatory thresholds.")),
-                                 br(),
                                  box(id = "box12", width = 12, status = "primary",
                                      solidHeader = TRUE,
                                      fluidRow(
                                        column(10, offset = 1, align = "left",
-                                              h4("Video"),
-                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/ciNGTseKY_I?si=l-DN49JgTak2RQYv" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
                                               p(tags$b(quest["q4", 1])),
                                               tags$ul(
@@ -404,9 +413,7 @@ ui <- function(req) {
                                                 tags$li(id = "txt_j", quest["q4b", ]),
                                                 tags$li(id = "txt_j", quest["q4c", ]),
                                                 tags$li(id = "txt_j", quest["q4d", ]),
-                                                tags$li(id = "txt_j", quest["q4e", ]),
-                                                tags$li(id = "txt_j", quest["q4f", ]),
-                                                tags$li(id = "txt_j", quest["q4g", ])
+                                                tags$li(id = "txt_j", quest["q4e", ])
                                               ),
                                               p(tags$b(quest["q5", 1])),
                                               tags$ul(
@@ -425,9 +432,7 @@ ui <- function(req) {
                                  )
                           ),
                           column(8, offset = 0, align = "center",
-                                 h3("Disinfection byproduct formation and regulatory thresholds",
-                                    align = "center"),
-                                 h5("Click the arrows to navigate through the slides", align = "center"),
+                                 h4("You can click the arrows to navigate through the video presentation slides", align = "center"),
                                  wellPanel(
                                    slickROutput("dbp_formation_thresholds_slides", width = "700px", height = "525px")
                                  )
@@ -448,16 +453,21 @@ ui <- function(req) {
                           )
                         ),
                         fluidRow(
-                          column(4,
-                                 h3("Tradeoffs"),
+                          column(12, align = "center",
+                                 h3("Tradeoffs between chlorination vs. formation of DBPs",
+                                    align = "center"),
                                  p(tags$i("Watch the video and click through the slides to understand tradeoffs operators may encounter between removing harmful microbes from drinking water and risking formation of DBPs.")),
-                                 br(),
+                                 wellPanel(
+                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/s1VVM7Dh8yE?si=k93vKJBUcklL3P7x" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                 )
+                          )
+                        ),
+                        fluidRow(
+                          column(4,
                                  box(id = "box12", width = 12, status = "primary",
                                      solidHeader = TRUE,
                                      fluidRow(
                                        column(10, offset = 1, align = "left",
-                                              h4("Video"),
-                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/s1VVM7Dh8yE?si=k93vKJBUcklL3P7x" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
                                               p(tags$b(quest["q7", 1])),
                                               tags$ul(
@@ -470,30 +480,52 @@ ui <- function(req) {
                                               tags$ul(
                                                 tags$li(id = "txt_j", quest["q8a", ]),
                                                 tags$li(id = "txt_j", quest["q8b", ]),
-                                                tags$li(id = "txt_j", quest["q8c", ]),
-                                                tags$li(id = "txt_j", quest["q8d", ])
-                                              ),
-                                              p(tags$b(quest["q9", 1])),
-                                              p(tags$i("Hint: Follow the steps in the slide deck and video to solve the problem. Round your calculations to the nearest hundredth.")),
-                                              tags$ul(
-                                                tags$li(id = "txt_j", quest["q9a", ]),
-                                                tags$li(id = "txt_j", quest["q9b", ]),
-                                                tags$li(id = "txt_j", quest["q9c", ])
+                                                tags$li(id = "txt_j", quest["q8c", ])
                                               )
                                        )
                                      )
                                  )
                           ),
                           column(8, offset = 0, align = "center",
-                                 h3("Tradeoffs between chlorination vs. formation of DBPs",
-                                    align = "center"),
-                                 h5("Click the arrows to navigate through the slides", align = "center"),
+                                 h4("You can click the arrows to navigate through the video presentation slides", align = "center"),
                                  wellPanel(
                                    slickROutput("dbp_tradeoffs_slides", width = "700px", height = "525px")
-                                 ),
-                                 img(src = "calculate_breakpoint_chlorination.png", height = "80%",
-                                     width = "80%")
+                                 )
                           )
+                        ),
+                        fluidRow(
+                          column(12,
+                                 box(id = "box12", width = 12, status = "primary",
+                                     solidHeader = TRUE,
+                                     fluidRow(
+                                       column(4, offset = 1,
+                                              h4("Questions"),
+                                              p(tags$b(quest["q9", 1])),
+                                              p(tags$b(quest["q10", 1])),
+                                              p(tags$b(quest["q11", 1])),
+                                              p(tags$i("Hint: Follow the steps in the slide to the right and the video to solve the problem. Round your calculations to the nearest hundredth.")),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q11a", ]),
+                                                tags$li(id = "txt_j", quest["q11b", ]),
+                                                tags$li(id = "txt_j", quest["q11c", ])
+                                              ),
+                                              p(tags$b(quest["q12", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q12a", ]),
+                                                tags$li(id = "txt_j", quest["q12b", ]),
+                                                tags$li(id = "txt_j", quest["q12c", ]),
+                                                tags$li(id = "txt_j", quest["q12d", ])
+                                              )
+                                       ),
+                                       column(7,
+                                              br(),br(),
+                                              img(src = "calculate_breakpoint_chlorination.png", height = "80%",
+                                                  width = "80%"),
+                                              br(),br()
+                                              )
+                                     )
+                                 )
+                                 )
                         ),
                         hr(),
                         fluidRow(
@@ -561,6 +593,7 @@ ui <- function(req) {
                                  h4("Site photo"),
                                  wellPanel(
                                    imageOutput("site_photo1"),
+                                   htmlOutput("site_photo_credit1"),
                                    p(id = "txt_j", module_text["site_photo", ])
                                  )
                           )
@@ -574,23 +607,20 @@ ui <- function(req) {
                                      fluidRow(
                                        column(5, offset = 1,
                                               h3("Questions"),
-                                              p(tags$b(quest["q10", 1])),
-                                              p(tags$b(quest["q11", 1])),
-                                              p(tags$b(quest["q12", 1])),
-                                              tags$ul(
-                                                tags$li(id = "txt_j", quest["q12a", ]),
-                                                tags$li(id = "txt_j", quest["q12b", ]),
-                                                tags$li(id = "txt_j", quest["q12c", ]),
-                                                tags$li(id = "txt_j", quest["q12d", ])
-                                              ),
                                               p(tags$b(quest["q13", 1])),
-                                              p(tags$b(quest["q14", 1]))
+                                              p(tags$b(quest["q14", 1])),
+                                              p(tags$b(quest["q15", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q15a", ]),
+                                                tags$li(id = "txt_j", quest["q15b", ]),
+                                                tags$li(id = "txt_j", quest["q15c", ]),
+                                                tags$li(id = "txt_j", quest["q15d", ])
+                                              )
                                        ),
                                        column(5, 
                                               h3(""),
-                                              p("Virginia's Water Quality Assessment Guidance Manual gives the following guidance on water quality evaluation using a trophic state index (TSI), which may be calculated from Secchi depth (SD), chlorophyll-a (CA) in the top 1 meter of the water column, or total phosphorus (TP) in the top 1 meter of the water column:"),
-                                              p(tags$em("A trophic state index value of 60 or greater for any one of the 3 indices will indicate that nutrient enrichment from anthropogenic sources are adversely interfering, directly or indirectly, with the designated uses. A TSI value of 60 corresponds to a CA concentration of 20 ug/l, a SD of 1 meter, and a TP concentration of 48 ug/l.")),
-                                              p(tags$b(quest["q15", 1]))
+                                              p(tags$b(quest["q16", 1])),
+                                              p(tags$b(quest["q17", 1]))
                                        )
                                      )
                                  )
@@ -612,61 +642,64 @@ ui <- function(req) {
                         ),
                         hr(),
                         fluidRow(
-                          column(12,
-                                 h3(tags$i("Now we will visualize high-frequency data from your chosen reservoir and explore how these data can be related to potential DBP precursors.")))
-                        ),
-                        fluidRow(
-                          column(8,
+                          column(4,
                                  h3("A note on reading and interpreting graphs"),
                                  p("Please watch the video on the right for a refresher course on reading and interpreting graphs. This may help you to answer the questions about water temperature data as well as other questions throughout the module.")
                           ),
-                          column(4,
+                          column(8, align = "center",
                                  h4("Video: Reading and interpreting graphs"),
-                                 HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/AhnwYmHvHSc?si=r0LzHH-t8fAE3Lt9" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                 HTML('<iframe width="700" height="525" src="https://www.youtube.com/embed/AhnwYmHvHSc?si=r0LzHH-t8fAE3Lt9" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                           )
                         ),
                         hr(),
                         fluidRow(
-                          column(4,
-                                 h3("Fluorescent dissolved organic matter (fDOM)"),
+                          column(12,
+                                 h3(tags$i("Now we will visualize high-frequency data from your chosen reservoir and explore how these data can be related to potential DBP precursors.")))
+                        ),
+                        fluidRow(
+                          column(12, align = "center",
+                                 h3("Using fluorescent dissolved organic matter as an indicator of DBP precursors",
+                                    align = "center"),
                                  p(tags$i("Watch the video and click through the slides to understand how fDOM data relate to possible DBP formation. The information in the presentation is also summarized in text below to help you answer the questions.")),
-                                 br(),
+                                 wellPanel(
+                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/H8qNZ0hV-YI?si=oTLgSXeLiGfKnrHr" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                 )
+                          )
+                        ),
+                        fluidRow(
+                          column(4,
                                  box(id = "box12", width = 12, status = "primary",
                                      solidHeader = TRUE,
                                      fluidRow(
                                        column(10, offset = 1,
-                                              h4("Video"),
-                                              HTML('<iframe width="280" height="157" src="https://www.youtube.com/embed/H8qNZ0hV-YI?si=oTLgSXeLiGfKnrHr" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                               h4("Questions"),
-                                              p(tags$b(quest["q16", 1])),
-                                              tags$ul(
-                                                tags$li(id = "txt_j", quest["q16a", ]),
-                                                tags$li(id = "txt_j", quest["q16b", ]),
-                                                tags$li(id = "txt_j", quest["q16c", ]),
-                                                tags$li(id = "txt_j", quest["q16d", ])
-                                              ),
-                                              p(tags$b(quest["q17", 1])),
-                                              tags$ul(
-                                                tags$li(id = "txt_j", quest["q17a", ]),
-                                                tags$li(id = "txt_j", quest["q17b", ]),
-                                                tags$li(id = "txt_j", quest["q17c", ]),
-                                                tags$li(id = "txt_j", quest["q17d", ])
-                                              ),
                                               p(tags$b(quest["q18", 1])),
                                               tags$ul(
                                                 tags$li(id = "txt_j", quest["q18a", ]),
                                                 tags$li(id = "txt_j", quest["q18b", ]),
                                                 tags$li(id = "txt_j", quest["q18c", ]),
                                                 tags$li(id = "txt_j", quest["q18d", ])
+                                              ),
+                                              p(tags$b(quest["q19", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q19a", ]),
+                                                tags$li(id = "txt_j", quest["q19b", ]),
+                                                tags$li(id = "txt_j", quest["q19c", ]),
+                                                tags$li(id = "txt_j", quest["q19d", ])
+                                              ),
+                                              p(tags$b(quest["q20", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q20a", ]),
+                                                tags$li(id = "txt_j", quest["q20b", ]),
+                                                tags$li(id = "txt_j", quest["q20c", ]),
+                                                tags$li(id = "txt_j", quest["q20d", ])
                                               )
                                        )
                                      )
                                  )
                           ),
                           column(8, offset = 0, 
-                                 h3("Using fluorescent dissolved organic matter as an indicator of DBP precursors",
-                                    align = "center"),
-                                 h5("Click the arrows to navigate through the slides", align = "center"),
+                                 h4("You can click the arrows to navigate through the video presentation slides", align = "center"),
                                  wellPanel(
                                    slickROutput("fdom_slides", width = "700px", height = "525px")
                                  ),
@@ -696,9 +729,9 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               h4("Questions"),
-                                              p(tags$b(quest["q19", 1])),
-                                              p(tags$b(quest["q20", 1])),
-                                              p(tags$b(quest["q21", 1]))
+                                              p(tags$b(quest["q21", 1])),
+                                              p(tags$b(quest["q22", 1])),
+                                              p(tags$b(quest["q23", 1]))
                                        )
                                      )
                                  )
@@ -715,13 +748,14 @@ ui <- function(req) {
                         fluidRow(
                           column(6,
                                  h3("Converting fDOM to TOC"),
+                                 p("While fDOM and TOC are not exactly the same, we can use statistics to make a relationship that converts fDOM (in quinine sulfate units) to TOC (in milligrams per liter). With this relationship, fDOM data can help us detect the presence of potential DBP precursors and assess DBP formation risk"),
                                  p("We have developed a relationship between fDOM (QSU) and TOC (mg/L) for your focal reservoir."),
                                  p("This allows us to assess the possible levels of DBP precursors in the raw water in terms of TOC."),
                                  p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
                                  numericInput( 
                                    "fdom", 
                                    "fDOM (QSU)", 
-                                   value = 17.5, 
+                                   value = NULL, 
                                    min = 0.1, 
                                    max = 30,
                                    step = 0.1
@@ -750,8 +784,8 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               h4("Questions"),
-                                              p(tags$b(quest["q22", 1])),
-                                              p(tags$b(quest["q23", 1])),
+                                              p(tags$b(quest["q24", 1])),
+                                              p(tags$b(quest["q25", 1])),
                                               img(src = "EPA_TOC_rule.png", height = "100%",
                                                   width = "100%"),
                                               br(),br()
@@ -786,7 +820,7 @@ ui <- function(req) {
                                    fluidRow(
                                      column(10, offset = 1,
                                             introBox(
-                                              h3("Objective 6: Use fluorescent dissolved organic matter data to make coagulation decisions"))
+                                              h3("Objective 6: Use fluorescent dissolved organic matter data to make water treatment decisions"))
                                      )
                                    )
                                )
@@ -799,7 +833,7 @@ ui <- function(req) {
                            solidHeader = TRUE,
                            fluidRow(
                              column(10, offset = 1,
-                                    h3("Operation scenario"),
+                                    h3("Water treatment scenario"),
                                     h4("Decide: should I increase my coagulation time to prevent potential DBP formation during treatment?"),
                                     p("You are operating a reservoir water treatment plant that has experienced high levels of TOC in the filtered water in the past. While there have not been DBPs detected at the treatment plant or in the distribution system to date, your supervisor is concerned about the risk of DBP formation due to high TOC levels that are sometimes observed in both the raw and filtered water."),
                                     p("Because TOC samples are only taken once per month, your supervisor recommends that you monitor the daily fDOM data collected from the raw water to determine whether an increase in coagulation time is needed to mitigate the risk of DBP formation."),
@@ -827,7 +861,7 @@ ui <- function(req) {
                        numericInput( 
                          "fdom1", 
                          "fDOM (QSU)", 
-                         value = 17.5, 
+                         value = NULL, 
                          min = 0.1, 
                          max = 30,
                          step = 0.1
@@ -850,19 +884,20 @@ ui <- function(req) {
                            fluidRow(
                              column(10, offset = 1,
                                     h4("Questions"),
-                                    p(tags$b(quest["q24", 1])),
-                                    p(tags$b(quest["q25", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q25a", ]),
-                                      tags$li(id = "txt_j", quest["q25b", ]),
-                                      tags$li(id = "txt_j", quest["q25c", ]),
-                                      tags$li(id = "txt_j", quest["q25d", ])
-                                    ),
                                     p(tags$b(quest["q26", 1])),
+                                    p(tags$b(quest["q27", 1])),
                                     tags$ul(
-                                      tags$li(id = "txt_j", quest["q26a", ]),
-                                      tags$li(id = "txt_j", quest["q26b", ])
-                                    )
+                                      tags$li(id = "txt_j", quest["q27a", ]),
+                                      tags$li(id = "txt_j", quest["q27b", ]),
+                                      tags$li(id = "txt_j", quest["q27c", ]),
+                                      tags$li(id = "txt_j", quest["q27d", ])
+                                    ),
+                                    p(tags$b(quest["q28", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q28a", ]),
+                                      tags$li(id = "txt_j", quest["q28b", ])
+                                    ),
+                                    p("Optional exercise: Reflect on why you made this decision. What information did you use to arrive at your final choice?")
                              )
                            )
                        )
@@ -877,25 +912,26 @@ ui <- function(req) {
               fluidRow(
                 column(4,
                        h3("Management decision #2: Spring data"),
-                       p("Examine the previous month of fDOM data from the raw water in your reservoir on the right. Then answer the questions below."),
+                       p("Flash forward from the winter to the spring. It is now March-April. Examine the previous month of fDOM data from the raw water in your reservoir on the right. Then answer the questions below."),
                        box(id = "box12", width = 12, status = "primary",
                            solidHeader = TRUE,
                            fluidRow(
                              column(10, offset = 1,
                                     h4("Questions"),
-                                    p(tags$b(quest["q27", 1])),
-                                    p(tags$b(quest["q28", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q28a", ]),
-                                      tags$li(id = "txt_j", quest["q28b", ]),
-                                      tags$li(id = "txt_j", quest["q28c", ]),
-                                      tags$li(id = "txt_j", quest["q28d", ])
-                                    ),
                                     p(tags$b(quest["q29", 1])),
+                                    p(tags$b(quest["q30", 1])),
                                     tags$ul(
-                                      tags$li(id = "txt_j", quest["q29a", ]),
-                                      tags$li(id = "txt_j", quest["q29b", ])
-                                    )
+                                      tags$li(id = "txt_j", quest["q30a", ]),
+                                      tags$li(id = "txt_j", quest["q30b", ]),
+                                      tags$li(id = "txt_j", quest["q30c", ]),
+                                      tags$li(id = "txt_j", quest["q30d", ])
+                                    ),
+                                    p(tags$b(quest["q31", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q31a", ]),
+                                      tags$li(id = "txt_j", quest["q31b", ])
+                                    ),
+                                    p("Optional exercise: Reflect on why you made this decision. What information did you use to arrive at your final choice?")
                              )
                            )
                        )
@@ -916,19 +952,20 @@ ui <- function(req) {
                            fluidRow(
                              column(10, offset = 1,
                                     h4("Questions"),
-                                    p(tags$b(quest["q30", 1])),
-                                    p(tags$b(quest["q31", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q31a", ]),
-                                      tags$li(id = "txt_j", quest["q31b", ]),
-                                      tags$li(id = "txt_j", quest["q31c", ]),
-                                      tags$li(id = "txt_j", quest["q31d", ])
-                                    ),
                                     p(tags$b(quest["q32", 1])),
+                                    p(tags$b(quest["q33", 1])),
                                     tags$ul(
-                                      tags$li(id = "txt_j", quest["q32a", ]),
-                                      tags$li(id = "txt_j", quest["q32b", ])
-                                    )
+                                      tags$li(id = "txt_j", quest["q33a", ]),
+                                      tags$li(id = "txt_j", quest["q33b", ]),
+                                      tags$li(id = "txt_j", quest["q33c", ]),
+                                      tags$li(id = "txt_j", quest["q33d", ])
+                                    ),
+                                    p(tags$b(quest["q34", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q34a", ]),
+                                      tags$li(id = "txt_j", quest["q34b", ])
+                                    ),
+                                    p("Optional exercise: Reflect on your decision. How did accessing high-frequency data (vs. the normal monthly samples) affect your decision-making?")
                              )
                            )
                        ) 
@@ -936,6 +973,18 @@ ui <- function(req) {
                 column(8,
                        wellPanel(
                          plotlyOutput("fDOM_plot_inc")
+                       )
+                )
+              ),
+              hr(),
+              fluidRow(
+                column(12,
+                       h3("Module Take-homes"),
+                       tags$ul(
+                         tags$li(module_text["dbp_definition", ]),
+                         tags$li(module_text["mod_takehome_2", ]),
+                         tags$li(module_text["mod_takehome_3", ]),
+                         tags$li(module_text["mod_takehome_4", ])
                        )
                 )
               ),

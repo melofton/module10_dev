@@ -136,6 +136,30 @@ shinyServer(function(input, output, session) {
          width = 320)
   }, deleteFile = FALSE)
   
+  observe({
+    
+    output$site_photo_credit <- renderUI({
+      
+      validate(
+        need(!is.null(lake_data$df),
+             message = "Please select a site in the Introduction.")
+      )
+      
+      site = pull(sites_df[input$table01_rows_selected, "SiteID"])
+      
+      if(site == "fcre"){
+        site_photo_credit <- paste("<b>","Falling Creek Reservoir (photo credit Mary Lofton)","</b>", sep = "")
+      }
+      if(site == "bvre"){
+        site_photo_credit <- paste("<b>","Beaverdam Reservoir (photo credit Ricardo Paiz)","</b>", sep = "")
+      }
+      
+      
+      HTML(paste(site_photo_credit))
+    })
+    
+  })
+  
   #### Activity A ----
   
   #** Objective 1: DBP formation/thresholds slides ----
@@ -173,6 +197,32 @@ shinyServer(function(input, output, session) {
       
       
       HTML(paste(site_name))
+    })
+    
+  })
+  
+  
+  # Output site photo credit again
+  observe({
+    
+    output$site_photo_credit1 <- renderUI({
+      
+      validate(
+        need(!is.null(lake_data$df),
+             message = "Please select a site in the Introduction.")
+      )
+      
+      site = pull(sites_df[input$table01_rows_selected, "SiteID"])
+      
+      if(site == "fcre"){
+        site_photo_credit1 <- paste("<b>","Falling Creek Reservoir (photo credit Mary Lofton)","</b>", sep = "")
+      }
+      if(site == "bvre"){
+        site_photo_credit1 <- paste("<b>","Beaverdam Reservoir (photo credit Ricardo Paiz)","</b>", sep = "")
+      }
+      
+      
+      HTML(paste(site_photo_credit1))
     })
     
   })
@@ -316,9 +366,10 @@ shinyServer(function(input, output, session) {
     output$fDOM_plot_inc <- renderPlotly({ 
       
       df <- reservoir_data %>%
-        filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2019-07-20" & datetime <= "2019-08-20")
+        filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2019-07-20" & datetime <= "2019-08-20") %>%
+        mutate(observation = observation^1.5)
       
-      p <- ggplot(data = df, aes(x = datetime, y = observation^1.5))+
+      p <- ggplot(data = df, aes(x = datetime, y = observation))+
         geom_point(aes(color = "surface water fDOM"))+
         geom_line(aes(color = "surface water fDOM"))+
         xlab("")+
@@ -342,9 +393,10 @@ shinyServer(function(input, output, session) {
     output$fDOM_plot_dec <- renderPlotly({ 
       
       df <- reservoir_data %>%
-        filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2021-01-20" & datetime <= "2021-02-20")
+        filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2021-01-20" & datetime <= "2021-02-20") %>%
+        mutate(observation = observation^1.5)
       
-      p <- ggplot(data = df, aes(x = datetime, y = observation^1.5))+
+      p <- ggplot(data = df, aes(x = datetime, y = observation))+
         geom_point(aes(color = "surface water fDOM"))+
         geom_line(aes(color = "surface water fDOM"))+
         xlab("")+
@@ -368,9 +420,10 @@ shinyServer(function(input, output, session) {
     output$fDOM_plot_var <- renderPlotly({ 
       
       df <- reservoir_data %>%
-        filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2022-03-15" & datetime <= "2022-04-15")
+        filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2022-03-15" & datetime <= "2022-04-15") %>%
+        mutate(observation = observation^1.5)
       
-      p <- ggplot(data = df, aes(x = datetime, y = observation^1.5))+
+      p <- ggplot(data = df, aes(x = datetime, y = observation))+
         geom_point(aes(color = "surface water fDOM"))+
         geom_line(aes(color = "surface water fDOM"))+
         xlab("")+

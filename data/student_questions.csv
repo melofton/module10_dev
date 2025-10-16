@@ -35,8 +35,8 @@ q8,Q8. Breakpoint chlorination has been achieved when:
 q8a,a. the expected residual is less than or equal to the actual residual
 q8b,b. the actual residual is less than the expected residual
 q8c,c. neither of the above
-q9,"Q9. Use the following information to answer Q9-Q11. A chlorinator setting of 20 lbs chlorine per day results in a chlorine residual of 0.3 mg/L. The chlorinator setting is increased to 23 lb/day. The chlorine residual increases to 0.54 mg/L at this new dosage rate. The average flow being treated is 1.5 MGD. On the basis of these data, what is the expected increase in residual?"
-q10,"Q10. Using the information provided in Q9, what is the actual increase in residual?"
+q9,"Q9. Use the following information to answer Q9-Q11. A chlorinator setting of 20 lbs chlorine per day results in a chlorine residual of 0.3 mg/L. The chlorinator setting is increased to 23 lb/day. The chlorine residual increases to 0.54 mg/L at this new dosage rate. The average flow being treated is 1.5 MGD. On the basis of these data, what is the expected increase in residual? Round your answer to the nearest hundredth (e.g., 0.12)."
+q10,"Q10. Using the information provided in Q9, what is the actual increase in residual? Round your answer to the nearest hundredth (e.g., 0.12)."
 q11,"Q11. Using the information in Q9 and your answers to Q9 and Q10, is breakpoint chlorination being reached?"
 q11a,a. yes
 q11b,b. no
@@ -73,32 +73,26 @@ q20d,d. high fDOM levels in raw water may indicate that treated water will excee
 q21,"Q21. On what day of the year did the highest observed fDOM occur in your reservoir? Write out the full month name and day (e.g., September 20)."
 q22,"Q22. On what day of the year did the lowest observed fDOM occur in your reservoir? Write out the full month name and day (e.g., September 20)."
 q23,"Q23. Based on the data in the figure and your understanding of how fDOM levels relate to DBPs, on what day of the year is the risk of DBP formation during treatment highest in your reservoir according to the fDOM data? Write out the full month name and day (e.g., September 20)."
-q24,"Q24. In your focal reservoir, what is the corresponding TOC in mg/L for the highest observed fDOM in your reservoir? Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
+q24,"Q24. In your focal reservoir, what is the corresponding TOC in mg/L for the highest observed fDOM in your reservoir? Round your answer to the nearest tenth (e.g., 3.1)."
 q25,"Q25. The U.S. Environmental Protection Agency (US EPA) has a rule regarding removal of TOC from drinking water during treatment (see table below). The percentage of TOC that must be removed during treatment depends on the amount of TOC in the raw water (see the first column of the table), as well as the raw water alkalinity (second column of the table). Notice that reservoirs are grouped depending on whether they exhibit TOC between 2-4 mg/L, between 4-8 mg/L, or above 8 mg/L. Use the fDOM-to-TOC converter to determine how much TOC should be removed from a reservoir with an fDOM concentration of 40 QSU and a raw water alkalinity of 50 mg/L. Report your answer following the format in the table (e.g., 25.0%)."
-q26,"Q26. For Feb. 20, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
+q26,"Q26. For Feb. 20, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth (e.g., 3.1)."
 q27,Q27. Which best describes the pattern in fDOM data over the previous month?
 q27a,a. increasing
 q27b,b. decreasing
 q27c,c. steady (very little change)
 q27d,"d. highly variable, but neither increasing nor decreasing overall"
-q28,Q28. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question.
-q28a,a. yes
-q28b,b. no
-q29,"Q29. For Apr. 15, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
+q28,Q28. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question. Type 'yes' or 'no'.
+q29,"Q29. For Apr. 15, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth (e.g., 3.1)."
 q30,Q30. Which best describes the pattern in fDOM data over the previous month?
 q30a,a. increasing
 q30b,b. decreasing
 q30c,c. steady (very little change)
 q30d,"d. highly variable, but neither increasing nor decreasing overall"
-q31,Q31. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question.
-q31a,a. yes
-q31b,b. no
-q32,"Q32. For Aug. 20, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth and be sure to include the units (e.g., 3.1 mg/L)."
+q31,Q31. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question. Type 'yes' or 'no'.
+q32,"Q32. For Aug. 20, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth (e.g., 3.1)."
 q33,Q33. Which best describes the pattern in fDOM data over the previous month?
 q33a,a. increasing
 q33b,b. decreasing
 q33c,c. steady (very little change)
 q33d,"d. highly variable, but neither increasing nor decreasing overall"
-q34,Q34. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question.
-q34a,a. yes
-q34b,b. no
+q34,Q34. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question. Type 'yes' or 'no'.

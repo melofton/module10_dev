@@ -199,7 +199,7 @@ ui <- function(req) {
                                        column(12, align = "center",
                                               introBox(data.step = 5, data.intro = help_text["videos", 1],
                                                        wellPanel(
-                                              HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/uhg1Mg621O4?si=jUNdMwTuS_JwMRkL" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                              HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/3OMWRZTK89I?si=kzSXkNmhjm_-cG36" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                                                        )
                                               )
                                               )
@@ -212,7 +212,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(12, align = "center",
                                               wellPanel(
-                                              HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/1VzX_93JMwM?si=7kh7X5Y-E_pDRR6E" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                              HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/1VzX_93JMwM?si=1LYvN_kmt3IiNQLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                                               )
                                        )
                                      ),
@@ -396,7 +396,7 @@ ui <- function(req) {
                                     align = "center"),
                                  p(tags$i("Watch the video and click through the slides below to understand what disinfection byproducts are and their regulatory thresholds. Then, answer the questions below.")),
                                  wellPanel(
-                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/ciNGTseKY_I?si=l-DN49JgTak2RQYv" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/f0sND04di8M?si=Xkfpt5YnD4sjYLSS" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                                  )
                                  )
                         ),
@@ -458,7 +458,7 @@ ui <- function(req) {
                                     align = "center"),
                                  p(tags$i("Watch the video and click through the slides to understand tradeoffs operators may encounter between removing harmful microbes from drinking water and risking formation of DBPs.")),
                                  wellPanel(
-                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/s1VVM7Dh8yE?si=k93vKJBUcklL3P7x" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/_-v8cBYsJbc?si=HQsx73MAy0Dm__es" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                  )
                           )
                         ),
@@ -642,17 +642,6 @@ ui <- function(req) {
                         ),
                         hr(),
                         fluidRow(
-                          column(4,
-                                 h3("A note on reading and interpreting graphs"),
-                                 p("Please watch the video on the right for a refresher course on reading and interpreting graphs. This may help you to answer the questions about water temperature data as well as other questions throughout the module.")
-                          ),
-                          column(8, align = "center",
-                                 h4("Video: Reading and interpreting graphs"),
-                                 HTML('<iframe width="700" height="525" src="https://www.youtube.com/embed/AhnwYmHvHSc?si=r0LzHH-t8fAE3Lt9" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
-                          )
-                        ),
-                        hr(),
-                        fluidRow(
                           column(12,
                                  h3(tags$i("Now we will visualize high-frequency data from your chosen reservoir and explore how these data can be related to potential DBP precursors.")))
                         ),
@@ -662,7 +651,7 @@ ui <- function(req) {
                                     align = "center"),
                                  p(tags$i("Watch the video and click through the slides to understand how fDOM data relate to possible DBP formation. The information in the presentation is also summarized in text below to help you answer the questions.")),
                                  wellPanel(
-                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/H8qNZ0hV-YI?si=oTLgSXeLiGfKnrHr" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/cYTtBTw8LXw?si=dU9d-nZzGLK5XKeM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                  )
                           )
                         ),
@@ -715,6 +704,17 @@ ui <- function(req) {
                                  tags$ul(
                                    tags$li(module_text["fDOM_DBPs", ])
                                  )
+                          )
+                        ),
+                        hr(),
+                        fluidRow(
+                          column(4,
+                                 h3("A note on reading and interpreting graphs"),
+                                 p("Please watch the video on the right for a refresher course on reading and interpreting graphs. This may help you to answer the questions about water temperature data as well as other questions throughout the module.")
+                          ),
+                          column(8, align = "center",
+                                 h4("Video: Reading and interpreting graphs"),
+                                 HTML('<iframe width="700" height="525" src="https://www.youtube.com/embed/AhnwYmHvHSc?si=u0yeVtcuVP3GlTOJ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                           )
                         ),
                         hr(),
@@ -820,7 +820,7 @@ ui <- function(req) {
                                    fluidRow(
                                      column(10, offset = 1,
                                             introBox(
-                                              h3("Objective 6: Use fluorescent dissolved organic matter data to make water treatment decisions"))
+                                              h3("Objective 5: Use fluorescent dissolved organic matter data to make water treatment decisions"))
                                      )
                                    )
                                )
@@ -893,10 +893,6 @@ ui <- function(req) {
                                       tags$li(id = "txt_j", quest["q27d", ])
                                     ),
                                     p(tags$b(quest["q28", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q28a", ]),
-                                      tags$li(id = "txt_j", quest["q28b", ])
-                                    ),
                                     p("Optional exercise: Reflect on why you made this decision. What information did you use to arrive at your final choice?")
                              )
                            )
@@ -927,10 +923,6 @@ ui <- function(req) {
                                       tags$li(id = "txt_j", quest["q30d", ])
                                     ),
                                     p(tags$b(quest["q31", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q31a", ]),
-                                      tags$li(id = "txt_j", quest["q31b", ])
-                                    ),
                                     p("Optional exercise: Reflect on why you made this decision. What information did you use to arrive at your final choice?")
                              )
                            )
@@ -961,10 +953,6 @@ ui <- function(req) {
                                       tags$li(id = "txt_j", quest["q33d", ])
                                     ),
                                     p(tags$b(quest["q34", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q34a", ]),
-                                      tags$li(id = "txt_j", quest["q34b", ])
-                                    ),
                                     p("Optional exercise: Reflect on your decision. How did accessing high-frequency data (vs. the normal monthly samples) affect your decision-making?")
                              )
                            )
@@ -979,14 +967,26 @@ ui <- function(req) {
               hr(),
               fluidRow(
                 column(12,
-                       h3("Module Take-homes"),
-                       tags$ul(
-                         tags$li(module_text["dbp_definition", ]),
-                         tags$li(module_text["mod_takehome_2", ]),
-                         tags$li(module_text["mod_takehome_3", ]),
-                         tags$li(module_text["mod_takehome_4", ])
+                       box(id = "box1", width = 10, status = "success",
+                           solidHeader = TRUE,
+                           fluidRow(
+                             column(10, offset = 1,
+                                    introBox(
+                                      h3("Module Take-homes"),
+                                      tags$ul(
+                                        tags$li(module_text["dbp_definition", ]),
+                                        br(),
+                                        tags$li(module_text["mod_takehome_2", ]),
+                                        br(),
+                                        tags$li(module_text["mod_takehome_3", ]),
+                                        br(),
+                                        tags$li(module_text["mod_takehome_4", ])
+                                      )
+                                      )
+                           )
                        )
                 )
+              )
               ),
               hr(),
               fluidRow(

@@ -127,9 +127,7 @@ Be sure you have answered questions 1-3 in the previous Introduction section bef
       c.  `r substr(quest["q4c", ], 4, nchar(quest["q4c", ]))`
       d.  `r substr(quest["q4d", ], 4, nchar(quest["q4d", ]))`
       e.  `r substr(quest["q4e", ], 4, nchar(quest["q4e", ]))`
-      f.  `r substr(quest["q4f", ], 4, nchar(quest["q4f", ]))`
-      g.  `r substr(quest["q4g", ], 4, nchar(quest["q4g", ]))`
-    
+     
 5. `r substr(quest["q5", ], 4, nchar(quest["q5", ]))`
 
       a.  `r substr(quest["q5a", ], 4, nchar(quest["q5a", ]))`
@@ -163,14 +161,28 @@ Be sure you have answered questions 1-3 in the previous Introduction section bef
 
       a.  `r substr(quest["q8a", ], 4, nchar(quest["q8a", ]))`
       b.  `r substr(quest["q8b", ], 4, nchar(quest["q8b", ]))`
-      c.  `r substr(quest["q8c", ], 4, nchar(quest["q8c", ]))`
-      d.  `r substr(quest["q8d", ], 4, nchar(quest["q8d", ]))` 
-      
-9. `r substr(quest["q9", ], 4, nchar(quest["q9", ]))` 
+      c.  `r substr(quest["q8c", ], 4, nchar(quest["q8c", ]))` 
 
-      a.  `r substr(quest["q9a", ], 4, nchar(quest["q9a", ]))`
-      b.  `r substr(quest["q9b", ], 4, nchar(quest["q9b", ]))`
-      c.  `r substr(quest["q9c", ], 4, nchar(quest["q9c", ]))`
+9. `r substr(quest["q9", ], 4, nchar(quest["q9", ]))`
+
+    **Answer:**
+
+10. `r substr(quest["q10", ], 5, nchar(quest["q10", ]))`
+
+     **Answer:**
+
+11. `r substr(quest["q11", ], 5, nchar(quest["q11", ]))`
+
+      a.  `r substr(quest["q11a", ], 4, nchar(quest["q11a", ]))`
+      b.  `r substr(quest["q11b", ], 4, nchar(quest["q11b", ]))`
+      c.  `r substr(quest["q11c", ], 4, nchar(quest["q11c", ]))` 
+
+12. `r substr(quest["q12", ], 5, nchar(quest["q12", ]))`
+
+      a.  `r substr(quest["q12a", ], 4, nchar(quest["q12a", ]))`
+      b.  `r substr(quest["q12b", ], 4, nchar(quest["q12b", ]))`
+      c.  `r substr(quest["q12c", ], 4, nchar(quest["q12c", ]))`
+      d.  `r substr(quest["q12d", ], 4, nchar(quest["q12d", ]))` 
 
 \newpage
 
@@ -185,56 +197,33 @@ Be sure you have answered questions 1-3 in the previous Introduction section bef
 
 <br>
 
-10. `r substr(quest["q10", ], 5, nchar(quest["q10", ]))`    
-
-     **Answer:**
-
-11. `r substr(quest["q11", ], 5, nchar(quest["q11", ]))`    
-
-     **Answer:**
-     
-12. `r substr(quest["q12", ], 5, nchar(quest["q12", ]))` 
-
-      a.  `r substr(quest["q12a", ], 4, nchar(quest["q12a", ]))`
-      b.  `r substr(quest["q12b", ], 4, nchar(quest["q12b", ]))`
-      c.  `r substr(quest["q12c", ], 4, nchar(quest["q12c", ]))`
-      d.  `r substr(quest["q12d", ], 4, nchar(quest["q12d", ]))` 
-
-13. `r substr(quest["q13", ], 5, nchar(quest["q10", ]))`    
+13. `r substr(quest["q13", ], 5, nchar(quest["q13", ]))`    
 
      **Answer:**
 
 14. `r substr(quest["q14", ], 5, nchar(quest["q14", ]))`    
 
      **Answer:**
+     
+15. `r substr(quest["q15", ], 5, nchar(quest["q15", ]))` 
 
-Virginia's Water Quality Assessment Guidance Manual gives the following guidance on water quality evaluation using a trophic state index (TSI), which may be calculated from Secchi depth (SD), chlorophyll-a (CA) in the top 1 meter of the water column, or total phosphorus (TP) in the top 1 meter of the water column:
+      a.  `r substr(quest["q15a", ], 4, nchar(quest["q15a", ]))`
+      b.  `r substr(quest["q15b", ], 4, nchar(quest["q15b", ]))`
+      c.  `r substr(quest["q15c", ], 4, nchar(quest["q15c", ]))`
+      d.  `r substr(quest["q15d", ], 4, nchar(quest["q15d", ]))` 
 
-*"A trophic state index value of 60 or greater for any one of the 3 indices will indicate that nutrient enrichment from anthropogenic sources are adversely interfering, directly or indirectly, with the designated uses. A TSI value of 60 corresponds to a CA concentration of 20 ug/l, a SD of 1 meter, and a TP concentration of 48 ug/l."*
+16. `r substr(quest["q16", ], 5, nchar(quest["q16", ]))`    
 
-15. `r substr(quest["q15", ], 5, nchar(quest["q15", ]))`    
+     **Answer:**
 
-     **Answer:**  
+17. `r substr(quest["q17", ], 5, nchar(quest["q17", ]))`    
 
+     **Answer:**
 
 ***
 ### Objective 4: View and interpret organic matter data from your reservoir
 
 ***
-
-16. `r substr(quest["q16", ], 5, nchar(quest["q16", ]))` 
-
-      a.  `r substr(quest["q16a", ], 4, nchar(quest["q16a", ]))`
-      b.  `r substr(quest["q16b", ], 4, nchar(quest["q16b", ]))`
-      c.  `r substr(quest["q16c", ], 4, nchar(quest["q16c", ]))`
-      d.  `r substr(quest["q16d", ], 4, nchar(quest["q16d", ]))` 
-     
-17. `r substr(quest["q17", ], 5, nchar(quest["q17", ]))` 
-
-      a.  `r substr(quest["q17a", ], 4, nchar(quest["q17a", ]))`
-      b.  `r substr(quest["q17b", ], 4, nchar(quest["q17b", ]))`
-      c.  `r substr(quest["q17c", ], 4, nchar(quest["q17c", ]))`
-      d.  `r substr(quest["q17d", ], 4, nchar(quest["q17d", ]))` 
 
 18. `r substr(quest["q18", ], 5, nchar(quest["q18", ]))` 
 
@@ -242,14 +231,20 @@ Virginia's Water Quality Assessment Guidance Manual gives the following guidance
       b.  `r substr(quest["q18b", ], 4, nchar(quest["q18b", ]))`
       c.  `r substr(quest["q18c", ], 4, nchar(quest["q18c", ]))`
       d.  `r substr(quest["q18d", ], 4, nchar(quest["q18d", ]))` 
+     
+19. `r substr(quest["q19", ], 5, nchar(quest["q19", ]))` 
 
-19. `r substr(quest["q19", ], 5, nchar(quest["q19", ]))`    
+      a.  `r substr(quest["q19a", ], 4, nchar(quest["q19a", ]))`
+      b.  `r substr(quest["q19b", ], 4, nchar(quest["q19b", ]))`
+      c.  `r substr(quest["q19c", ], 4, nchar(quest["q19c", ]))`
+      d.  `r substr(quest["q19d", ], 4, nchar(quest["q19d", ]))` 
 
-     **Answer:**
+18. `r substr(quest["q20", ], 5, nchar(quest["q20", ]))` 
 
-20. `r substr(quest["q20", ], 5, nchar(quest["q20", ]))`    
-
-     **Answer:**
+      a.  `r substr(quest["q20a", ], 4, nchar(quest["q20a", ]))`
+      b.  `r substr(quest["q20b", ], 4, nchar(quest["q20b", ]))`
+      c.  `r substr(quest["q20c", ], 4, nchar(quest["q20c", ]))`
+      d.  `r substr(quest["q20d", ], 4, nchar(quest["q20d", ]))` 
 
 21. `r substr(quest["q21", ], 5, nchar(quest["q21", ]))`    
 
@@ -263,7 +258,18 @@ Virginia's Water Quality Assessment Guidance Manual gives the following guidance
 
      **Answer:**
 
+24. `r substr(quest["q24", ], 5, nchar(quest["q24", ]))`    
+
+     **Answer:**
+
+25. `r substr(quest["q25", ], 5, nchar(quest["q25", ]))`    
+
+     **Answer:**
+
 ![](www/EPA_TOC_rule.png)
+
+Table reproduced from US EPA 816-F-01-014: Stage 1 Disinfectants and Disinfection Byproducts Rule
+https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf 
 
 \newpage 
 
@@ -280,63 +286,66 @@ Virginia's Water Quality Assessment Guidance Manual gives the following guidance
 #### Management decision #1: Winter data
 <br>
 
-24. `r substr(quest["q24", ], 5, nchar(quest["q24", ]))`    
+26. `r substr(quest["q26", ], 5, nchar(quest["q26", ]))`    
 
      **Answer:**
      
-25. `r substr(quest["q25", ], 5, nchar(quest["q25", ]))` 
+27. `r substr(quest["q27", ], 5, nchar(quest["q27", ]))` 
 
-      a.  `r substr(quest["q25a", ], 4, nchar(quest["q25a", ]))`
-      b.  `r substr(quest["q25b", ], 4, nchar(quest["q25b", ]))`
-      c.  `r substr(quest["q25c", ], 4, nchar(quest["q25c", ]))`
-      d.  `r substr(quest["q25d", ], 4, nchar(quest["q25d", ]))` 
+      a.  `r substr(quest["q27a", ], 4, nchar(quest["q27a", ]))`
+      b.  `r substr(quest["q27b", ], 4, nchar(quest["q27b", ]))`
+      c.  `r substr(quest["q27c", ], 4, nchar(quest["q27c", ]))`
+      d.  `r substr(quest["q27d", ], 4, nchar(quest["q27d", ]))` 
 
-26. `r substr(quest["q26", ], 5, nchar(quest["q26", ]))` 
+28. `r substr(quest["q28", ], 5, nchar(quest["q28", ]))` 
 
-      a.  `r substr(quest["q26a", ], 4, nchar(quest["q26a", ]))`
-      b.  `r substr(quest["q26b", ], 4, nchar(quest["q26b", ]))`
+      **Answer:**
+
+Optional exercise: Reflect on why you made this decision. What information did you use to arrive at your final choice?
 
 <br>
 
 #### Management decision #2: Spring data
 <br>
 
-27. `r substr(quest["q27", ], 5, nchar(quest["q27", ]))`    
+29. `r substr(quest["q29", ], 5, nchar(quest["q29", ]))`    
 
      **Answer:**
      
-28. `r substr(quest["q28", ], 5, nchar(quest["q28", ]))` 
+30. `r substr(quest["q30", ], 5, nchar(quest["q30", ]))` 
 
-      a.  `r substr(quest["q28a", ], 4, nchar(quest["q28a", ]))`
-      b.  `r substr(quest["q28b", ], 4, nchar(quest["q28b", ]))`
-      c.  `r substr(quest["q28c", ], 4, nchar(quest["q28c", ]))`
-      d.  `r substr(quest["q28d", ], 4, nchar(quest["q28d", ]))` 
+      a.  `r substr(quest["q30a", ], 4, nchar(quest["q30a", ]))`
+      b.  `r substr(quest["q30b", ], 4, nchar(quest["q30b", ]))`
+      c.  `r substr(quest["q30c", ], 4, nchar(quest["q30c", ]))`
+      d.  `r substr(quest["q30d", ], 4, nchar(quest["q30d", ]))` 
 
-29. `r substr(quest["q29", ], 5, nchar(quest["q29", ]))` 
+31. `r substr(quest["q31", ], 5, nchar(quest["q31", ]))` 
 
-      a.  `r substr(quest["q29a", ], 4, nchar(quest["q29a", ]))`
-      b.  `r substr(quest["q29b", ], 4, nchar(quest["q29b", ]))`
+      **Answer:**
+
+Optional exercise: Reflect on why you made this decision. What information did you use to arrive at your final choice?
 
 <br>
 
 #### Management decision #3: Summer data
 <br>
 
-30. `r substr(quest["q30", ], 5, nchar(quest["q30", ]))`    
+32. `r substr(quest["q32", ], 5, nchar(quest["q32", ]))`    
 
      **Answer:**
      
-31. `r substr(quest["q31", ], 5, nchar(quest["q31", ]))` 
+33. `r substr(quest["q33", ], 5, nchar(quest["q33", ]))` 
 
-      a.  `r substr(quest["q31a", ], 4, nchar(quest["q31a", ]))`
-      b.  `r substr(quest["q31b", ], 4, nchar(quest["q31b", ]))`
-      c.  `r substr(quest["q31c", ], 4, nchar(quest["q31c", ]))`
-      d.  `r substr(quest["q31d", ], 4, nchar(quest["q31d", ]))` 
+      a.  `r substr(quest["q33a", ], 4, nchar(quest["q33a", ]))`
+      b.  `r substr(quest["q33b", ], 4, nchar(quest["q33b", ]))`
+      c.  `r substr(quest["q33c", ], 4, nchar(quest["q33c", ]))`
+      d.  `r substr(quest["q33d", ], 4, nchar(quest["q33d", ]))` 
 
-32. `r substr(quest["q32", ], 5, nchar(quest["q32", ]))` 
+34. `r substr(quest["q34", ], 5, nchar(quest["q34", ]))` 
 
-      a.  `r substr(quest["q32a", ], 4, nchar(quest["q32a", ]))`
-      b.  `r substr(quest["q32b", ], 4, nchar(quest["q32b", ]))`
+    **Answer:**
+    
+Optional exercise: Reflect on your decision. How did accessing high-frequency data (vs. the normal monthly samples) affect your decision-making?
 
 <br>
 

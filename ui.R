@@ -788,6 +788,9 @@ ui <- function(req) {
                                               p(tags$b(quest["q25", 1])),
                                               img(src = "EPA_TOC_rule.png", height = "100%",
                                                   width = "100%"),
+                                              p("Table reproduced from US EPA 816-F-01-014: Stage 1 Disinfectants and Disinfection Byproducts Rule"),
+                                              p(tags$a(href="https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", 
+                                                       "https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", target="_blank")),
                                               br(),br()
                                        )
                                      )

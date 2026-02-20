@@ -385,6 +385,25 @@ shinyServer(function(input, output, session) {
     
   })
   
+  # convert fdom to toc
+  toc.out2 <- reactiveValues(toc=NULL)
+  
+  output$toc_out2 <- renderText({
+    
+    validate(
+      need(input$convert_fDOM2 > 0,
+           message = "Click 'Convert fDOM to TOC'")
+    )
+    
+    observeEvent(input$convert_fDOM2,{
+      
+      toc.out2$toc = 1.86859 + 0.10846*input$fdom2
+      
+    })
+    
+    paste0("The estimated TOC level associated with this level of fDOM is ~",round(toc.out2$toc, 1)," mg/L.")
+  })
+  
   #*# Plot fDOM (decreasing)
   plot.fDOM.dec <- reactiveValues(main=NULL)
   
@@ -412,6 +431,25 @@ shinyServer(function(input, output, session) {
     
   })
   
+  # convert fdom to toc
+  toc.out3 <- reactiveValues(toc=NULL)
+  
+  output$toc_out3 <- renderText({
+    
+    validate(
+      need(input$convert_fDOM3 > 0,
+           message = "Click 'Convert fDOM to TOC'")
+    )
+    
+    observeEvent(input$convert_fDOM3,{
+      
+      toc.out3$toc = 1.86859 + 0.10846*input$fdom3
+      
+    })
+    
+    paste0("The estimated TOC level associated with this level of fDOM is ~",round(toc.out3$toc, 1)," mg/L.")
+  })
+  
   #*# Plot fDOM (variable)
   plot.fDOM.var <- reactiveValues(main=NULL)
   
@@ -437,6 +475,25 @@ shinyServer(function(input, output, session) {
       
     })
     
+  })
+  
+  # convert fdom to toc
+  toc.out4 <- reactiveValues(toc=NULL)
+  
+  output$toc_out4 <- renderText({
+    
+    validate(
+      need(input$convert_fDOM4 > 0,
+           message = "Click 'Convert fDOM to TOC'")
+    )
+    
+    observeEvent(input$convert_fDOM4,{
+      
+      toc.out4$toc = 1.86859 + 0.10846*input$fdom4
+      
+    })
+    
+    paste0("The estimated TOC level associated with this level of fDOM is ~",round(toc.out4$toc, 1)," mg/L.")
   })
   
   

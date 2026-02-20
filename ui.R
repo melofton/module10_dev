@@ -37,7 +37,7 @@ ui <- function(req) {
              br(),
              p(tags$b("Teaching materials associated with this module can be found at ",
                       tags$a(href="https://serc.carleton.edu/eddie/teaching_materials/modules/module10.html", 
-                             "https://serc.carleton.edu/eddie/teaching_materials/modules/module10.html.", target="_blank"))),
+                             "https://serc.carleton.edu/eddie/teaching_materials/modules/module10.html."))),
              h2(tags$b("Module 10: Exploring Tradeoffs in Water Quality Management Using Environmental Data"))
       ),
       column(1, align = "right",
@@ -350,7 +350,7 @@ ui <- function(req) {
                fluidRow(
                  column(6,
                         h3("Data sources"),
-                        p(HTML(paste0('This module will introduce how to use high-frequency water quality data to inform drinking water management using data from  ', a(href = "https://www.ltreb-reservoirs.org/", "Virginia Reservoirs LTREB sites", target = "_blank"), ", which are drinking water supply reservoirs located in southwest Virginia and owned and operated by the Western Virginia Water Authority.")))
+                        p(HTML(paste0('This module will introduce how to use high-frequency water quality data to inform drinking water management using data from  ', a(href = "https://www.ltreb-reservoirs.org/", "Virginia Reservoirs LTREB sites"), ", which are drinking water supply reservoirs located in southwest Virginia and owned and operated by the Western Virginia Water Authority.")))
                  ),
                  column(6, align = "center",
                         a(
@@ -396,7 +396,7 @@ ui <- function(req) {
                                     align = "center"),
                                  p(tags$i("Watch the video and click through the slides below to understand what disinfection byproducts are and their regulatory thresholds. Then, answer the questions below.")),
                                  wellPanel(
-                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/f0sND04di8M?si=Xkfpt5YnD4sjYLSS" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/f8dK7OSDunQ?si=lID5k0TgW7byDCev" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                                  )
                                  )
                         ),
@@ -458,7 +458,7 @@ ui <- function(req) {
                                     align = "center"),
                                  p(tags$i("Watch the video and click through the slides to understand tradeoffs operators may encounter between removing harmful microbes from drinking water and risking formation of DBPs.")),
                                  wellPanel(
-                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/_-v8cBYsJbc?si=HQsx73MAy0Dm__es" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/owK4haWLn94?si=sNvRNZCPditjnrrq" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                  )
                           )
                         ),
@@ -481,7 +481,9 @@ ui <- function(req) {
                                                 tags$li(id = "txt_j", quest["q8a", ]),
                                                 tags$li(id = "txt_j", quest["q8b", ]),
                                                 tags$li(id = "txt_j", quest["q8c", ])
-                                              )
+                                              ),
+                                              p(tags$b(quest["q9", 1])),
+                                              p(tags$b(quest["q10", 1]))
                                        )
                                      )
                                  )
@@ -500,21 +502,21 @@ ui <- function(req) {
                                      fluidRow(
                                        column(4, offset = 1,
                                               h4("Questions"),
-                                              p(tags$b(quest["q9", 1])),
-                                              p(tags$b(quest["q10", 1])),
                                               p(tags$b(quest["q11", 1])),
+                                              p(tags$b(quest["q12", 1])),
+                                              p(tags$b(quest["q13", 1])),
                                               p(tags$i("Hint: Follow the steps in the slide to the right and the video to solve the problem. Round your calculations to the nearest hundredth.")),
                                               tags$ul(
-                                                tags$li(id = "txt_j", quest["q11a", ]),
-                                                tags$li(id = "txt_j", quest["q11b", ]),
-                                                tags$li(id = "txt_j", quest["q11c", ])
+                                                tags$li(id = "txt_j", quest["q13a", ]),
+                                                tags$li(id = "txt_j", quest["q13b", ]),
+                                                tags$li(id = "txt_j", quest["q13c", ])
                                               ),
-                                              p(tags$b(quest["q12", 1])),
+                                              p(tags$b(quest["q14", 1])),
                                               tags$ul(
-                                                tags$li(id = "txt_j", quest["q12a", ]),
-                                                tags$li(id = "txt_j", quest["q12b", ]),
-                                                tags$li(id = "txt_j", quest["q12c", ]),
-                                                tags$li(id = "txt_j", quest["q12d", ])
+                                                tags$li(id = "txt_j", quest["q14a", ]),
+                                                tags$li(id = "txt_j", quest["q14b", ]),
+                                                tags$li(id = "txt_j", quest["q14c", ]),
+                                                tags$li(id = "txt_j", quest["q14d", ])
                                               )
                                        ),
                                        column(7,
@@ -607,20 +609,20 @@ ui <- function(req) {
                                      fluidRow(
                                        column(5, offset = 1,
                                               h3("Questions"),
-                                              p(tags$b(quest["q13", 1])),
-                                              p(tags$b(quest["q14", 1])),
                                               p(tags$b(quest["q15", 1])),
+                                              p(tags$b(quest["q16", 1])),
+                                              p(tags$b(quest["q17", 1])),
                                               tags$ul(
-                                                tags$li(id = "txt_j", quest["q15a", ]),
-                                                tags$li(id = "txt_j", quest["q15b", ]),
-                                                tags$li(id = "txt_j", quest["q15c", ]),
-                                                tags$li(id = "txt_j", quest["q15d", ])
+                                                tags$li(id = "txt_j", quest["q17a", ]),
+                                                tags$li(id = "txt_j", quest["q17b", ]),
+                                                tags$li(id = "txt_j", quest["q17c", ]),
+                                                tags$li(id = "txt_j", quest["q17d", ])
                                               )
                                        ),
                                        column(5, 
                                               h3(""),
-                                              p(tags$b(quest["q16", 1])),
-                                              p(tags$b(quest["q17", 1]))
+                                              p(tags$b(quest["q18", 1])),
+                                              p(tags$b(quest["q19", 1]))
                                        )
                                      )
                                  )
@@ -662,26 +664,26 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               h4("Questions"),
-                                              p(tags$b(quest["q18", 1])),
-                                              tags$ul(
-                                                tags$li(id = "txt_j", quest["q18a", ]),
-                                                tags$li(id = "txt_j", quest["q18b", ]),
-                                                tags$li(id = "txt_j", quest["q18c", ]),
-                                                tags$li(id = "txt_j", quest["q18d", ])
-                                              ),
-                                              p(tags$b(quest["q19", 1])),
-                                              tags$ul(
-                                                tags$li(id = "txt_j", quest["q19a", ]),
-                                                tags$li(id = "txt_j", quest["q19b", ]),
-                                                tags$li(id = "txt_j", quest["q19c", ]),
-                                                tags$li(id = "txt_j", quest["q19d", ])
-                                              ),
                                               p(tags$b(quest["q20", 1])),
                                               tags$ul(
                                                 tags$li(id = "txt_j", quest["q20a", ]),
                                                 tags$li(id = "txt_j", quest["q20b", ]),
                                                 tags$li(id = "txt_j", quest["q20c", ]),
                                                 tags$li(id = "txt_j", quest["q20d", ])
+                                              ),
+                                              p(tags$b(quest["q21", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q21a", ]),
+                                                tags$li(id = "txt_j", quest["q21b", ]),
+                                                tags$li(id = "txt_j", quest["q21c", ]),
+                                                tags$li(id = "txt_j", quest["q21d", ])
+                                              ),
+                                              p(tags$b(quest["q22", 1])),
+                                              tags$ul(
+                                                tags$li(id = "txt_j", quest["q22a", ]),
+                                                tags$li(id = "txt_j", quest["q22b", ]),
+                                                tags$li(id = "txt_j", quest["q22c", ]),
+                                                tags$li(id = "txt_j", quest["q22d", ])
                                               )
                                        )
                                      )
@@ -729,9 +731,9 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               h4("Questions"),
-                                              p(tags$b(quest["q21", 1])),
-                                              p(tags$b(quest["q22", 1])),
-                                              p(tags$b(quest["q23", 1]))
+                                              p(tags$b(quest["q23", 1])),
+                                              p(tags$b(quest["q24", 1])),
+                                              p(tags$b(quest["q25", 1]))
                                        )
                                      )
                                  )
@@ -766,16 +768,13 @@ ui <- function(req) {
                                    textOutput("toc_out")
                                  ),
                                  br(),br(),
-                                 p("After completing Q.23, if you would like to learn more about how the EPA regulates TOC, you may download and read the rule below."),
-                                 h4("Download and read the U.S. EPA Stage 1 Disinfectants and Disinfection Byproducts Rule"),
-                                 tags$style(type="text/css", "#rule_dl {background-color:#98CAB2;color: white}"),
-                                 wellPanel(
-                                   fluidRow(
-                                     column(6, align = "center", offset = 3,
-                                            downloadButton(outputId = "rule_dl", label = "Download EPA Rule")
-                                     )
-                                   )
-                                 )
+                                 h4(tags$b("Hints for completing Q.27!")),
+                                 p(tags$i("1. Use the converter to convert the fDOM value given in Q.27 to TOC.")),
+                                 p(tags$i("2. Find the row in Table 2 that corresponds to the TOC level you receive from the converter.")),
+                                 p(tags$i("3. Find the column in Table 2 that corresponds to the raw (source) water alkalinity value given in Q.27.")),
+                                 p(tags$i("4. Use the row from step 2 and the column from step 3 to find the percent of TOC that is required to be removed from the reservoir.")),
+                                 p(tags$i("5. Calculate how much TOC must be removed in mg/L by multiplying the TOC value you received from the converter by the percent in the table.")),
+                                 p(tags$i("(For example, 3 mg/L TOC x 50% = 1.5 mg/L TOC.)"))
                                  
                           ),
                           column(6,
@@ -784,14 +783,25 @@ ui <- function(req) {
                                      fluidRow(
                                        column(10, offset = 1,
                                               h4("Questions"),
-                                              p(tags$b(quest["q24", 1])),
-                                              p(tags$b(quest["q25", 1])),
+                                              p(tags$b(quest["q26", 1])),
+                                              p(tags$b(quest["q27", 1])),
                                               img(src = "EPA_TOC_rule.png", height = "100%",
                                                   width = "100%"),
                                               p("Table reproduced from US EPA 816-F-01-014: Stage 1 Disinfectants and Disinfection Byproducts Rule"),
                                               p(tags$a(href="https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", 
-                                                       "https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", target="_blank")),
-                                              br(),br()
+                                                       "https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf")),
+                                              br(),br(),
+                                              p("After completing Q.27, if you would like to learn more about how the EPA and Virginia Department of Health (VDH) regulate TOC, you may visit the Virginia law website and download and read the EPA rule linked below."),
+                                              h4("A. Read the ",tags$a(href="https://law.lis.virginia.gov/admincode/title12/agency5/chapter590/section411","Virginia administrative code")," relating to DBPs"),
+                                              h4("B. Download and read the U.S. EPA Stage 1 Disinfectants and Disinfection Byproducts Rule"),
+                                              tags$style(type="text/css", "#rule_dl {background-color:#98CAB2;color: white}"),
+                                              wellPanel(
+                                                fluidRow(
+                                                  column(6, align = "center", offset = 3,
+                                                         downloadButton(outputId = "rule_dl", label = "Download EPA Rule")
+                                                  )
+                                                )
+                                              )
                                        )
                                      )
                                  )
@@ -861,6 +871,7 @@ ui <- function(req) {
                        p("We have developed a relationship between fDOM (QSU) and TOC (mg/L) for your reservoir."),
                        p("This allows us to assess the possible levels of DBP precursors in the raw water in terms of TOC."),
                        p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
+                       p("For this activity, use the converters below each time series plot to help you make management decisions."),
                        numericInput( 
                          "fdom1", 
                          "fDOM (QSU)", 
@@ -887,15 +898,15 @@ ui <- function(req) {
                            fluidRow(
                              column(10, offset = 1,
                                     h4("Questions"),
-                                    p(tags$b(quest["q26", 1])),
-                                    p(tags$b(quest["q27", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q27a", ]),
-                                      tags$li(id = "txt_j", quest["q27b", ]),
-                                      tags$li(id = "txt_j", quest["q27c", ]),
-                                      tags$li(id = "txt_j", quest["q27d", ])
-                                    ),
                                     p(tags$b(quest["q28", 1])),
+                                    p(tags$b(quest["q29", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q29a", ]),
+                                      tags$li(id = "txt_j", quest["q29b", ]),
+                                      tags$li(id = "txt_j", quest["q29c", ]),
+                                      tags$li(id = "txt_j", quest["q29d", ])
+                                    ),
+                                    p(tags$b(quest["q30", 1])),
                                     p("Optional exercise: Reflect on why you made this decision. What information did you use to arrive at your final choice?")
                              )
                            )
@@ -904,6 +915,20 @@ ui <- function(req) {
                 column(8,
                        wellPanel(
                          plotlyOutput("fDOM_plot_dec")
+                       ),
+                       p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
+                       numericInput( 
+                         "fdom2", 
+                         "fDOM (QSU)", 
+                         value = NULL, 
+                         min = 0.1, 
+                         max = 30,
+                         step = 0.1
+                       ),
+                       actionButton("convert_fDOM2", "Convert fDOM to TOC"),
+                       br(),br(),
+                       wellPanel(
+                         textOutput("toc_out2")
                        )
                        )
               ),
@@ -917,15 +942,15 @@ ui <- function(req) {
                            fluidRow(
                              column(10, offset = 1,
                                     h4("Questions"),
-                                    p(tags$b(quest["q29", 1])),
-                                    p(tags$b(quest["q30", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q30a", ]),
-                                      tags$li(id = "txt_j", quest["q30b", ]),
-                                      tags$li(id = "txt_j", quest["q30c", ]),
-                                      tags$li(id = "txt_j", quest["q30d", ])
-                                    ),
                                     p(tags$b(quest["q31", 1])),
+                                    p(tags$b(quest["q32", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q32a", ]),
+                                      tags$li(id = "txt_j", quest["q32b", ]),
+                                      tags$li(id = "txt_j", quest["q32c", ]),
+                                      tags$li(id = "txt_j", quest["q32d", ])
+                                    ),
+                                    p(tags$b(quest["q33", 1])),
                                     p("Optional exercise: Reflect on why you made this decision. What information did you use to arrive at your final choice?")
                              )
                            )
@@ -934,6 +959,20 @@ ui <- function(req) {
                 column(8,
                        wellPanel(
                          plotlyOutput("fDOM_plot_var")
+                       ),
+                       p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
+                       numericInput( 
+                         "fdom3", 
+                         "fDOM (QSU)", 
+                         value = NULL, 
+                         min = 0.1, 
+                         max = 30,
+                         step = 0.1
+                       ),
+                       actionButton("convert_fDOM3", "Convert fDOM to TOC"),
+                       br(),br(),
+                       wellPanel(
+                         textOutput("toc_out3")
                        )
                 )
               ),
@@ -947,15 +986,15 @@ ui <- function(req) {
                            fluidRow(
                              column(10, offset = 1,
                                     h4("Questions"),
-                                    p(tags$b(quest["q32", 1])),
-                                    p(tags$b(quest["q33", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q33a", ]),
-                                      tags$li(id = "txt_j", quest["q33b", ]),
-                                      tags$li(id = "txt_j", quest["q33c", ]),
-                                      tags$li(id = "txt_j", quest["q33d", ])
-                                    ),
                                     p(tags$b(quest["q34", 1])),
+                                    p(tags$b(quest["q35", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q35a", ]),
+                                      tags$li(id = "txt_j", quest["q35b", ]),
+                                      tags$li(id = "txt_j", quest["q35c", ]),
+                                      tags$li(id = "txt_j", quest["q35d", ])
+                                    ),
+                                    p(tags$b(quest["q36", 1])),
                                     p("Optional exercise: Reflect on your decision. How did accessing high-frequency data (vs. the normal monthly samples) affect your decision-making?")
                              )
                            )
@@ -964,6 +1003,20 @@ ui <- function(req) {
                 column(8,
                        wellPanel(
                          plotlyOutput("fDOM_plot_inc")
+                       ),
+                       p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
+                       numericInput( 
+                         "fdom4", 
+                         "fDOM (QSU)", 
+                         value = NULL, 
+                         min = 0.1, 
+                         max = 30,
+                         step = 0.1
+                       ),
+                       actionButton("convert_fDOM4", "Convert fDOM to TOC"),
+                       br(),br(),
+                       wellPanel(
+                         textOutput("toc_out4")
                        )
                 )
               ),

@@ -50,10 +50,10 @@ In this module, you will explore organic matter data collected from drinking wat
 
 By the end of this module, you will be able to:
 
-- Define what disinfection byproducts are.
+- Define disinfection byproducts.
 - Describe the environmental and water treatment processes that influence the formation of disinfection byproducts.
 - Understand the trade-offs between disinfection and byproduct formation that can occur when chlorinating water, and treatment techniques that can be used to manage these tradeoffs (e.g., coagulation, activated carbon filters).
-- Use environmental data visualizations to identify when additional treatment techniques to avoid disinfection byproduct formation should be used to meet water quality objectives.
+- Use environmental data visualizations to identify when additional treatment techniques to avoid disinfection byproduct formation could be used to meet water quality objectives.
 
 ## Module overview:
 
@@ -270,7 +270,7 @@ Be sure you have answered questions 1-3 in the previous Introduction section bef
 
      **Answer:**
 
-27. `r substr(quest["q27", ], 5, nchar(quest["q27", ]))`    
+27. The U.S. Environmental Protection Agency (US EPA) has a rule regarding removal of TOC from drinking water during treatment (see table below). The percentage of TOC that must be removed during treatment depends on the amount of TOC in the raw water (see the first column of the table), as well as the raw water alkalinity (second, third, and fourth columns of the table). Use the fDOM-to-TOC converter to determine how much TOC should be removed from a **hypothetical** reservoir with an fDOM concentration of 40 QSU and a raw water alkalinity of 50 mg/L. Report your answer in mg/L of TOC to the nearest tenth (e.g., 2.1).   
 
      **Answer:**
 

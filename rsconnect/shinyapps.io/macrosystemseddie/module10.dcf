@@ -5,7 +5,7 @@ account: macrosystemseddie
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 15516555
-bundleId: 11608950
+bundleId:
 url: https://macrosystemseddie.shinyapps.io/module10/
 version: 1
 asMultiple: FALSE

@@ -167,7 +167,7 @@ ui <- function(req) {
                           h3("Focal question"),
                           h4(tags$b(tags$i("How can we use environmental data to inform our understanding of the tradeoffs involved in water management decision-making?"))),
                           h3("Summary"),
-                          p("Many water management decisions come with tradeoffs. One important example of such a decision is the use of chlorine in the drinking water treatment process. Chlorination is an important disinfection step in water treatment and is needed to protect water consumers from harmful pathogens (such as bacteria). However, when there are high amounts of organic matter in the raw water, chlorination can result in the formation of potentially cancer-causing disinfection byproducts. Environmental sensor data on water quality conditions, such as organic matter measurements from drinking water reservoirs, can help inform water management decision-making and reduce the risk of unintended consequences due to use of chlorine in water treatment."),
+                          p("Many water management decisions come with tradeoffs. One important example of such a decision is the use of chlorine in the drinking water treatment process. Chlorination is an important disinfection step in water treatment and is needed to protect water consumers from harmful pathogens (such as bacteria). However, when there are high amounts of organic matter in the raw water, chlorination can result in the formation of potentially cancer-causing disinfection byproducts. Environmental sensor data on water quality conditions, such as measurements of organic matter in drinking water reservoirs, can help inform water management decision-making and reduce the risk of unintended consequences due to use of chlorine in water treatment."),
                           p("In this module, you will explore organic matter data collected from drinking water reservoirs and learn how to interpret these data to inform your decision-making about chlorination during drinking water treatment."),
                           h3("Learning Outcomes"),
                           tags$line(),
@@ -212,7 +212,7 @@ ui <- function(req) {
                                      fluidRow(
                                        column(12, align = "center",
                                               wellPanel(
-                                              HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/1VzX_93JMwM?si=1LYvN_kmt3IiNQLI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                              HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/Qj_LyQHQ9vw?si=r_-rLka1PYfj2eOt" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                                               )
                                        )
                                      ),
@@ -396,7 +396,7 @@ ui <- function(req) {
                                     align = "center"),
                                  p(tags$i("Watch the video and click through the slides below to understand what disinfection byproducts are and their regulatory thresholds. Then, answer the questions below.")),
                                  wellPanel(
-                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/f8dK7OSDunQ?si=lID5k0TgW7byDCev" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/60Su5k3OWhk?si=Q2isXW1_IFMXBkXQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                                  )
                                  )
                         ),
@@ -458,7 +458,7 @@ ui <- function(req) {
                                     align = "center"),
                                  p(tags$i("Watch the video and click through the slides to understand tradeoffs operators may encounter between removing harmful microbes from drinking water and risking formation of DBPs.")),
                                  wellPanel(
-                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/owK4haWLn94?si=sNvRNZCPditjnrrq" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/JBnVkGkrkNs?si=m7Z2VoW2VKPVgcvi" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                  )
                           )
                         ),
@@ -653,7 +653,7 @@ ui <- function(req) {
                                     align = "center"),
                                  p(tags$i("Watch the video and click through the slides to understand how fDOM data relate to possible DBP formation. The information in the presentation is also summarized in text below to help you answer the questions.")),
                                  wellPanel(
-                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/cYTtBTw8LXw?si=dU9d-nZzGLK5XKeM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
+                                   HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/Y0-iBD_HqI4?si=19BrCLy8AHWh7Y_L" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'),
                                  )
                           )
                         ),
@@ -750,7 +750,7 @@ ui <- function(req) {
                         fluidRow(
                           column(6,
                                  h3("Converting fDOM to TOC"),
-                                 p("While fDOM and TOC are not exactly the same, we can use statistics to make a relationship that converts fDOM (in quinine sulfate units) to TOC (in milligrams per liter). With this relationship, fDOM data can help us detect the presence of potential DBP precursors and assess DBP formation risk"),
+                                 p("While fDOM and TOC are not exactly the same, we can use statistics to make a relationship that converts fDOM (in quinine sulfate units) to TOC (in milligrams per liter). With this relationship, fDOM data can help us detect the presence of potential DBP precursors and assess DBP formation risk based on the concentration of TOC."),
                                  p("We have developed a relationship between fDOM (QSU) and TOC (mg/L) for your focal reservoir."),
                                  p("This allows us to assess the possible levels of DBP precursors in the raw water in terms of TOC."),
                                  p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
@@ -784,7 +784,7 @@ ui <- function(req) {
                                        column(10, offset = 1,
                                               h4("Questions"),
                                               p(tags$b(quest["q26", 1])),
-                                              p(tags$b(quest["q27", 1])),
+                                              p("Q27. The U.S. Environmental Protection Agency (US EPA) has a rule regarding removal of TOC from drinking water during treatment (see table below). The percentage of TOC that must be removed during treatment depends on the amount of TOC in the raw water (see the first column of the table), as well as the raw water alkalinity (second, third, and fourth columns of the table). Use the fDOM-to-TOC converter to determine how much TOC should be removed from a ",tags$u("hypothetical")," reservoir with an fDOM concentration of 40 QSU and a raw water alkalinity of 50 mg/L. Report your answer in mg/L of TOC to the nearest tenth (e.g., 2.1)."),
                                               img(src = "EPA_TOC_rule.png", height = "100%",
                                                   width = "100%"),
                                               p("Table reproduced from US EPA 816-F-01-014: Stage 1 Disinfectants and Disinfection Byproducts Rule"),
@@ -868,7 +868,7 @@ ui <- function(req) {
               fluidRow(
                 column(12,
                        h3("Use the fDOM to TOC converter to help you make management decisions"),
-                       p("We have developed a relationship between fDOM (QSU) and TOC (mg/L) for your reservoir."),
+                       p("We have developed a relationship between fDOM (QSU) and TOC (mg/L) for your reservoir. This is the same converter we used in Activity B."),
                        p("This allows us to assess the possible levels of DBP precursors in the raw water in terms of TOC."),
                        p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
                        p("For this activity, use the converters below each time series plot to help you make management decisions."),
@@ -1051,7 +1051,7 @@ ui <- function(req) {
                        h2("Completed Module!"),
                        h3("You have completed the module! Congratulations!"),
                        h4("Please check through the answers in your Canvas quiz before you submit the quiz to your instructor."),
-                       h4("You’ve now made operations decisions informed by high-frequency water quality data - well done!")
+                       h4("You’ve now made water treatment decisions informed by high-frequency water quality data - well done!")
                        )
                 )
               )

@@ -119,7 +119,8 @@ shinyServer(function(input, output, session) {
       ) %>%
       addMarkers(data = sites_df,
                  layerId = ~SiteID, clusterOptions = markerClusterOptions(),
-                 label = ~ReservoirName, icon = ~ltrebIcons[1])
+                 label = ~ReservoirName, icon = ~ltrebIcons[1]) %>%
+      setView(lng = -79.826954, lat = 37.311227, zoom = 14)
     
   })
   
@@ -148,7 +149,7 @@ shinyServer(function(input, output, session) {
       site = pull(sites_df[input$table01_rows_selected, "SiteID"])
       
       if(site == "fcre"){
-        site_photo_credit <- paste("<b>","Falling Creek Reservoir (photo credit Mary Lofton)","</b>", sep = "")
+        site_photo_credit <- paste("<b>","Falling Creek Reservoir (photo credit Adrienne Breef-Pilz)","</b>", sep = "")
       }
       if(site == "bvre"){
         site_photo_credit <- paste("<b>","Beaverdam Reservoir (photo credit Ricardo Paiz)","</b>", sep = "")

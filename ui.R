@@ -199,7 +199,7 @@ ui <- function(req) {
                                        column(12, align = "center",
                                               introBox(data.step = 5, data.intro = help_text["videos", 1],
                                                        wellPanel(
-                                              HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/3OMWRZTK89I?si=kzSXkNmhjm_-cG36" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                              HTML('<iframe width="1100" height="825" src="https://www.youtube.com/embed/E2eqHv0ZI54?si=LxQXvqmp57XNfnY-" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                                                        )
                                               )
                                               )

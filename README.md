@@ -26,9 +26,9 @@ There are two options:
 2. Clone this repository into RStudio.  
 		a.  Open RStudio.  
 		b.  Click "File > New Project...".  
-		c.  In the "Create Project dialog select "Version Control: Checkout a project from a version control repository".  
-		d. Select "Git: Clone a project from a Git repository.  
-		e. In the "Repository URL:" option input the URL to this repository, select where to save the project directory.  
+		c.  In the "Create Project dialog, select "Version Control: Checkout a project from a version control repository".  
+		d. Select "Git: Clone a project from a Git repository".  
+		e. In the "Repository URL:" optio,n input the URL to this repository, select where to save the project directory.  
 		f. Click "Create Project".  
 		g. You will then have a project with all the files from this repository.  
 		

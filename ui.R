@@ -716,7 +716,7 @@ ui <- function(req) {
                           ),
                           column(8, align = "center",
                                  h4("Video: Reading and interpreting graphs"),
-                                 HTML('<iframe width="700" height="525" src="https://www.youtube.com/embed/AhnwYmHvHSc?si=u0yeVtcuVP3GlTOJ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
+                                 HTML('<iframe width="700" height="525" src="https://www.youtube.com/embed/3Bl5J5lIk6o?si=Uy1kTJkoVFtGj_YV" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>')
                           )
                         ),
                         hr(),

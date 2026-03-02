@@ -37,7 +37,7 @@ ui <- function(req) {
              br(),
              p(tags$b("Teaching materials associated with this module can be found at ",
                       tags$a(href="https://serc.carleton.edu/eddie/teaching_materials/modules/module10.html", 
-                             "https://serc.carleton.edu/eddie/teaching_materials/modules/module10.html."))),
+                             "https://serc.carleton.edu/eddie/teaching_materials/modules/module10.html.",target = "_blank"))),
              h2(tags$b("Module 10: Exploring Tradeoffs in Water Quality Management Using Environmental Data"))
       ),
       column(1, align = "right",
@@ -350,7 +350,7 @@ ui <- function(req) {
                fluidRow(
                  column(6,
                         h3("Data sources"),
-                        p(HTML(paste0('This module will introduce how to use high-frequency water quality data to inform drinking water management using data from  ', a(href = "https://www.ltreb-reservoirs.org/", "Virginia Reservoirs LTREB sites"), ", which are drinking water supply reservoirs located in southwest Virginia and owned and operated by the Western Virginia Water Authority.")))
+                        p(HTML(paste0('This module will introduce how to use high-frequency water quality data to inform drinking water management using data from  ', a(href = "https://www.ltreb-reservoirs.org/", "Virginia Reservoirs LTREB sites",target = "_blank"), ", which are drinking water supply reservoirs located in southwest Virginia and owned and operated by the Western Virginia Water Authority.")))
                  ),
                  column(6, align = "center",
                         a(
@@ -789,10 +789,10 @@ ui <- function(req) {
                                                   width = "100%"),
                                               p("Table reproduced from US EPA 816-F-01-014: Stage 1 Disinfectants and Disinfection Byproducts Rule"),
                                               p(tags$a(href="https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", 
-                                                       "https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf")),
+                                                       "https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", target = "_blank")),
                                               br(),br(),
                                               p("After completing Q.27, if you would like to learn more about how the EPA and Virginia Department of Health (VDH) regulate TOC, you may visit the Virginia law website and download and read the EPA rule linked below."),
-                                              h4("A. Read the ",tags$a(href="https://law.lis.virginia.gov/admincode/title12/agency5/chapter590/section411","Virginia administrative code")," relating to DBPs"),
+                                              h4("A. Read the ",tags$a(href="https://law.lis.virginia.gov/admincode/title12/agency5/chapter590/section411","Virginia administrative code", target = "_blank")," relating to DBPs"),
                                               h4("B. Download and read the U.S. EPA Stage 1 Disinfectants and Disinfection Byproducts Rule"),
                                               tags$style(type="text/css", "#rule_dl {background-color:#98CAB2;color: white}"),
                                               wellPanel(

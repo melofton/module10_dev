@@ -368,7 +368,7 @@ shinyServer(function(input, output, session) {
       
       df <- reservoir_data %>%
         filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2019-07-20" & datetime <= "2019-08-20") %>%
-        mutate(observation = observation^1.2)
+        mutate(observation = observation^1.35)
       
       p <- ggplot(data = df, aes(x = datetime, y = observation))+
         geom_point(aes(color = "surface water fDOM"))+
@@ -414,7 +414,7 @@ shinyServer(function(input, output, session) {
       
       df <- reservoir_data %>%
         filter(variable %in% c("fDOM_QSU_mean" ) & site_id == "fcre" & datetime >= "2021-01-20" & datetime <= "2021-02-20") %>%
-        mutate(observation = observation^1.2)
+        mutate(observation = observation^1)
       
       p <- ggplot(data = df, aes(x = datetime, y = observation))+
         geom_point(aes(color = "surface water fDOM"))+

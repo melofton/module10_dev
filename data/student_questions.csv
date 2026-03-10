@@ -78,7 +78,7 @@ q25,"Q25. Based on the data in the figure and your understanding of how fDOM lev
 q26,"Q26. In your focal reservoir, what is the corresponding TOC in mg/L for the highest observed fDOM in your reservoir? Round your answer to the nearest tenth (e.g., 3.1)."
 q27,"Q27. The U.S. Environmental Protection Agency (US EPA) has a rule regarding removal of TOC from drinking water during treatment (see table below). The percentage of TOC that must be removed during treatment depends on the amount of TOC in the raw water (see the first column of the table), as well as the raw water alkalinity (second, third, and fourth columns of the table). Use the fDOM-to-TOC converter to determine how much TOC should be removed from a hypothetical reservoir with an fDOM concentration of 40 QSU and a raw water alkalinity of 50 mg/L. Report your answer in mg/L of TOC to the nearest tenth (e.g., 2.1)."
 q28,"Q28. For February 20, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth (e.g., 3.1)."
-q29,"Q29. Use your answer to Q28 and the required removal of TOC table to calculate how much TOC should be removed from the reservoir on February 20. Round your answer to the nearest tenth (e.g., 3.1)."
+q29,"Q29. Use your answer to Q28 and the required removal of TOC table to calculate how much TOC in mg/L should be removed from the reservoir on February 20. Round your answer to the nearest tenth (e.g., 3.1)."
 q30,Q30. Which best describes the pattern in fDOM data over the previous month?
 q30a,a. increasing
 q30b,b. decreasing
@@ -86,7 +86,7 @@ q30c,c. steady (very little change)
 q30d,"d. highly variable, but neither increasing nor decreasing overall"
 q31,Q31. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question. Type 'yes' or 'no'.
 q32,"Q32. For April 15, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth (e.g., 3.1)."
-q33,"Q33. Use your answer to Q32 and the required removal of TOC table to calculate how much TOC should be removed from the reservoir on April 15. Round your answer to the nearest tenth (e.g., 3.1)."
+q33,"Q33. Use your answer to Q32 and the required removal of TOC table to calculate how much TOC in mg/L should be removed from the reservoir on April 15. Round your answer to the nearest tenth (e.g., 3.1)."
 q34,Q34. Which best describes the pattern in fDOM data over the previous month?
 q34a,a. increasing
 q34b,b. decreasing
@@ -94,7 +94,7 @@ q34c,c. steady (very little change)
 q34d,"d. highly variable, but neither increasing nor decreasing overall"
 q35,Q35. Do you decide to increase the coagulation time to reduce the risk of high TOC and potential DBP formation in the filtered water? There is no right or wrong answer to this question. Type 'yes' or 'no'.
 q36,"Q36. For August 20, what is the corresponding TOC in mg/L of the fDOM observation for today? Use the fDOM to TOC converter to help answer the question. Round your answer to the nearest tenth (e.g., 3.1)."
-q37,"Q37. Use your answer to Q36 and the required removal of TOC table to calculate how much TOC should be removed from the reservoir on August 20. Round your answer to the nearest tenth (e.g., 3.1)."
+q37,"Q37. Use your answer to Q36 and the required removal of TOC table to calculate how much TOC in mg/L should be removed from the reservoir on August 20. Round your answer to the nearest tenth (e.g., 3.1)."
 q38,Q38. Which best describes the pattern in fDOM data over the previous month?
 q38a,a. increasing
 q38b,b. decreasing

@@ -909,6 +909,7 @@ ui <- function(req) {
                                     h4("Questions"),
                                     p(tags$b(quest["q28", 1])),
                                     p(tags$b(quest["q29", 1])),
+                                    p(tags$i("Hint: recall that for this activity, you can assume the alkalinity of the reeservoir is always < 60 mg/L.")),
                                     p(tags$b(quest["q30", 1])),
                                     tags$ul(
                                       tags$li(id = "txt_j", quest["q30a", ]),
@@ -966,6 +967,7 @@ ui <- function(req) {
                                     h4("Questions"),
                                     p(tags$b(quest["q32", 1])),
                                     p(tags$b(quest["q33", 1])),
+                                    p(tags$i("Hint: recall that for this activity, you can assume the alkalinity of the reeservoir is always < 60 mg/L.")),
                                     p(tags$b(quest["q34", 1])),
                                     tags$ul(
                                       tags$li(id = "txt_j", quest["q34a", ]),
@@ -1023,6 +1025,7 @@ ui <- function(req) {
                                     h4("Questions"),
                                     p(tags$b(quest["q36", 1])),
                                     p(tags$b(quest["q37", 1])),
+                                    p(tags$i("Hint: recall that for this activity, you can assume the alkalinity of the reeservoir is always < 60 mg/L.")),
                                     p(tags$b(quest["q38", 1])),
                                     tags$ul(
                                       tags$li(id = "txt_j", quest["q38a", ]),

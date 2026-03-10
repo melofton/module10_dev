@@ -298,14 +298,18 @@ https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfecti
 
      **Answer:**
      
-29. `r substr(quest["q29", ], 5, nchar(quest["q29", ]))` 
+29. `r substr(quest["q29", ], 5, nchar(quest["q29", ]))`    
 
-      a.  `r substr(quest["q29a", ], 4, nchar(quest["q29a", ]))`
-      b.  `r substr(quest["q29b", ], 4, nchar(quest["q29b", ]))`
-      c.  `r substr(quest["q29c", ], 4, nchar(quest["q29c", ]))`
-      d.  `r substr(quest["q29d", ], 4, nchar(quest["q29d", ]))` 
-
+     **Answer:**
+   
 30. `r substr(quest["q30", ], 5, nchar(quest["q30", ]))` 
+
+      a.  `r substr(quest["q30a", ], 4, nchar(quest["q30a", ]))`
+      b.  `r substr(quest["q30b", ], 4, nchar(quest["q30b", ]))`
+      c.  `r substr(quest["q30c", ], 4, nchar(quest["q30c", ]))`
+      d.  `r substr(quest["q30d", ], 4, nchar(quest["q30d", ]))` 
+
+31. `r substr(quest["q31", ], 5, nchar(quest["q31", ]))` 
 
       **Answer:**
 
@@ -316,18 +320,22 @@ Optional exercise: Reflect on why you made this decision. What information did y
 #### Management decision #2: Spring data
 <br>
 
-31. `r substr(quest["q31", ], 5, nchar(quest["q31", ]))`    
+32. `r substr(quest["q32", ], 5, nchar(quest["q32", ]))`    
 
      **Answer:**
-     
-32. `r substr(quest["q32", ], 5, nchar(quest["q32", ]))` 
+ 
+33. `r substr(quest["q33", ], 5, nchar(quest["q33", ]))`    
 
-      a.  `r substr(quest["q32a", ], 4, nchar(quest["q32a", ]))`
-      b.  `r substr(quest["q32b", ], 4, nchar(quest["q32b", ]))`
-      c.  `r substr(quest["q32c", ], 4, nchar(quest["q32c", ]))`
-      d.  `r substr(quest["q32d", ], 4, nchar(quest["q32d", ]))` 
+     **Answer:**
+      
+34. `r substr(quest["q34", ], 5, nchar(quest["q34", ]))` 
 
-33. `r substr(quest["q33", ], 5, nchar(quest["q33", ]))` 
+      a.  `r substr(quest["q34a", ], 4, nchar(quest["q34a", ]))`
+      b.  `r substr(quest["q34b", ], 4, nchar(quest["q34b", ]))`
+      c.  `r substr(quest["q34c", ], 4, nchar(quest["q34c", ]))`
+      d.  `r substr(quest["q34d", ], 4, nchar(quest["q34d", ]))` 
+
+35. `r substr(quest["q35", ], 5, nchar(quest["q35", ]))` 
 
       **Answer:**
 
@@ -338,18 +346,22 @@ Optional exercise: Reflect on why you made this decision. What information did y
 #### Management decision #3: Summer data
 <br>
 
-34. `r substr(quest["q34", ], 5, nchar(quest["q34", ]))`    
+36. `r substr(quest["q36", ], 5, nchar(quest["q36", ]))`    
+
+     **Answer:**
+ 
+37. `r substr(quest["q37", ], 5, nchar(quest["q37", ]))`    
 
      **Answer:**
      
-35. `r substr(quest["q35", ], 5, nchar(quest["q35", ]))` 
+38. `r substr(quest["q38", ], 5, nchar(quest["q38", ]))` 
 
-      a.  `r substr(quest["q35a", ], 4, nchar(quest["q35a", ]))`
-      b.  `r substr(quest["q35b", ], 4, nchar(quest["q35b", ]))`
-      c.  `r substr(quest["q35c", ], 4, nchar(quest["q35c", ]))`
-      d.  `r substr(quest["q35d", ], 4, nchar(quest["q35d", ]))` 
+      a.  `r substr(quest["q38a", ], 4, nchar(quest["q38a", ]))`
+      b.  `r substr(quest["q38b", ], 4, nchar(quest["q38b", ]))`
+      c.  `r substr(quest["q38c", ], 4, nchar(quest["q38c", ]))`
+      d.  `r substr(quest["q38d", ], 4, nchar(quest["q38d", ]))` 
 
-36. `r substr(quest["q36", ], 5, nchar(quest["q36", ]))` 
+39. `r substr(quest["q39", ], 5, nchar(quest["q39", ]))` 
 
      **Answer:**
     

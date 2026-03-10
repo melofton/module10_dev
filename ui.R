@@ -866,12 +866,13 @@ ui <- function(req) {
               ),
               hr(),
               fluidRow(
-                column(12,
-                       h3("Use the fDOM to TOC converter to help you make management decisions"),
-                       p("We have developed a relationship between fDOM (QSU) and TOC (mg/L) for your reservoir. This is the same converter we used in Activity B."),
+                column(6,
+                       h3("Use the fDOM to TOC converter and the required removal of TOC table to help you make management decisions"),
+                       p("We have developed a relationship between fDOM (QSU) and TOC (mg/L) for the case study reservoir for this activity. This is the same kind of converter we used in Activity B, but uses data from the case study reservoir for Activity C."),
                        p("This allows us to assess the possible levels of DBP precursors in the raw water in terms of TOC."),
                        p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
-                       p("For this activity, use the converters below each time series plot to help you make management decisions."),
+                       p("Then, you can use the table to determine how much TOC should be removed from your reservoir. For this activity, ",tags$b("you can assume that your reservoir always has an alkalinity of < 60 mg/L.")),
+                       p("Use the converters and tables below each time series plot to help you make management decisions."),
                        numericInput( 
                          "fdom1", 
                          "fDOM (QSU)", 
@@ -886,7 +887,15 @@ ui <- function(req) {
                          textOutput("toc_out1")
                        )
                        
-                )
+                ),
+                column(6,
+                       img(src = "EPA_TOC_rule.png", height = "100%",
+                           width = "100%"),
+                       p("Table reproduced from US EPA 816-F-01-014: Stage 1 Disinfectants and Disinfection Byproducts Rule"),
+                       p(tags$a(href="https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", 
+                                "https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", target = "_blank")),
+                       br(),br()
+                       )
               ),
               hr(),
               fluidRow(
@@ -900,13 +909,14 @@ ui <- function(req) {
                                     h4("Questions"),
                                     p(tags$b(quest["q28", 1])),
                                     p(tags$b(quest["q29", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q29a", ]),
-                                      tags$li(id = "txt_j", quest["q29b", ]),
-                                      tags$li(id = "txt_j", quest["q29c", ]),
-                                      tags$li(id = "txt_j", quest["q29d", ])
-                                    ),
                                     p(tags$b(quest["q30", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q30a", ]),
+                                      tags$li(id = "txt_j", quest["q30b", ]),
+                                      tags$li(id = "txt_j", quest["q30c", ]),
+                                      tags$li(id = "txt_j", quest["q30d", ])
+                                    ),
+                                    p(tags$b(quest["q31", 1])),
                                     p("Optional exercise: Reflect on why you made this decision. What information did you use to arrive at your final choice?")
                              )
                            )
@@ -916,19 +926,31 @@ ui <- function(req) {
                        wellPanel(
                          plotlyOutput("fDOM_plot_dec")
                        ),
-                       p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
-                       numericInput( 
-                         "fdom2", 
-                         "fDOM (QSU)", 
-                         value = NULL, 
-                         min = 0.1, 
-                         max = 30,
-                         step = 0.1
-                       ),
-                       actionButton("convert_fDOM2", "Convert fDOM to TOC"),
-                       br(),br(),
-                       wellPanel(
-                         textOutput("toc_out2")
+                       fluidRow(
+                         column(6,
+                                p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
+                                numericInput( 
+                                  "fdom2", 
+                                  "fDOM (QSU)", 
+                                  value = NULL, 
+                                  min = 0.1, 
+                                  max = 30,
+                                  step = 0.1
+                                ),
+                                actionButton("convert_fDOM2", "Convert fDOM to TOC"),
+                                br(),br(),
+                                wellPanel(
+                                  textOutput("toc_out2")
+                                )
+                                ),
+                         column(6,
+                                img(src = "EPA_TOC_rule.png", height = "100%",
+                                    width = "100%"),
+                                p("Table reproduced from US EPA 816-F-01-014: Stage 1 Disinfectants and Disinfection Byproducts Rule"),
+                                p(tags$a(href="https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", 
+                                         "https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", target = "_blank")),
+                                br(),br()
+                                )
                        )
                        )
               ),
@@ -942,15 +964,16 @@ ui <- function(req) {
                            fluidRow(
                              column(10, offset = 1,
                                     h4("Questions"),
-                                    p(tags$b(quest["q31", 1])),
                                     p(tags$b(quest["q32", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q32a", ]),
-                                      tags$li(id = "txt_j", quest["q32b", ]),
-                                      tags$li(id = "txt_j", quest["q32c", ]),
-                                      tags$li(id = "txt_j", quest["q32d", ])
-                                    ),
                                     p(tags$b(quest["q33", 1])),
+                                    p(tags$b(quest["q34", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q34a", ]),
+                                      tags$li(id = "txt_j", quest["q34b", ]),
+                                      tags$li(id = "txt_j", quest["q34c", ]),
+                                      tags$li(id = "txt_j", quest["q34d", ])
+                                    ),
+                                    p(tags$b(quest["q35", 1])),
                                     p("Optional exercise: Reflect on why you made this decision. What information did you use to arrive at your final choice?")
                              )
                            )
@@ -960,19 +983,31 @@ ui <- function(req) {
                        wellPanel(
                          plotlyOutput("fDOM_plot_var")
                        ),
-                       p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
-                       numericInput( 
-                         "fdom3", 
-                         "fDOM (QSU)", 
-                         value = NULL, 
-                         min = 0.1, 
-                         max = 30,
-                         step = 0.1
-                       ),
-                       actionButton("convert_fDOM3", "Convert fDOM to TOC"),
-                       br(),br(),
-                       wellPanel(
-                         textOutput("toc_out3")
+                       fluidRow(
+                         column(6,
+                                p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
+                                numericInput( 
+                                  "fdom3", 
+                                  "fDOM (QSU)", 
+                                  value = NULL, 
+                                  min = 0.1, 
+                                  max = 30,
+                                  step = 0.1
+                                ),
+                                actionButton("convert_fDOM3", "Convert fDOM to TOC"),
+                                br(),br(),
+                                wellPanel(
+                                  textOutput("toc_out3")
+                                )
+                         ),
+                         column(6,
+                                img(src = "EPA_TOC_rule.png", height = "100%",
+                                    width = "100%"),
+                                p("Table reproduced from US EPA 816-F-01-014: Stage 1 Disinfectants and Disinfection Byproducts Rule"),
+                                p(tags$a(href="https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", 
+                                         "https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", target = "_blank")),
+                                br(),br()
+                         )
                        )
                 )
               ),
@@ -986,15 +1021,16 @@ ui <- function(req) {
                            fluidRow(
                              column(10, offset = 1,
                                     h4("Questions"),
-                                    p(tags$b(quest["q34", 1])),
-                                    p(tags$b(quest["q35", 1])),
-                                    tags$ul(
-                                      tags$li(id = "txt_j", quest["q35a", ]),
-                                      tags$li(id = "txt_j", quest["q35b", ]),
-                                      tags$li(id = "txt_j", quest["q35c", ]),
-                                      tags$li(id = "txt_j", quest["q35d", ])
-                                    ),
                                     p(tags$b(quest["q36", 1])),
+                                    p(tags$b(quest["q37", 1])),
+                                    p(tags$b(quest["q38", 1])),
+                                    tags$ul(
+                                      tags$li(id = "txt_j", quest["q38a", ]),
+                                      tags$li(id = "txt_j", quest["q38b", ]),
+                                      tags$li(id = "txt_j", quest["q38c", ]),
+                                      tags$li(id = "txt_j", quest["q38d", ])
+                                    ),
+                                    p(tags$b(quest["q39", 1])),
                                     p("Optional exercise: Reflect on your decision. How did accessing high-frequency data (vs. the normal monthly samples) affect your decision-making?")
                              )
                            )
@@ -1004,19 +1040,31 @@ ui <- function(req) {
                        wellPanel(
                          plotlyOutput("fDOM_plot_inc")
                        ),
-                       p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
-                       numericInput( 
-                         "fdom4", 
-                         "fDOM (QSU)", 
-                         value = NULL, 
-                         min = 0.1, 
-                         max = 30,
-                         step = 0.1
-                       ),
-                       actionButton("convert_fDOM4", "Convert fDOM to TOC"),
-                       br(),br(),
-                       wellPanel(
-                         textOutput("toc_out4")
+                       fluidRow(
+                         column(6,
+                                p("You can input an fDOM reading in QSU into the box below, click 'Convert', and see the corresponding TOC level in mg/L."),
+                                numericInput( 
+                                  "fdom4", 
+                                  "fDOM (QSU)", 
+                                  value = NULL, 
+                                  min = 0.1, 
+                                  max = 30,
+                                  step = 0.1
+                                ),
+                                actionButton("convert_fDOM4", "Convert fDOM to TOC"),
+                                br(),br(),
+                                wellPanel(
+                                  textOutput("toc_out4")
+                                )
+                         ),
+                         column(6,
+                                img(src = "EPA_TOC_rule.png", height = "100%",
+                                    width = "100%"),
+                                p("Table reproduced from US EPA 816-F-01-014: Stage 1 Disinfectants and Disinfection Byproducts Rule"),
+                                p(tags$a(href="https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", 
+                                         "https://www.vdh.virginia.gov/content/uploads/sites/14/2024/08/Stage-1-Disinfection-By-products-fact-sheet.pdf", target = "_blank")),
+                                br(),br()
+                         )
                        )
                 )
               ),
